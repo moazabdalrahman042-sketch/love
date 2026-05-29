@@ -468,249 +468,141 @@ section{
   text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* ===== محرك الـ 3D BOOK ENGINE الأصلي والفاخر بالكامل هنا ===== */
-#memories-section {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.book-scene {
-  perspective: 1500px;
-  width: 300px;
-  height: 430px;
-  position: relative;
+/* ===== BOOK VISUALS ===== */
+.book-container {
+  width: 100%;
+  max-width: 340px;
   margin: 20px auto;
+  perspective: 1200px;
 }
 
-/* خلفية الغلاف العنابي الأصلي الفخم المائل حركياً */
-.book-cover {
-  width: 300px;
-  height: 430px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 4px 14px 14px 4px;
-  background: linear-gradient(135deg, #8b2252, #c0446e, #e8789e);
-  box-shadow: -6px 6px 30px rgba(0,0,0,0.4), inset -3px 0 10px rgba(0,0,0,0.2);
-  cursor: pointer;
-  z-index: 20;
+.book-page {
+  background: #ffffff;
+  color: #333333;
+  border-radius: 8px;
+  padding: 20px 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  min-height: 440px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transform-origin: left center;
-  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-  border-left: 8px solid #6b1a40;
-}
-
-.book-cover.open {
-  transform: rotateY(-160deg);
-  z-index: 1;
-}
-
-.cover-svg {
-  width: 170px;
-  height: 150px;
-  margin-bottom: 18px;
-  filter: drop-shadow(0 4px 15px rgba(0,0,0,0.3));
-}
-
-.cover-title-text {
-  font-size: 16px;
-  color: #ffe0ec;
-  text-align: center;
-  padding: 0 20px;
-  line-height: 1.6;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  font-weight: bold;
-}
-
-.cover-hint-text {
-  position: absolute;
-  bottom: 18px;
-  font-size: 11px;
-  color: rgba(255,224,236,0.7);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.book-pages {
-  width: 300px;
-  height: 430px;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.bpage {
-  width: 292px;
-  height: 422px;
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  border-radius: 2px 12px 12px 2px;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
-  transform-origin: left center;
-  transition: transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-  overflow: hidden;
-}
-
-/* ترتيب الصفحات والطبقات */
-.bpage:nth-child(1) { z-index: 12; background: #fffdf5; color: #333; } /* صفحة القصة الرومانسية */
-.bpage:nth-child(2) { z-index: 11; background: #fdf5ff; color: #333; } /* فيديو 1 */
-.bpage:nth-child(3) { z-index: 10; background: #f5f8ff; color: #333; } /* فيديو 2 */
-.bpage:nth-child(4) { z-index: 9; background: #f5fff8; color: #333; }  /* فيديو 3 */
-.bpage:nth-child(5) { z-index: 8; background: #fff8f5; color: #333; }  /* فيديو 4 */
-.bpage:nth-child(6) { z-index: 7; background: #fff5f8; color: #333; }  /* فيديو 5 */
-
-.bpage.turned {
-  transform: rotateY(-160deg);
-  z-index: 1 !important;
-}
-
-.bpage-inner {
-  padding: 15px;
-  height: 100%;
+  justify-content: space-between;
   box-sizing: border-box;
+  position: relative;
+  border-left: 5px solid #ff4d6d;
+  transition: all 0.3s ease;
+}
+
+/* غلاف الكتاب المعدل بالخلفية العنابية وتصميم الـ SVG الرومانسي الأصلي */
+.book-page.cover-active {
+  background: linear-gradient(135deg, #8b2252 0%, #c0446e 50%, #e8789e 100%);
+  color: white;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-left: none;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+}
+
+.cover-design {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 12px;
+  width: 100%;
 }
 
-.bpage-num {
-  font-size: 10px;
-  color: #c4849a;
-  letter-spacing: 2px;
+.cover-svg-layout {
+  width: 160px;
+  height: 140px;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+}
+
+.page-header {
+  font-size: 12px;
   text-transform: uppercase;
-  align-self: flex-end;
+  letter-spacing: 2px;
+  color: #888;
+  text-align: right;
   font-weight: bold;
 }
 
-.bpage-title-text {
+.page-title {
   font-size: 15px;
   color: #ff4d6d;
+  margin: 10px 0;
   font-weight: bold;
-  margin-bottom: 5px;
 }
 
-.bpage-divider {
-  width: 50px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #e8a0b4, transparent);
-  margin: 5px auto 10px;
-}
-
-.bpage-text {
-  font-size: 12.5px;
-  color: #444;
+.story-text-p {
+  font-size: 13.5px;
+  line-height: 1.6;
   text-align: justify;
-  line-height: 1.5;
-  margin-bottom: 8px;
-  width: 100%;
-  overflow-y: auto;
-  max-height: 180px;
-  padding-right: 3px;
+  color: #444;
+  margin: 5px 0;
 }
 
-.bpage-video {
-  width: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  background: #000;
-  margin-top: auto;
-  margin-bottom: 5px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-
-.bpage-video iframe {
-  width: 100%;
-  height: 195px;
-  border: none;
-  display: block;
-}
-
-/* أزرار تقليب الصفحات المدمجة بالداخل */
-.bpage-next {
-  position: absolute;
-  bottom: 14px;
-  right: 14px;
-  background: linear-gradient(135deg, #e8789e, #c0446e);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 34px;
-  height: 34px;
-  font-size: 18px;
-  cursor: pointer;
-  box-shadow: 0 3px 10px rgba(190,24,93,0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 25;
-}
-
-.bpage-prev {
-  position: absolute;
-  bottom: 14px;
-  left: 14px;
-  background: rgba(200,100,140,0.15);
-  color: #c0446e;
-  border: 1px solid rgba(200,100,140,0.3);
-  border-radius: 50%;
-  width: 34px;
-  height: 34px;
-  font-size: 18px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 25;
-}
-
-.book-back-cover {
-  width: 300px;
-  height: 430px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 4px 14px 14px 4px;
-  background: linear-gradient(135deg, #6b1a40, #8b2252);
-  box-shadow: 2px 6px 20px rgba(0,0,0,0.3);
-  z-index: 0;
-}
-
-.book-indicator {
-  margin-top: 16px;
-  color: rgba(255,255,255,0.8);
-  font-size: 13px;
-  letter-spacing: 2px;
-}
-
-.book-close-btn {
-  margin-top: 14px;
-  background: rgba(255,255,255,0.2);
-  border: 1px solid rgba(255,255,255,0.4);
-  color: white;
-  padding: 8px 22px;
-  border-radius: 25px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-/* حجم وتصميم الصورة المدورة داخل الصفحة الأولى للكتاب */
-.book-story-photo {
-  width: 100px;
-  height: 100px;
+/* تصميم الصورة داخل صفحة القصة لتعمل مع الروابط التلقائية */
+.book-internal-photo {
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #ff4d6d;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  margin-bottom: 8px;
+  margin: 0 auto 10px auto;
+  display: block;
+}
+
+.book-video-wrap {
+  width: 100%;
+  height: 260px;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.book-video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.book-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.nav-page-btn {
+  background: #ff4d6d;
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(255, 77, 109, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.nav-page-btn:disabled {
+  background: #ccc;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.page-number-indicator {
+  font-size: 13px;
+  color: #666;
+  font-weight: bold;
 }
 </style>
 </head>
@@ -860,120 +752,27 @@ section{
 </section>
 
 <section id="memories-section">
-  <div class="glass-panel" style="background: rgba(255, 255, 255, 0.15); max-width: 350px; padding: 25px 15px;">
+  <div class="glass-panel">
     <h1 style="font-size: 24px; margin-top:0;" id="text-book-section-title">Our Book 📖</h1>
     <p style="opacity: 0.9; font-size: 14px; margin: 5px 0 15px 0;" id="text-book-section-hint">Every beautiful moment we share is kept here.. ❤️</p>
     
-    <div class="book-scene">
-      <div class="book-back-cover"></div>
-      <div class="book-pages">
-
-        <div class="bpage" id="bpage6">
-          <div class="bpage-inner">
-            <span class="bpage-num">Page 6</span>
-            <div class="bpage-title-text" id="lbl-vid5-t">Our Video Memory 5 ❤️</div>
-            <div class="bpage-divider"></div>
-            <div class="bpage-video"><iframe id="bp5-video" allowfullscreen></iframe></div>
-          </div>
-          <button class="bpage-prev" onclick="bPrev(6)">‹</button>
-        </div>
-
-        <div class="bpage" id="bpage5">
-          <div class="bpage-inner">
-            <span class="bpage-num">Page 5</span>
-            <div class="bpage-title-text" id="lbl-vid4-t">Our Video Memory 4 ❤️</div>
-            <div class="bpage-divider"></div>
-            <div class="bpage-video"><iframe id="bp4-video" allowfullscreen></iframe></div>
-          </div>
-          <button class="bpage-next" onclick="bNext(5)">›</button>
-          <button class="bpage-prev" onclick="bPrev(5)">‹</button>
-        </div>
-
-        <div class="bpage" id="bpage4">
-          <div class="bpage-inner">
-            <span class="bpage-num">Page 4</span>
-            <div class="bpage-title-text" id="lbl-vid3-t">Our Video Memory 3 ❤️</div>
-            <div class="bpage-divider"></div>
-            <div class="bpage-video"><iframe id="bp3-video" allowfullscreen></iframe></div>
-          </div>
-          <button class="bpage-next" onclick="bNext(4)">›</button>
-          <button class="bpage-prev" onclick="bPrev(4)">‹</button>
-        </div>
-
-        <div class="bpage" id="bpage3">
-          <div class="bpage-inner">
-            <span class="bpage-num">Page 3</span>
-            <div class="bpage-title-text" id="lbl-vid2-t">Our Video Memory 2 ❤️</div>
-            <div class="bpage-divider"></div>
-            <div class="bpage-video"><iframe id="bp2-video" allowfullscreen></iframe></div>
-          </div>
-          <button class="bpage-next" onclick="bNext(3)">›</button>
-          <button class="bpage-prev" onclick="bPrev(3)">‹</button>
-        </div>
-
-        <div class="bpage" id="bpage2">
-          <div class="bpage-inner">
-            <span class="bpage-num">Page 2</span>
-            <div class="bpage-title-text" id="lbl-vid1-t">Our Video Memory 1 ❤️</div>
-            <div class="bpage-divider"></div>
-            <div class="bpage-video"><iframe id="bp1-video" allowfullscreen></iframe></div>
-          </div>
-          <button class="bpage-next" onclick="bNext(2)">›</button>
-          <button class="bpage-prev" onclick="bPrev(2)">‹</button>
-        </div>
-
-        <div class="bpage" id="bpage1">
-          <div class="bpage-inner">
-            <span class="bpage-num">Page 1</span>
-            <img id="moaz_page_book" alt="Us" class="book-story-photo" src="us.jpg">
-            <div class="bpage-title-text" id="text-story-title" style="font-size:13px;">A Day to Remember ✨❤️</div>
-            <div class="bpage-divider" style="margin: 3px auto 6px;"></div>
-            <p class="bpage-text" id="text-story-body">
-              On Monday, May 25th, 2026, I went out with the most beautiful girl in the world—my girlfriend—to meet up, see each other, and enjoy our time together. We went Downtown, walked a lot, and grabbed a Pepsi. After that, we sat down for a bit, and I got her a beautiful red rose that looked just as lovely as her. Then, we ordered an Uber and headed to Zamalek. That was the best part because we went to the Zamalek Corniche; the weather was amazing, we took so many videos and pictures, and we talked sweetly to each other. She even teared up out of pure emotion when she told me 'I love you.' I told her 'I love you' back more than ten times, and I was so happy and completely relaxed. In the end, I walked her right to her doorstep because I wanted to make sure she was safe, and then I went home. We had such a wonderful time.
-            </p>
-          </div>
-          <button class="bpage-next" onclick="bNext(1)">›</button>
-        </div>
-
-      </div>
-
-      <div class="book-cover" id="bookCover" onclick="openBook()">
-        <svg class="cover-svg" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="100" cy="120" rx="85" ry="55" fill="#f5c6d0" stroke="#d4849a" stroke-width="1.5"/>
-          <path d="M100 65 Q60 90 30 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
-          <path d="M100 65 Q75 88 55 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
-          <path d="M100 65 Q90 87 80 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
-          <path d="M100 65 Q105 87 105 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
-          <path d="M100 65 Q120 88 128 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
-          <path d="M100 65 Q140 90 155 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
-          <path d="M15 120 Q50 30 100 20 Q150 30 185 120" fill="#fce4ec" stroke="#d4849a" stroke-width="1.5"/>
-          <path d="M30 115 Q55 50 100 38 Q145 50 170 115" fill="none" stroke="#d4849a" stroke-width="0.8" opacity="0.5"/>
-          <ellipse cx="70" cy="55" rx="12" ry="6" fill="white" opacity="0.25" transform="rotate(-20 70 55)"/>
-          <circle cx="100" cy="115" r="22" fill="none" stroke="#d4a017" stroke-width="5"/>
-          <circle cx="100" cy="115" r="22" fill="none" stroke="#f0c040" stroke-width="3" opacity="0.6"/>
-          <polygon points="100,88 107,98 100,105 93,98" fill="#a8d8f0" stroke="#7ab8d8" stroke-width="1"/>
-          <polygon points="100,88 107,98 100,94" fill="white" opacity="0.5"/>
-          <path d="M80 112 Q85 108 90 112" stroke="white" stroke-width="1.5" fill="none" opacity="0.7"/>
-        </svg>
-        <p class="cover-title-text" id="text-cover-motto">"Every page is<br>a memory of us"</p>
-        <p class="cover-hint-text" id="text-cover-hint">Tap the cover to open 🐚✨</p>
-      </div>
+    <div class="book-container">
+      <div class="book-page cover-active" id="interactive-book-element" onclick="handleBookClick()">
+         </div>
     </div>
 
-    <p class="book-indicator" id="book-indicator">Tap the cover to open</p>
-    <button class="book-close-btn" onclick="closeBook()" id="text-close-book-btn">✕ Close Book</button>
-    <a href="#home" class="btn" style="margin-top: 20px;" id="text-back-top">⬆ Back to Top</a>
+    <a href="#home" class="btn" style="margin-top: 25px;" id="text-back-top">⬆ Back to Top</a>
   </div>
 </section>
 
 <script>
 const API = "https://script.google.com/macros/s/AKfycbzaMXR3_ZAnQXKazFywnNkz8XXkyEntzndVi0gnWyl57z4cTBT7t57L_jv1iRfDyNTNRA/exec";
 
-let bCurrentPage = 0;
-let bAnimating = false;
+let bookPagesUrls = ["", "", "", "", ""];
+let currentPageIndex = -1; 
 let currentLang = "en";
+let globalMoazPageSrc = "us.jpg"; // لحفظ رابط الصورة الحقيقي المجلوب من الجوجل شيت
 
-// الترجمات الكاملة للتحويل للغة الإيطالية لجميع العناصر
 const translations = {
   en: {
     loginTitle: "Enter Password ❤️", loginBtn: "Enter", wrongPass: "Wrong Password 💔",
@@ -991,10 +790,9 @@ const translations = {
     wheelTitle: "What to do today? 🎡", wheelHint: "Can't decide what to do? Spin the wheel and let luck choose! 😉",
     wheelBtn: "Spin the Wheel 🎲", wheelSpinning: "Spinning the wheel... 🤔🎲",
     bookTitle: "Our Book 📖", bookHint: "Every beautiful moment we share is kept here.. ❤️", backTop: "⬆ Back to Top",
-    coverHint: "Tap the cover to open 🐚✨", closeBook: "✕ Close Book",
+    coverTitle: "Our Book 📖", coverHint: "Tap the cover to open 🐚✨",
     storyTitle: "A Day to Remember ✨❤️",
-    storyText: "On Monday, May 25th, 2026, I went out with the most beautiful girl in the world—my girlfriend—to meet up, see each other, and enjoy our time together. We went Downtown, walked a lot, and grabbed a Pepsi. After that, we sat down for a bit, and I got her a beautiful red rose that looked just as lovely as her. Then, we ordered an Uber and headed to Zamalek. That was the best part because we went to the Zamalek Corniche; the weather was amazing, we took so many videos and pictures, and we talked sweetly to each other. She even teared up out of pure emotion when she told me 'I love you.' I told her 'I love you' back more than ten times, and I was so happy and completely relaxed. In the end, I walked her right to her doorstep because I wanted to make sure she was safe, and then I went home. We had such a wonderful time.",
-    vidTitle: "Our Video Memory"
+    storyText: "On Monday, May 25th, 2026, I went out with the most beautiful girl in the world—my girlfriend—to meet up, see each other, and enjoy our time together. We went Downtown, walked a lot, and grabbed a Pepsi. After that, we sat down for a bit, and I got her a beautiful red rose that looked just as lovely as her. Then, we ordered an Uber and headed to Zamalek. That was the best part because we went to the Zamalek Corniche; the weather was amazing, we took so many videos and pictures, and we talked sweetly to each other. She even teared up out of pure emotion when she told me 'I love you.' I told her 'I love you' back more than ten times, and I was so happy and completely relaxed. In the end, I walked her right to her doorstep because I wanted to make sure she was safe, and then I went home. We had such a wonderful time."
   },
   it: {
     loginTitle: "Inserisci la password ❤️", loginBtn: "Entra", wrongPass: "Password errata 💔",
@@ -1003,7 +801,7 @@ const translations = {
     counterTitle: "Il nostro tempo insieme ❤️", since: "Dal: 13 / 1 / 2026",
     months: "Mesi", days: "Giorni", hours: "Ore", minutes: "Minuti", seconds: "Secondi",
     mainParagraphs: "Ho fatto questo per te, e spero che sia qualcosa que ti renda felice e ti porti gioia. Voglio solo dirti che ti amo così tanto — sei la persona più bella e straordinaria della mia vita. Prego che Dio ti tenga sempre nella mia vita e che tu rimanga al mio fianco per sempre. Volevo creare qualcosa per ricordare tutti i nostri ricordi insieme, perché come abbiamo detto, saremo davvero diversi da chiunque altro. Non voglio mai che tu ti arrabbi con me, qualunque cosa accada. E infine, voglio solo dirti che ti amo davvero e sono profondamente innamorato di te, luce della mia vita. ❤️Amo tutto di te🥰",
-    letterNote: "Dolcezza mia Alaa.. ❤️<br>Questa è una nota nascosta dentro questa lettera solo per dirti che sei la cosa più bella che sia mai successa in tutta la mia vita.. Che Dio ti tenga al mio fianco per sempre!",
+    letterNote: "Dolcezza mia Alaa.. ❤️<br>Questa è una nota nascosta dentro questa letterai solo per dirti che sei la cosa più bella che sia mai successa in tutta la mia vita.. Che Dio ti tenga al mio fianco per sempre!",
     envelopeHint: "Clicca sulla busta per aprirla 💌", promisesTitle: "Le nostre promesse 🤝❤️",
     promisesHint: "Tocca o passa il mouse sulle schede per vedere le promesse",
     p1f: "Promessa #1 🔒", p1b: "Rimarrò sempre al tuo fianco in ogni singolo passo, e non ti lascerò mai andare ❤️",
@@ -1012,10 +810,9 @@ const translations = {
     wheelTitle: "Cosa fare oggi? 🎡", wheelHint: "Non riesci a decidere cosa fare? Gira la ruota e lascia che scelga la fortuna! 😉",
     wheelBtn: "Gira la ruota 🎲", wheelSpinning: "Girando la ruota... 🤔🎲",
     bookTitle: "Il nostro libro 📖", bookHint: "Ogni bel momento che condividiamo è custodito qui.. ❤️", backTop: "⬆ Torna su",
-    coverHint: "Tocca la copertina per aprire 🐚✨", closeBook: "✕ Chiudi il libro",
+    coverTitle: "Il nostro libro 📖", coverHint: "Tocca la copertina per aprire 🐚✨",
     storyTitle: "Un giorno da ricordare ✨❤️",
-    storyText: "Lunedì 25 maggio 2026 sono uscito con la ragazza più bella del mondo, la mia fidanzata, per incontrarci, vederci e godere del tempo insieme. Siamo andati in Centro, abbiamo camminato molto e preso una Pepsi. Dopodiché ci siamo seduti per un po' e le ho preso una bellissima rosa rossa che era incantevole proprio come lei. Poi abbiamo ordinato un Uber e ci siamo diretti a Zamalek. Questa è stata la parte migliore perché siamo andati al Zamalek Corniche; il tempo era fantastico, abbiamo fatto tantissimi video e foto e ci siamo parlati dolcemente. Le sono persino venute le lacrime agli occhi per la pura emozione quando mi ha detto 'Ti amo'. Le ho risposto 'Ti amo' a mia volta più di dieci volte, ed ero così felice e completamente rilassato. Alla fine l'ho accompagnata proprio davanti alla porta di casa perché volevo assicurarmi che fosse al sicuro, e poi sono tornato a casa. Abbiamo passato un tempo meraviglioso.",
-    vidTitle: "Il nostro video ricordo"
+    storyText: "Lunedì 25 maggio 2026 sono uscito con la ragazza più bella del mondo, la mia fidanzata, per incontrarci, vederci e godere del tempo insieme. Siamo andati in Centro, abbiamo camminato molto e preso una Pepsi. Dopodiché ci siamo seduti per un po' e le ho preso una bellissima rosa rossa che era incantevole proprio come lei. Poi abbiamo ordinato un Uber e ci siamo diretti a Zamalek. Questa è stata la parte migliore perché siamo andati al Zamalek Corniche; il tempo era fantastico, abbiamo fatto tantissimi video e foto e ci siamo parlati dolcemente. Le sono persino venute le lacrime agli occhi per la pura emozione quando mi ha detto 'Ti amo'. Le ho risposto 'Ti amo' a mia volta più di dieci volte, ed ero così felice e completamente rilassato. Alla fine l'ho accompagnata proprio davanti alla porta di casa perché volevo assicurarmi che fosse al sicuro, e poi sono tornato a casa. Abbiamo passato un tempo meraviglioso."
   }
 };
 
@@ -1076,17 +873,9 @@ function applyTranslations() {
   document.getElementById("text-wheel-btn").innerText = lang.wheelBtn;
   document.getElementById("text-book-section-title").innerText = lang.bookTitle;
   document.getElementById("text-book-section-hint").innerText = lang.bookHint;
-  document.getElementById("text-cover-hint").innerText = lang.coverHint;
-  document.getElementById("text-close-book-btn").innerText = lang.closeBook;
   document.getElementById("text-back-top").innerText = lang.backTop;
-
-  // ترام الصفحات الداخلية حركياً
-  document.getElementById("text-story-title").innerText = lang.storyTitle;
-  document.getElementById("text-story-body").innerText = lang.storyText;
-  for(let i=1; i<=5; i++){
-    document.getElementById(`lbl-vid${i}-t`).innerText = `${lang.vidTitle} ${i} ❤️`;
-  }
-  updateBookIndicator();
+  
+  renderBookStructure();
 }
 
 /* ===== PASSWORD & DATA LOADING ===== */
@@ -1120,75 +909,114 @@ async function loadVideos(){
       if(d["main_video"])   { document.getElementById("main-video-frame").src = toEmbedUrl(d["main_video"]); }
       if(d["letter_video"]) { document.getElementById("letter-video-frame").src = toEmbedUrl(d["letter_video"]); }
       
-      if(d["book_page1"])   document.getElementById("bp1-video").src = toEmbedUrl(d["book_page1"]);
-      if(d["book_page2"])   document.getElementById("bp2-video").src = toEmbedUrl(d["book_page2"]);
-      if(d["book_page3"])   document.getElementById("bp3-video").src = toEmbedUrl(d["book_page3"]);
-      if(d["book_page4"])   document.getElementById("bp4-video").src = toEmbedUrl(d["book_page4"]);
-      if(d["book_page5"])   document.getElementById("bp5-video").src = toEmbedUrl(d["book_page5"]);
+      bookPagesUrls[0] = d["book_page1"] ? toEmbedUrl(d["book_page1"]) : "";
+      bookPagesUrls[1] = d["book_page2"] ? toEmbedUrl(d["book_page2"]) : "";
+      bookPagesUrls[2] = d["book_page3"] ? toEmbedUrl(d["book_page3"]) : "";
+      bookPagesUrls[3] = d["book_page4"] ? toEmbedUrl(d["book_page4"]) : "";
+      bookPagesUrls[4] = d["book_page5"] ? toEmbedUrl(d["book_page5"]) : "";
       
-      // جلب وتحديث الصورة الدائرية في الشاشة الرئيسية والصفحة الأولى من الكتاب
+      // جلب وحفظ الصورة الحقيقية وتحديثها في أول الواجهة وفي صفحة القصة
       if(d["moaz_page"]) {
-          document.getElementById("moaz_page").src = d["moaz_page"];
-          document.getElementById("moaz_page_book").src = d["moaz_page"];
+          globalMoazPageSrc = d["moaz_page"];
+          document.getElementById("moaz_page").src = globalMoazPageSrc;
       }
+
+      renderBookStructure();
     }
   } catch(e) {
     console.error("Error loading elements:", e);
   }
 }
 
-/* ===== INTERACTIVE 3D BOOK ENGINE (6 PAGES TOTAL) ===== */
-function openBook(){
-  if(bCurrentPage > 0) return;
-  document.getElementById("bookCover").classList.add("open");
-  bCurrentPage = 1;
-  updateBookIndicator();
+/* ===== BOOK VISUALS ENGINE (YOUR ORIGINAL CODE RE-INTEGRATED WITH NEW COVER) ===== */
+function handleBookClick() {
+  if (currentPageIndex === -1) {
+    currentPageIndex = 0;
+    renderBookStructure();
+  }
 }
 
-function closeBook(){
-  for(let i=1; i<=6; i++) document.getElementById("bpage"+i).classList.remove("turned");
-  document.getElementById("bookCover").classList.remove("open");
-  bCurrentPage = 0;
-  updateBookIndicator();
-}
-
-function bNext(n){
-  if(bAnimating) return;
-  bAnimating = true;
-  document.getElementById("bpage"+n).classList.add("turned");
-  bCurrentPage = n + 1;
-  updateBookIndicator();
-  setTimeout(() => bAnimating = false, 750);
-}
-
-function bPrev(n){
-  if(bAnimating) return;
-  bAnimating = true;
-  document.getElementById("bpage"+(n-1)).classList.remove("turned");
-  bCurrentPage = n - 1;
-  updateBookIndicator();
-  setTimeout(() => bAnimating = false, 750);
-}
-
-function updateBookIndicator(){
-  const el = document.getElementById("book-indicator");
-  if(bCurrentPage === 0){
-    el.innerText = currentLang === "en" ? "Tap the cover to open" : "Tocca la copertina per aprire";
+function renderBookStructure() {
+  const container = document.getElementById("interactive-book-element");
+  const lang = translations[currentLang];
+  
+  // الحالة الأولى: الغلاف العنابي الفاخر برسوم الـ SVG المدمجة المطلوبة
+  if (currentPageIndex === -1) {
+    container.className = "book-page cover-active";
+    container.innerHTML = `
+      <div class="cover-design">
+        <svg class="cover-svg-layout" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="120" rx="85" ry="55" fill="#f5c6d0" stroke="#d4849a" stroke-width="1.5"/>
+          <path d="M100 65 Q60 90 30 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
+          <path d="M100 65 Q75 88 55 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
+          <path d="M100 65 Q90 87 80 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
+          <path d="M100 65 Q105 87 105 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
+          <path d="M100 65 Q120 88 128 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
+          <path d="M100 65 Q140 90 155 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
+          <path d="M15 120 Q50 30 100 20 Q150 30 185 120" fill="#fce4ec" stroke="#d4849a" stroke-width="1.5"/>
+          <path d="M30 115 Q55 50 100 38 Q145 50 170 115" fill="none" stroke="#d4849a" stroke-width="0.8" opacity="0.5"/>
+          <ellipse cx="70" cy="55" rx="12" ry="6" fill="white" opacity="0.25" transform="rotate(-20 70 55)"/>
+          <circle cx="100" cy="115" r="22" fill="none" stroke="#d4a017" stroke-width="5"/>
+          <circle cx="100" cy="115" r="22" fill="none" stroke="#f0c040" stroke-width="3" opacity="0.6"/>
+          <polygon points="100,88 107,98 100,105 93,98" fill="#a8d8f0" stroke="#7ab8d8" stroke-width="1"/>
+          <polygon points="100,88 107,98 100,94" fill="white" opacity="0.5"/>
+          <path d="M80 112 Q85 108 90 112" stroke="white" stroke-width="1.5" fill="none" opacity="0.7"/>
+        </svg>
+        <h2 style="margin: 5px 0 0 0; font-size: 22px; color:#ffe0ec;">${lang.coverTitle}</h2>
+        <p style="font-size: 13px; color:rgba(255,224,236,0.85); margin: 0;">${lang.coverHint}</p>
+      </div>
+    `;
+    return;
+  }
+  
+  // تفعيل الصفحات الداخلية العادية بنفس تصميم كودك الأصلي تماماً
+  container.className = "book-page";
+  
+  let innerHTMLContent = "";
+  const totalInternalPages = 6; 
+  
+  if (currentPageIndex === 0) {
+    // الصفحة الأولى بالداخل: نص قصة يوم الإثنين 25 مايو ومزودة بالصورة الدائرية الكبيرة المحدثة من الشيت
+    innerHTMLContent = `
+      <div class="page-header">MEMORIES</div>
+      <img class="book-internal-photo" src="${globalMoazPageSrc}" alt="Us Photo">
+      <div class="page-title" style="margin-top:0;">${lang.storyTitle}</div>
+      <div style="flex-grow: 1; overflow-y: auto; max-height: 220px; padding-right: 4px;">
+         <p class="story-text-p">${lang.storyText}</p>
+      </div>
+    `;
   } else {
-    el.innerText = currentLang === "en" ? "Page " + bCurrentPage + " of 6" : "Pagina " + bCurrentPage + " di 6";
+    // صفحات الفيديوهات الخمسة القادمة من الشيت
+    const videoUrl = bookPagesUrls[currentPageIndex - 1];
+    innerHTMLContent = `
+      <div class="page-header">PAGE ${currentPageIndex}</div>
+      <div class="page-title">${currentLang === 'en' ? 'Our Video Memory' : 'Il nostro video ricordo'} ❤️</div>
+      <div class="book-video-wrap">
+        <iframe src="${videoUrl}" allowfullscreen></iframe>
+      </div>
+    `;
+  }
+  
+  // أزرار تقليب الصفحات المعتمدة في كودك الأصلي
+  container.innerHTML = `
+    ${innerHTMLContent}
+    <div class="book-controls" onclick="event.stopPropagation()">
+      <button class="nav-page-btn" onclick="changePage(-1)">&lt;</button>
+      <div class="page-number-indicator">Page ${currentPageIndex + 1} of ${totalInternalPages}</div>
+      <button class="nav-page-btn" id="book-next-node" onclick="changePage(1)">&gt;</button>
+    </div>
+  `;
+  
+  if (currentPageIndex === totalInternalPages - 1) {
+    document.getElementById("book-next-node").disabled = true;
   }
 }
 
-// دعم التمرير بالسحب (Swipe) على الهواتف الذكية
-let bTouchX = 0;
-document.querySelector('.book-scene').addEventListener('touchstart', e => { bTouchX = e.touches[0].clientX; });
-document.querySelector('.book-scene').addEventListener('touchend', e => {
-  const diff = bTouchX - e.changedTouches[0].clientX;
-  if(Math.abs(diff) > 40){
-    if(diff > 0 && bCurrentPage < 6 && bCurrentPage > 0) bNext(bCurrentPage);
-    else if(diff < 0 && bCurrentPage > 1) bPrev(bCurrentPage);
-  }
-});
+function changePage(direction) {
+  currentPageIndex += direction;
+  if (currentPageIndex < -1) currentPageIndex = -1; 
+  renderBookStructure();
+}
 
 if(sessionStorage.getItem("token")){
   document.getElementById("login").style.display="none";
