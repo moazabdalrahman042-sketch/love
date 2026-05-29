@@ -618,7 +618,7 @@ section{
 
 <section id="home">
   <div class="glass-panel">
-    <img src="us.jpg" alt="Us" class="us-photo">
+    <img id="moaz_page" alt="Us" class="us-photo">
     <h1 style="font-size: 26px; margin: 10px 0;">❤️ LOVE YOU ALAA ❤️</h1>
     <p style="margin-bottom: 25px; opacity: 0.9;" id="text-home-welcome">Welcome to our story</p>
 
@@ -911,6 +911,11 @@ async function loadVideos(){
       bookPagesUrls[3] = d["book_page4"] ? toEmbedUrl(d["book_page4"]) : "";
       bookPagesUrls[4] = d["book_page5"] ? toEmbedUrl(d["book_page5"]) : "";
       
+      // جلب الصورة الجديدة المدورةmoaz_page من الشيت
+      if(d["moaz_page"]) {
+          document.getElementById("moaz_page").src = d["moaz_page"];
+      }
+
       renderBookStructure();
     }
   } catch(e) {
@@ -1077,3 +1082,4 @@ applyTranslations();
 </script>
 </body>
 </html>
+ده الكود بعد كل التعديلات اهه وانا مش عايز اغير غلاف الكتاب انا عايزك تخليهولي تفاعلي زي الكود اللي بعتتهولي في الاول خالص اللي هو بيتقلب وتعملي فيه التعديلات اللي قولتلك عليها وتخليلي الصفحه الاولانيه في الكتاب تفاعليه اكنها بتتقلب بس مكتوب فيها القصه وبعد كده الخمس صفح التفاعليين اللي بيتقلبو زي ماهما دول الخمس صفح بتوع الفيديوهات</sup>
