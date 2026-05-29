@@ -4,12 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Love You Alaa</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
 <style>
-html{
-  scroll-behavior:smooth;
-}
-
+html{ scroll-behavior:smooth; }
 body{
   margin:0;
   font-family: 'Segoe UI', Arial, sans-serif;
@@ -43,678 +40,210 @@ body{
   color: #ff4d6d;
 }
 
-/* ===== LOGIN SCREEN ===== */
 #login{
-  position:fixed;
-  width:100%;
-  height:100vh;
+  position:fixed; width:100%; height:100vh;
   background:linear-gradient(135deg,#ff4d6d,#ffb3c1);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  z-index:1001;
+  display:flex; justify-content:center; align-items:center; flex-direction:column; z-index:1001;
 }
-
-#login h2 {
-  font-size: 24px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
+#login h2 { font-size: 24px; margin-bottom: 15px; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 #login input{
-  padding:12px 20px;
-  border:none;
-  border-radius:25px;
-  margin:10px;
-  width: 200px;
-  text-align: center;
-  font-size: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  outline: none;
+  padding:12px 20px; border:none; border-radius:25px; margin:10px; width: 200px;
+  text-align: center; font-size: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); outline: none;
 }
-
 #login button{
-  padding:10px 30px;
-  border:none;
-  border-radius:25px;
-  background:white;
-  color:#ff4d6d;
-  font-weight:bold;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-  transition: transform 0.2s;
+  padding:10px 30px; border:none; border-radius:25px; background:white; color:#ff4d6d;
+  font-weight:bold; font-size: 16px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: transform 0.2s;
 }
+#login button:hover { transform: scale(1.05); }
 
-#login button:hover {
-  transform: scale(1.05);
-}
-
-/* ===== SECTIONS ===== */
 section{
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  text-align:center;
-  padding:40px 20px;
-  box-sizing: border-box;
-  position: relative;
+  min-height:100vh; display:flex; justify-content:center; align-items:center;
+  flex-direction:column; text-align:center; padding:40px 20px; box-sizing: border-box; position: relative;
 }
-
 .glass-panel {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 24px;
-  padding: 30px 20px;
-  width: 100%;
-  max-width: 360px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 24px; padding: 30px 20px;
+  width: 100%; max-width: 360px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); box-sizing: border-box;
 }
-
 .btn{
-  background:white;
-  color:#ff4d6d;
-  padding:12px 25px;
-  border-radius:25px;
-  text-decoration:none;
-  margin:8px;
-  font-weight:bold;
-  display: inline-block;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
+  background:white; color:#ff4d6d; padding:12px 25px; border-radius:25px; text-decoration:none;
+  margin:8px; font-weight:bold; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease;
 }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-
-/* ===== HEARTS ===== */
 .heart{
-  position:fixed;
-  color:#fff;
-  text-shadow: 0 0 5px rgba(255,0,0,0.5);
-  font-size:20px;
-  animation: fall 5s linear infinite;
-  top:-10px;
-  z-index: 998;
-  pointer-events: none;
+  position:fixed; color:#fff; text-shadow: 0 0 5px rgba(255,0,0,0.5); font-size:20px;
+  animation: fall 5s linear infinite; top:-10px; z-index: 998; pointer-events: none;
 }
-
 @keyframes fall{
   0%{transform:translateY(-10px) rotate(0deg); opacity:1;}
   100%{transform:translateY(110vh) rotate(360deg); opacity:0;}
 }
 
-/* ===== COUNTER ===== */
-.counter-title {
-  font-size: 24px;
-  color: #fff;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  margin-top: 0;
-  margin-bottom: 5px;
-}
-
-.since-date {
-  font-size: 14px;
-  color: #ffe5ec;
-  margin-bottom: 25px;
-}
-
-.countdown-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
+.counter-title { font-size: 24px; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-top: 0; margin-bottom: 5px; }
+.since-date { font-size: 14px; color: #ffe5ec; margin-bottom: 25px; }
+.countdown-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 100%; margin: 0 auto; }
 .time-card {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 10px;
-  border-radius: 14px;
-  width: 62px;
-  min-height: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3); padding: 10px; border-radius: 14px; width: 62px;
+  min-height: 70px; display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
+.time-card span { font-size: 22px; font-weight: bold; color: #fff; display: block; }
+.time-card p { font-size: 10px; color: #ffe5ec; margin: 4px 0 0 0; text-transform: uppercase; font-weight: bold; opacity: 0.9; }
 
-.time-card span {
-  font-size: 22px;
-  font-weight: bold;
-  color: #fff;
-  display: block;
+.video-wrap {
+  width: 100%; max-width: 320px; margin: 20px auto; border-radius: 15px; overflow: hidden; position: relative; background: #000;
 }
-
-.time-card p {
-  font-size: 10px;
-  color: #ffe5ec;
-  margin: 4px 0 0 0;
-  text-transform: uppercase;
-  font-weight: bold;
-  opacity: 0.9;
-}
-
-/* ===== VIDEOS & MEDIA ===== */
-.video-container {
-  width: 100%;
-  max-width: 320px; 
-  margin: 20px auto;
-  box-sizing: border-box;
-  border-radius: 15px;
-  overflow: hidden;
-  background: #000;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-}
-
-.video-container iframe {
-  width: 100%;       
-  height: 320px;
-  border: none;
-  display: block;
-}
+.video-wrap iframe { width: 100%; height: 320px; border: none; display: block; }
 
 .us-photo {
-  width: 150px;          
-  height: 150px;          
-  border-radius: 50%;   
-  object-fit: cover;
-  border: 4px solid #fff; 
-  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.35); 
-  margin-bottom: 15px;
+  width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
+  border: 4px solid #fff; box-shadow: 0 4px 15px rgba(255, 105, 180, 0.35); margin-bottom: 15px;
 }
 
-/* ===== ENVELOPE STYLES ===== */
-#love-letter-section {
-  padding: 20px 0 0 0;
-  text-align: center;
-  width: 100%;
-}
-
+#love-letter-section { padding: 20px 0 0 0; text-align: center; width: 100%; }
 .envelope-wrapper {
-  position: relative;
-  width: 280px;
-  height: 180px;
-  background-color: #f48fb1; 
-  margin: 30px auto;
-  cursor: pointer;
-  transition: 0.5s;
-  border-radius: 0 0 10px 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  position: relative; width: 280px; height: 180px; background-color: #f48fb1;
+  margin: 30px auto; cursor: pointer; transition: 0.5s; border-radius: 0 0 10px 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
-
 .envelope-wrapper .body-env {
-  position: absolute;
-  bottom: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 140px 100px 140px;
-  border-color: transparent transparent #f06292 transparent;
-  z-index: 2;
+  position: absolute; bottom: 0; width: 0; height: 0; border-style: solid;
+  border-width: 0 140px 100px 140px; border-color: transparent transparent #f06292 transparent; z-index: 2;
 }
-
 .envelope-wrapper .flap {
-  position: absolute;
-  top: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 90px 140px 0 140px;
-  border-color: #f06292 transparent transparent transparent;
-  z-index: 3;
-  transform-origin: top;
-  transition: transform 0.4s ease, z-index 0.2s 0.2s;
+  position: absolute; top: 0; width: 0; height: 0; border-style: solid;
+  border-width: 90px 140px 0 140px; border-color: #f06292 transparent transparent transparent;
+  z-index: 3; transform-origin: top; transition: transform 0.4s ease, z-index 0.2s 0.2s;
 }
-
 .letter {
-  position: absolute;
-  bottom: 10px;
-  left: 15px;
-  width: 250px;
-  height: 150px;
-  background-color: #fff;
-  z-index: 1;
-  transition: all 0.6s ease-in-out;
-  padding: 12px;
-  overflow: hidden;
-  border-radius: 8px;
-  box-sizing: border-box;
+  position: absolute; bottom: 10px; left: 15px; width: 250px; height: 150px; background-color: #fff;
+  z-index: 1; transition: all 0.6s ease-in-out; padding: 12px; overflow: hidden; border-radius: 8px; box-sizing: border-box;
 }
+.letter-content { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; height: 100%; }
+.letter-text { font-size: 11px; color: #333; line-height: 1.3; margin: 0 0 8px 0; direction: ltr; }
+.letter-video-wrap { width: 180px; margin: 0 auto; border-radius: 8px; overflow: hidden; }
+.letter-video-wrap iframe { width: 100%; height: 135px; border: none; display: block; }
+.envelope-wrapper.open .flap { transform: rotateX(180deg); z-index: 0; }
+.envelope-wrapper.open .letter { bottom: 80px; height: 280px; z-index: 4; box-shadow: 0 10px 25px rgba(0,0,0,0.25); }
+.click-hint { color: #fff; font-size: 13px; margin-top: 5px; font-weight: bold; opacity: 0.9; }
 
-.letter-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  height: 100%;
-}
-
-.letter-text {
-  font-size: 11px;
-  color: #333;
-  line-height: 1.3;
-  margin: 0 0 8px 0;
-  direction: ltr; 
-}
-
-.letter-video-wrap {
-  width: 100%;
-  max-width: 180px;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-}
-
-.letter-video-wrap iframe {
-  width: 100%;
-  height: 135px;
-  border: none;
-  display: block;
-}
-
-.envelope-wrapper.open .flap {
-  transform: rotateX(180deg);
-  z-index: 0;
-}
-
-.envelope-wrapper.open .letter {
-  bottom: 80px; 
-  height: 280px; 
-  z-index: 4;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-}
-
-.click-hint {
-  color: #fff;
-  font-size: 13px;
-  margin-top: 5px;
-  font-weight: bold;
-  opacity: 0.9;
-}
-
-/* ===== FLIP CARDS (OUR PROMISES) ===== */
-.promises-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-  margin-top: 15px;
-}
-
-.flip-card {
-  background-color: transparent;
-  width: 100%;
-  height: 80px;
-  perspective: 1000px;
-  cursor: pointer;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-.flip-card.flipped .flip-card-inner, .flip-card:hover .flip-card-inner {
-  transform: rotateX(180deg);
-}
-
+.promises-container { display: flex; flex-direction: column; gap: 15px; width: 100%; margin-top: 15px; }
+.flip-card { background-color: transparent; width: 100%; height: 80px; perspective: 1000px; cursor: pointer; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
+.flip-card.flipped .flip-card-inner, .flip-card:hover .flip-card-inner { transform: rotateX(180deg); }
 .flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 15px;
-  padding: 10px;
-  box-sizing: border-box;
-  font-weight: bold;
+  position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; display: flex; align-items: center; justify-content: center;
+  border-radius: 15px; padding: 10px; box-sizing: border-box; font-weight: bold;
 }
+.flip-card-front { background: rgba(255, 255, 255, 0.25); border: 1px solid rgba(255, 255, 255, 0.4); color: #fff; font-size: 16px; }
+.flip-card-back { background: white; color: #ff4d6d; transform: rotateX(180deg); font-size: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
-.flip-card-front {
-  background: rgba(255, 255, 255, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  color: #fff;
-  font-size: 16px;
-}
-
-.flip-card-back {
-  background: white;
-  color: #ff4d6d;
-  transform: rotateX(180deg);
-  font-size: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* ===== SPINNING WHEEL ===== */
-.wheel-wrapper {
-  position: relative;
-  width: 240px;
-  height: 240px;
-  margin: 20px auto;
-}
-
+.wheel-wrapper { position: relative; width: 240px; height: 240px; margin: 20px auto; }
 .wheel {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  border: 5px solid white;
-  position: relative;
-  overflow: hidden;
-  transition: transform 4s cubic-bezier(0.1, 0.8, 0.1, 1);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-  background: conic-gradient(
-    #ff4d6d 0deg 60deg,
-    #ff758f 60deg 120deg,
-    #ff8fa3 120deg 180deg,
-    #ffb3c1 180deg 240deg,
-    #ffccd5 240deg 300deg,
-    #fff0f3 300deg 360deg
-  );
+  width: 100%; height: 100%; border-radius: 50%; border: 5px solid white; position: relative;
+  overflow: hidden; transition: transform 4s cubic-bezier(0.1, 0.8, 0.1, 1); box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  background: conic-gradient(#ff4d6d 0deg 60deg, #ff758f 60deg 120deg, #ff8fa3 120deg 180deg, #ffb3c1 180deg 240deg, #ffccd5 240deg 300deg, #fff0f3 300deg 360deg);
 }
-
 .wheel-arrow {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-top: 20px solid white;
-  z-index: 10;
+  position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 0; height: 0;
+  border-left: 15px solid transparent; border-right: 15px solid transparent; border-top: 20px solid white; z-index: 10;
 }
-
 .wheel-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  background: white;
-  border-radius: 50%;
-  z-index: 5;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 40px; height: 40px; background: white; border-radius: 50%; z-index: 5; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
+#wheel-result { margin-top: 15px; font-size: 16px; font-weight: bold; min-height: 24px; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
 
-#wheel-result {
-  margin-top: 15px;
-  font-size: 16px;
-  font-weight: bold;
-  min-height: 24px;
-  color: #fff;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+/* ===== 3D BOOK ENGINE ORIGINAL STYLES ===== */
+#book-section {
+  min-height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 40px 20px;
 }
+.book-scene { perspective: 1500px; width: 300px; height: 430px; position: relative; }
 
-/* ===== محرك الـ 3D BOOK ENGINE الأصلي والفاخر بالكامل هنا ===== */
-#memories-section {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.book-scene {
-  perspective: 1500px;
-  width: 300px;
-  height: 430px;
-  position: relative;
-  margin: 20px auto;
-}
-
-/* خلفية الغلاف العنابي الأصلي الفخم المائل حركياً */
+/* الخلفية العنابية الفخمة للغلاف الأصلي */
 .book-cover {
-  width: 300px;
-  height: 430px;
-  position: absolute;
-  top: 0;
-  left: 0;
+  width: 300px; height: 430px; position: absolute; top: 0; left: 0;
   border-radius: 4px 14px 14px 4px;
   background: linear-gradient(135deg, #8b2252, #c0446e, #e8789e);
   box-shadow: -6px 6px 30px rgba(0,0,0,0.4), inset -3px 0 10px rgba(0,0,0,0.2);
-  cursor: pointer;
-  z-index: 20;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  cursor: pointer; z-index: 20;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
   transform-origin: left center;
   transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000);
   border-left: 8px solid #6b1a40;
 }
-
-.book-cover.open {
-  transform: rotateY(-160deg);
-  z-index: 1;
+.book-cover.open { transform: rotateY(-160deg); z-index: 1; }
+.cover-svg { width: 170px; height: 150px; margin-bottom: 18px; filter: drop-shadow(0 4px 15px rgba(0,0,0,0.3)); }
+.cover-title {
+  font-family: 'Playfair Display', serif; font-style: italic; font-size: 15px;
+  color: #ffe0ec; text-align: center; padding: 0 20px; line-height: 1.7; text-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
+.cover-hint { position: absolute; bottom: 18px; font-size: 11px; color: rgba(255,224,236,0.7); letter-spacing: 2px; text-transform: uppercase; }
 
-.cover-svg {
-  width: 170px;
-  height: 150px;
-  margin-bottom: 18px;
-  filter: drop-shadow(0 4px 15px rgba(0,0,0,0.3));
-}
-
-.cover-title-text {
-  font-size: 16px;
-  color: #ffe0ec;
-  text-align: center;
-  padding: 0 20px;
-  line-height: 1.6;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  font-weight: bold;
-}
-
-.cover-hint-text {
-  position: absolute;
-  bottom: 18px;
-  font-size: 11px;
-  color: rgba(255,224,236,0.7);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.book-pages {
-  width: 300px;
-  height: 430px;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
+.book-pages { width: 300px; height: 430px; position: absolute; top: 0; left: 0; }
 .bpage {
-  width: 292px;
-  height: 422px;
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  border-radius: 2px 12px 12px 2px;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
-  transform-origin: left center;
-  transition: transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  width: 292px; height: 422px; position: absolute; top: 4px; left: 4px;
+  border-radius: 2px 12px 12px 2px; box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
+  transform-origin: left center; transition: transform 0.7s cubic-bezier(0.645, 0.045, 0.355, 1.000);
   overflow: hidden;
 }
 
-/* ترتيب الصفحات والطبقات */
-.bpage:nth-child(1) { z-index: 12; background: #fffdf5; color: #333; } /* صفحة القصة الرومانسية */
-.bpage:nth-child(2) { z-index: 11; background: #fdf5ff; color: #333; } /* فيديو 1 */
-.bpage:nth-child(3) { z-index: 10; background: #f5f8ff; color: #333; } /* فيديو 2 */
-.bpage:nth-child(4) { z-index: 9; background: #f5fff8; color: #333; }  /* فيديو 3 */
-.bpage:nth-child(5) { z-index: 8; background: #fff8f5; color: #333; }  /* فيديو 4 */
-.bpage:nth-child(6) { z-index: 7; background: #fff5f8; color: #333; }  /* فيديو 5 */
+/* ترتيب الطبقات الحركية لـ 6 صفحات بالتوالي */
+.bpage:nth-child(1) { z-index: 12; background: #fffdf5; } /* صفحة القصة الرومانسية */
+.bpage:nth-child(2) { z-index: 11; background: #fdf5ff; } /* فيديو 1 */
+.bpage:nth-child(3) { z-index: 10; background: #f5f8ff; } /* فيديو 2 */
+.bpage:nth-child(4) { z-index: 9; background: #f5fff8; }  /* فيديو 3 */
+.bpage:nth-child(5) { z-index: 8; background: #fff8f5; }  /* فيديو 4 */
+.bpage:nth-child(6) { z-index: 7; background: #fff5f8; }  /* فيديو 5 */
 
-.bpage.turned {
-  transform: rotateY(-160deg);
-  z-index: 1 !important;
-}
-
+.bpage.turned { transform: rotateY(-160deg); z-index: 1 !important; }
 .bpage-inner {
-  padding: 15px;
-  height: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 15px 15px 60px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; align-items: center;
 }
-
-.bpage-num {
-  font-size: 10px;
-  color: #c4849a;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  align-self: flex-end;
-  font-weight: bold;
-}
-
-.bpage-title-text {
-  font-size: 15px;
-  color: #ff4d6d;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.bpage-divider {
-  width: 50px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #e8a0b4, transparent);
-  margin: 5px auto 10px;
-}
-
+.bpage-num { font-size: 10px; color: #c4849a; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 5px; align-self: flex-end; }
+.bpage-title-text { font-family: 'Playfair Display', serif; font-size: 15px; color: #ff4d6d; font-weight: bold; margin-bottom: 5px; }
 .bpage-text {
-  font-size: 12.5px;
-  color: #444;
-  text-align: justify;
-  line-height: 1.5;
-  margin-bottom: 8px;
-  width: 100%;
-  overflow-y: auto;
-  max-height: 180px;
-  padding-right: 3px;
+  font-family: 'Playfair Display', serif; font-style: italic; font-size: 12px;
+  color: #5a2d3e; text-align: justify; line-height: 1.5; margin-bottom: 8px; width: 100%;
+  overflow-y: auto; max-height: 170px; padding-right: 3px;
 }
+.bpage-divider { width: 50px; height: 1px; background: linear-gradient(90deg, transparent, #e8a0b4, transparent); margin: 5px auto 10px; }
 
 .bpage-video {
-  width: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  background: #000;
-  margin-top: auto;
-  margin-bottom: 5px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  width: 100%; border-radius: 10px; overflow: hidden; position: relative; background: #000; margin-top: auto; margin-bottom: 5px;
 }
+.bpage-video iframe { width: 100%; height: 195px; border: none; display: block; border-radius: 10px; }
 
-.bpage-video iframe {
-  width: 100%;
-  height: 195px;
-  border: none;
-  display: block;
-}
-
-/* أزرار تقليب الصفحات المدمجة بالداخل */
 .bpage-next {
-  position: absolute;
-  bottom: 14px;
-  right: 14px;
-  background: linear-gradient(135deg, #e8789e, #c0446e);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 34px;
-  height: 34px;
-  font-size: 18px;
-  cursor: pointer;
-  box-shadow: 0 3px 10px rgba(190,24,93,0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 25;
+  position: absolute; bottom: 14px; right: 14px; background: linear-gradient(135deg, #e8789e, #c0446e);
+  color: white; border: none; border-radius: 50%; width: 34px; height: 34px; font-size: 18px;
+  cursor: pointer; box-shadow: 0 3px 10px rgba(190,24,93,0.3); display: flex; align-items: center; justify-content: center; z-index: 25;
 }
-
 .bpage-prev {
-  position: absolute;
-  bottom: 14px;
-  left: 14px;
-  background: rgba(200,100,140,0.15);
-  color: #c0446e;
-  border: 1px solid rgba(200,100,140,0.3);
-  border-radius: 50%;
-  width: 34px;
-  height: 34px;
-  font-size: 18px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 25;
+  position: absolute; bottom: 14px; left: 14px; background: rgba(200,100,140,0.15); color: #c0446e;
+  border: 1px solid rgba(200,100,140,0.3); border-radius: 50%; width: 34px; height: 34px; font-size: 18px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 25;
 }
 
 .book-back-cover {
-  width: 300px;
-  height: 430px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 4px 14px 14px 4px;
-  background: linear-gradient(135deg, #6b1a40, #8b2252);
-  box-shadow: 2px 6px 20px rgba(0,0,0,0.3);
-  z-index: 0;
+  width: 300px; height: 430px; position: absolute; top: 0; left: 0;
+  border-radius: 4px 14px 14px 4px; background: linear-gradient(135deg, #6b1a40, #8b2252);
+  box-shadow: 2px 6px 20px rgba(0,0,0,0.3); z-index: 0;
 }
-
-.book-indicator {
-  margin-top: 16px;
-  color: rgba(255,255,255,0.8);
-  font-size: 13px;
-  letter-spacing: 2px;
-}
-
+.book-indicator { margin-top: 16px; color: rgba(255,255,255,0.8); font-size: 13px; letter-spacing: 2px; }
 .book-close-btn {
-  margin-top: 14px;
-  background: rgba(255,255,255,0.2);
-  border: 1px solid rgba(255,255,255,0.4);
-  color: white;
-  padding: 8px 22px;
-  border-radius: 25px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.3s;
+  margin-top: 14px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4);
+  color: white; padding: 8px 22px; border-radius: 25px; font-size: 13px; cursor: pointer; transition: all 0.3s;
 }
 
-/* حجم وتصميم الصورة المدورة داخل الصفحة الأولى للكتاب */
+/* حجم الصورة الدائرية الكبيرة المخصصة لصفحة القصة moaz_page داخل الـ 3D Book */
 .book-story-photo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #ff4d6d;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  margin-bottom: 8px;
+  width: 110px; height: 110px; border-radius: 50%; object-fit: cover;
+  border: 3px solid #ff4d6d; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-bottom: 8px;
 }
 </style>
 </head>
-
 <body>
 
 <div class="lang-switcher">
@@ -728,21 +257,18 @@ section{
   <p id="error" style="color:white; font-weight: bold; margin-top: 15px;"></p>
 </div>
 
-<audio id="music" loop>
-  <source src="song.mp3" type="audio/mpeg">
-</audio>
+<audio id="music" loop><source src="song.mp3" type="audio/mpeg"></audio>
 
 <section id="home">
   <div class="glass-panel">
     <img id="moaz_page" alt="Us" class="us-photo" src="us.jpg">
     <h1 style="font-size: 26px; margin: 10px 0;">❤️ LOVE YOU ALAA ❤️</h1>
     <p style="margin-bottom: 25px; opacity: 0.9;" id="text-home-welcome">Welcome to our story</p>
-
     <a class="btn" href="#counter" id="nav-btn-1">Time Counter ⏳</a>
     <a class="btn" href="#message" id="nav-btn-2">Love Message 💌</a>
     <a class="btn" href="#promises" id="nav-btn-3">Our Promises 🤝</a>
     <a class="btn" href="#date-wheel" id="nav-btn-4">What to do? 🎡</a>
-    <a class="btn" href="#memories-section" id="nav-btn-5">Our Book 📖</a>
+    <a class="btn" href="#book-section" id="nav-btn-5">Our Book 📖</a>
   </div>
 </section>
 
@@ -750,28 +276,12 @@ section{
   <div class="glass-panel">
     <h2 class="counter-title" id="text-counter-title">Our Time Together ❤️</h2>
     <p class="since-date" id="text-counter-since">Since: 13 / 1 / 2026</p>
-    
     <div class="countdown-container">
-        <div class="time-card">
-            <span id="months">0</span>
-            <p id="lbl-months">Months</p>
-        </div>
-        <div class="time-card">
-            <span id="days">0</span>
-            <p id="lbl-days">Days</p>
-        </div>
-        <div class="time-card">
-            <span id="hours">0</span>
-            <p id="lbl-hours">Hours</p>
-        </div>
-        <div class="time-card">
-            <span id="minutes">0</span>
-            <p id="lbl-minutes">Minutes</p>
-        </div>
-        <div class="time-card">
-            <span id="seconds">0</span>
-            <p id="lbl-seconds">Seconds</p>
-        </div>
+      <div class="time-card"><span id="months">0</span><p id="lbl-months">Months</p></div>
+      <div class="time-card"><span id="days">0</span><p id="lbl-days">Days</p></div>
+      <div class="time-card"><span id="hours">0</span><p id="lbl-hours">Hours</p></div>
+      <div class="time-card"><span id="minutes">0</span><p id="lbl-minutes">Minutes</p></div>
+      <div class="time-card"><span id="seconds">0</span><p id="lbl-seconds">Seconds</p></div>
     </div>
   </div>
 </section>
@@ -779,38 +289,33 @@ section{
 <section id="message">
   <div class="glass-panel">
     <h1 style="font-size: 22px; margin-top: 0;">❤️ I LOVE YOU ALAA ❤️</h1>
-    <p style="font-size: 14px; line-height: 1.5; text-align: justify; text-justify: inter-word;" id="text-main-paragraphs">
-      I made this for you, and I hope it’s something that makes you happy and brings you joy.
+    <p style="font-size: 14px; line-height: 1.5; text-align: justify;" id="text-main-paragraphs">
+      I made this for you, and I hope it's something that makes you happy and brings you joy.
       I just want to tell you that I love you so much — you are the most beautiful and amazing person in my life.
       I pray that God always keeps you in my life and that you stay by my side forever.
       I wanted to create something for us to remember all our memories together, because like we said, we are truly going to be different from anyone else.
       I never want you to be upset with me, no matter what happens.
-      And finally, I just want to say that I truly love you and I’m deeply in love with you, my light of life. ❤️I love all of you🥰
+      And finally, I just want to say that I truly love you and I'm deeply in love with you, my light of life. ❤️ I love all of you 🥰
     </p>
-
-    <div class="video-container">
-        <iframe id="main-video-frame" allowfullscreen></iframe>
+    <div class="video-wrap">
+      <iframe id="main-video-frame" allowfullscreen></iframe>
     </div>
-
     <div id="love-letter-section">
-        <div class="envelope-wrapper" onclick="toggleLetter()">
-            <div class="envelope">
-                <div class="flap"></div>
-                <div class="body-env"></div>
-                <div class="letter">
-                    <div class="letter-content">
-                        <p class="letter-text" id="text-letter-note">
-                            My sweetheart Alaa.. ❤️<br>
-                            This is a hidden note inside this letter just to tell you that you are the most beautiful thing that has ever happened in my entire life.. May God keep you by my side forever!
-                        </p>
-                        <div class="letter-video-wrap">
-                            <iframe id="letter-video-frame" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
+      <div class="envelope-wrapper" onclick="toggleLetter()">
+        <div class="envelope">
+          <div class="flap"></div>
+          <div class="body-env"></div>
+          <div class="letter">
+            <div class="letter-content">
+              <p class="letter-text" id="text-letter-note">My sweetheart Alaa.. ❤️<br>This is a hidden note inside this letter just to tell you that you are the most beautiful thing that has ever happened in my entire life.. May God keep you by my side forever!</p>
+              <div class="letter-video-wrap">
+                <iframe id="letter-video-frame" allowfullscreen></iframe>
+              </div>
             </div>
+          </div>
         </div>
-        <p class="click-hint" id="text-envelope-hint">Click on the envelope to open it 💌</p>
+      </div>
+      <p class="click-hint" id="text-envelope-hint">Click on the envelope to open it 💌</p>
     </div>
   </div>
 </section>
@@ -819,7 +324,6 @@ section{
   <div class="glass-panel">
     <h1 style="font-size: 24px; margin-top: 0;" id="text-promises-title">Our Promises 🤝❤️</h1>
     <p style="font-size: 13px; opacity: 0.9; margin-bottom: 20px;" id="text-promises-hint">Tap or hover over the cards to see our promises</p>
-    
     <div class="promises-container">
       <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
@@ -847,133 +351,126 @@ section{
   <div class="glass-panel">
     <h1 style="font-size: 24px; margin-top: 0;" id="text-wheel-title">What to do today? 🎡</h1>
     <p style="font-size: 13px; opacity: 0.9; margin-bottom: 15px;" id="text-wheel-hint">Can't decide what to do? Spin the wheel and let luck choose! 😉</p>
-    
     <div class="wheel-wrapper">
       <div class="wheel-arrow"></div>
       <div class="wheel-center"></div>
       <div class="wheel" id="wheel"></div>
     </div>
-    
     <button class="btn" onclick="spinWheel()" style="margin-top: 10px;" id="text-wheel-btn">Spin the Wheel 🎲</button>
     <div id="wheel-result"></div>
   </div>
 </section>
 
-<section id="memories-section">
-  <div class="glass-panel" style="background: rgba(255, 255, 255, 0.15); max-width: 350px; padding: 25px 15px;">
-    <h1 style="font-size: 24px; margin-top:0;" id="text-book-section-title">Our Book 📖</h1>
-    <p style="opacity: 0.9; font-size: 14px; margin: 5px 0 15px 0;" id="text-book-section-hint">Every beautiful moment we share is kept here.. ❤️</p>
-    
-    <div class="book-scene">
-      <div class="book-back-cover"></div>
-      <div class="book-pages">
+<section id="book-section">
+  <h2 style="font-family:'Playfair Display',serif; font-style:italic; font-size:28px; margin-bottom:8px;" id="text-book-section-title">Our Book 📖</h2>
+  <p style="opacity:0.8; font-size:13px; margin-bottom:25px; letter-spacing:1px;" id="text-book-section-hint">tap the cover to open ♡</p>
 
-        <div class="bpage" id="bpage6">
-          <div class="bpage-inner">
-            <span class="bpage-num">Page 6</span>
-            <div class="bpage-title-text" id="lbl-vid5-t">Our Video Memory 5 ❤️</div>
-            <div class="bpage-divider"></div>
-            <div class="bpage-video"><iframe id="bp5-video" allowfullscreen></iframe></div>
-          </div>
-          <button class="bpage-prev" onclick="bPrev(6)">‹</button>
+  <div class="book-scene">
+    <div class="book-back-cover"></div>
+    <div class="book-pages">
+
+      <div class="bpage" id="bpage6">
+        <div class="bpage-inner">
+          <span class="bpage-num">Page 6</span>
+          <div class="bpage-title-text" id="lbl-vid5-t">Our Video Memory 5 ❤️</div>
+          <div class="bpage-divider"></div>
+          <div class="bpage-video"><iframe id="bp5-video" allowfullscreen></iframe></div>
         </div>
-
-        <div class="bpage" id="bpage5">
-          <div class="bpage-inner">
-            <span class="bpage-num">Page 5</span>
-            <div class="bpage-title-text" id="lbl-vid4-t">Our Video Memory 4 ❤️</div>
-            <div class="bpage-divider"></div>
-            <div class="bpage-video"><iframe id="bp4-video" allowfullscreen></iframe></div>
-          </div>
-          <button class="bpage-next" onclick="bNext(5)">›</button>
-          <button class="bpage-prev" onclick="bPrev(5)">‹</button>
-        </div>
-
-        <div class="bpage" id="bpage4">
-          <div class="bpage-inner">
-            <span class="bpage-num">Page 4</span>
-            <div class="bpage-title-text" id="lbl-vid3-t">Our Video Memory 3 ❤️</div>
-            <div class="bpage-divider"></div>
-            <div class="bpage-video"><iframe id="bp3-video" allowfullscreen></iframe></div>
-          </div>
-          <button class="bpage-next" onclick="bNext(4)">›</button>
-          <button class="bpage-prev" onclick="bPrev(4)">‹</button>
-        </div>
-
-        <div class="bpage" id="bpage3">
-          <div class="bpage-inner">
-            <span class="bpage-num">Page 3</span>
-            <div class="bpage-title-text" id="lbl-vid2-t">Our Video Memory 2 ❤️</div>
-            <div class="bpage-divider"></div>
-            <div class="bpage-video"><iframe id="bp2-video" allowfullscreen></iframe></div>
-          </div>
-          <button class="bpage-next" onclick="bNext(3)">›</button>
-          <button class="bpage-prev" onclick="bPrev(3)">‹</button>
-        </div>
-
-        <div class="bpage" id="bpage2">
-          <div class="bpage-inner">
-            <span class="bpage-num">Page 2</span>
-            <div class="bpage-title-text" id="lbl-vid1-t">Our Video Memory 1 ❤️</div>
-            <div class="bpage-divider"></div>
-            <div class="bpage-video"><iframe id="bp1-video" allowfullscreen></iframe></div>
-          </div>
-          <button class="bpage-next" onclick="bNext(2)">›</button>
-          <button class="bpage-prev" onclick="bPrev(2)">‹</button>
-        </div>
-
-        <div class="bpage" id="bpage1">
-          <div class="bpage-inner">
-            <span class="bpage-num">Page 1</span>
-            <img id="moaz_page_book" alt="Us" class="book-story-photo" src="us.jpg">
-            <div class="bpage-title-text" id="text-story-title" style="font-size:13px;">A Day to Remember ✨❤️</div>
-            <div class="bpage-divider" style="margin: 3px auto 6px;"></div>
-            <p class="bpage-text" id="text-story-body">
-              On Monday, May 25th, 2026, I went out with the most beautiful girl in the world—my girlfriend—to meet up, see each other, and enjoy our time together. We went Downtown, walked a lot, and grabbed a Pepsi. After that, we sat down for a bit, and I got her a beautiful red rose that looked just as lovely as her. Then, we ordered an Uber and headed to Zamalek. That was the best part because we went to the Zamalek Corniche; the weather was amazing, we took so many videos and pictures, and we talked sweetly to each other. She even teared up out of pure emotion when she told me 'I love you.' I told her 'I love you' back more than ten times, and I was so happy and completely relaxed. In the end, I walked her right to her doorstep because I wanted to make sure she was safe, and then I went home. We had such a wonderful time.
-            </p>
-          </div>
-          <button class="bpage-next" onclick="bNext(1)">›</button>
-        </div>
-
+        <button class="bpage-prev" onclick="bPrev(6)">‹</button>
       </div>
 
-      <div class="book-cover" id="bookCover" onclick="openBook()">
-        <svg class="cover-svg" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="100" cy="120" rx="85" ry="55" fill="#f5c6d0" stroke="#d4849a" stroke-width="1.5"/>
-          <path d="M100 65 Q60 90 30 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
-          <path d="M100 65 Q75 88 55 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
-          <path d="M100 65 Q90 87 80 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
-          <path d="M100 65 Q105 87 105 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
-          <path d="M100 65 Q120 88 128 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
-          <path d="M100 65 Q140 90 155 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
-          <path d="M15 120 Q50 30 100 20 Q150 30 185 120" fill="#fce4ec" stroke="#d4849a" stroke-width="1.5"/>
-          <path d="M30 115 Q55 50 100 38 Q145 50 170 115" fill="none" stroke="#d4849a" stroke-width="0.8" opacity="0.5"/>
-          <ellipse cx="70" cy="55" rx="12" ry="6" fill="white" opacity="0.25" transform="rotate(-20 70 55)"/>
-          <circle cx="100" cy="115" r="22" fill="none" stroke="#d4a017" stroke-width="5"/>
-          <circle cx="100" cy="115" r="22" fill="none" stroke="#f0c040" stroke-width="3" opacity="0.6"/>
-          <polygon points="100,88 107,98 100,105 93,98" fill="#a8d8f0" stroke="#7ab8d8" stroke-width="1"/>
-          <polygon points="100,88 107,98 100,94" fill="white" opacity="0.5"/>
-          <path d="M80 112 Q85 108 90 112" stroke="white" stroke-width="1.5" fill="none" opacity="0.7"/>
-        </svg>
-        <p class="cover-title-text" id="text-cover-motto">"Every page is<br>a memory of us"</p>
-        <p class="cover-hint-text" id="text-cover-hint">Tap the cover to open 🐚✨</p>
+      <div class="bpage" id="bpage5">
+        <div class="bpage-inner">
+          <span class="bpage-num">Page 5</span>
+          <div class="bpage-title-text" id="lbl-vid4-t">Our Video Memory 4 ❤️</div>
+          <div class="bpage-divider"></div>
+          <div class="bpage-video"><iframe id="bp4-video" allowfullscreen></iframe></div>
+        </div>
+        <button class="bpage-next" onclick="bNext(5)">›</button>
+        <button class="bpage-prev" onclick="bPrev(5)">‹</button>
       </div>
+
+      <div class="bpage" id="bpage4">
+        <div class="bpage-inner">
+          <span class="bpage-num">Page 4</span>
+          <div class="bpage-title-text" id="lbl-vid3-t">Our Video Memory 3 ❤️</div>
+          <div class="bpage-divider"></div>
+          <div class="bpage-video"><iframe id="bp3-video" allowfullscreen></iframe></div>
+        </div>
+        <button class="bpage-next" onclick="bNext(4)">›</button>
+        <button class="bpage-prev" onclick="bPrev(4)">‹</button>
+      </div>
+
+      <div class="bpage" id="bpage3">
+        <div class="bpage-inner">
+          <span class="bpage-num">Page 3</span>
+          <div class="bpage-title-text" id="lbl-vid2-t">Our Video Memory 2 ❤️</div>
+          <div class="bpage-divider"></div>
+          <div class="bpage-video"><iframe id="bp2-video" allowfullscreen></iframe></div>
+        </div>
+        <button class="bpage-next" onclick="bNext(3)">›</button>
+        <button class="bpage-prev" onclick="bPrev(3)">‹</button>
+      </div>
+
+      <div class="bpage" id="bpage2">
+        <div class="bpage-inner">
+          <span class="bpage-num">Page 2</span>
+          <div class="bpage-title-text" id="lbl-vid1-t">Our Video Memory 1 ❤️</div>
+          <div class="bpage-divider"></div>
+          <div class="bpage-video"><iframe id="bp1-video" allowfullscreen></iframe></div>
+        </div>
+        <button class="bpage-next" onclick="bNext(2)">›</button>
+        <button class="bpage-prev" onclick="bPrev(2)">‹</button>
+      </div>
+
+      <div class="bpage" id="bpage1">
+        <div class="bpage-inner">
+          <span class="bpage-num">Page 1</span>
+          <img id="moaz_page_book" alt="Us" class="book-story-photo" src="us.jpg">
+          <div class="bpage-title-text" id="text-story-title" style="font-size:13px;">A Day to Remember ✨❤️</div>
+          <div class="bpage-divider" style="margin: 3px auto 6px;"></div>
+          <p class="bpage-text" id="text-story-body">
+            On Monday, May 25th, 2026, I went out with the most beautiful girl in the world—my girlfriend—to meet up, see each other, and enjoy our time together. We went Downtown, walked a lot, and grabbed a Pepsi. After that, we sat down for a bit, and I got her a beautiful red rose that looked just as lovely as her. Then, we ordered an Uber and headed to Zamalek. That was the best part because we went to the Zamalek Corniche; the weather was amazing, we took so many videos and pictures, and we talked sweetly to each other. She even teared up out of pure emotion when she told me 'I love you.' I told her 'I love you' back more than ten times, and I was so happy and completely relaxed. In the end, I walked her right to her doorstep because I wanted to make sure she was safe, and then I went home. We had such a wonderful time.
+          </p>
+        </div>
+        <button class="bpage-next" onclick="bNext(1)">›</button>
+      </div>
+
     </div>
 
-    <p class="book-indicator" id="book-indicator">Tap the cover to open</p>
-    <button class="book-close-btn" onclick="closeBook()" id="text-close-book-btn">✕ Close Book</button>
-    <a href="#home" class="btn" style="margin-top: 20px;" id="text-back-top">⬆ Back to Top</a>
+    <div class="book-cover" id="bookCover" onclick="openBook()">
+      <svg class="cover-svg" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="120" rx="85" ry="55" fill="#f5c6d0" stroke="#d4849a" stroke-width="1.5"/>
+        <path d="M100 65 Q60 90 30 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
+        <path d="M100 65 Q75 88 55 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
+        <path d="M100 65 Q90 87 80 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
+        <path d="M100 65 Q105 87 105 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
+        <path d="M100 65 Q120 88 128 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
+        <path d="M100 65 Q140 90 155 130" stroke="#d4849a" stroke-width="1" fill="none" opacity="0.6"/>
+        <path d="M15 120 Q50 30 100 20 Q150 30 185 120" fill="#fce4ec" stroke="#d4849a" stroke-width="1.5"/>
+        <path d="M30 115 Q55 50 100 38 Q145 50 170 115" fill="none" stroke="#d4849a" stroke-width="0.8" opacity="0.5"/>
+        <ellipse cx="70" cy="55" rx="12" ry="6" fill="white" opacity="0.25" transform="rotate(-20 70 55)"/>
+        <circle cx="100" cy="115" r="22" fill="none" stroke="#d4a017" stroke-width="5"/>
+        <circle cx="100" cy="115" r="22" fill="none" stroke="#f0c040" stroke-width="3" opacity="0.6"/>
+        <polygon points="100,88 107,98 100,105 93,98" fill="#a8d8f0" stroke="#7ab8d8" stroke-width="1"/>
+        <polygon points="100,88 107,98 100,94" fill="white" opacity="0.5"/>
+        <path d="M80 112 Q85 108 90 112" stroke="white" stroke-width="1.5" fill="none" opacity="0.7"/>
+      </svg>
+      <p class="cover-title" id="text-cover-motto">"Every page is<br>a memory of us"</p>
+      <p class="cover-hint" id="text-cover-hint">tap to open ♡</p>
+    </div>
   </div>
+
+  <p class="book-indicator" id="book-indicator">Tap the cover to open</p>
+  <button class="book-close-btn" onclick="closeBook()" id="text-close-book-btn">✕ Close Book</button>
+  <a href="#home" class="btn" style="margin-top: 20px;" id="text-back-top">⬆ Back to Top</a>
 </section>
 
 <script>
 const API = "https://script.google.com/macros/s/AKfycbzaMXR3_ZAnQXKazFywnNkz8XXkyEntzndVi0gnWyl57z4cTBT7t57L_jv1iRfDyNTNRA/exec";
 
-let bCurrentPage = 0;
-let bAnimating = false;
 let currentLang = "en";
 
-// الترجمات الكاملة للتحويل للغة الإيطالية لجميع العناصر
 const translations = {
   en: {
     loginTitle: "Enter Password ❤️", loginBtn: "Enter", wrongPass: "Wrong Password 💔",
@@ -981,7 +478,7 @@ const translations = {
     btn3: "Our Promises 🤝", btn4: "What to do? 🎡", btn5: "Our Book 📖",
     counterTitle: "Our Time Together ❤️", since: "Since: 13 / 1 / 2026",
     months: "Months", days: "Days", hours: "Hours", minutes: "Minutes", seconds: "Seconds",
-    mainParagraphs: "I made this for you, and I hope it’s something that makes you happy and brings you joy. I just want to tell you that I love you so much — you are the most beautiful and amazing person in my life. I pray that God always keeps you in my life and that you stay by my side forever. I wanted to create something for us to remember all our memories together, because like we said, we are truly going to be different from anyone else. I never want you to be upset with me, no matter what happens. And finally, I just want to say that I truly love you and I’m deeply in love with you, my light of life. ❤️I love all of you🥰",
+    mainParagraphs: "I made this for you, and I hope it's something that makes you happy and brings you joy. I just want to tell you that I love you so much — you are the most beautiful and amazing person in my life. I pray that God always keeps you in my life and that you stay by my side forever. I wanted to create something for us to remember all our memories together, because like we said, we are truly going to be different from anyone else. I never want you to be upset with me, no matter what happens. And finally, I just want to say that I truly love you and I'm deeply in love with you, my light of life. ❤️ I love all of you 🥰",
     letterNote: "My sweetheart Alaa.. ❤️<br>This is a hidden note inside this letter just to tell you that you are the most beautiful thing that has ever happened in my entire life.. May God keep you by my side forever!",
     envelopeHint: "Click on the envelope to open it 💌", promisesTitle: "Our Promises 🤝❤️",
     promisesHint: "Tap or hover over the cards to see our promises",
@@ -990,8 +487,8 @@ const translations = {
     p3f: "Promise #3 ✨", p3b: "We will always remain unique from anyone else, continuing our beautiful story until the very end 💍",
     wheelTitle: "What to do today? 🎡", wheelHint: "Can't decide what to do? Spin the wheel and let luck choose! 😉",
     wheelBtn: "Spin the Wheel 🎲", wheelSpinning: "Spinning the wheel... 🤔🎲",
-    bookTitle: "Our Book 📖", bookHint: "Every beautiful moment we share is kept here.. ❤️", backTop: "⬆ Back to Top",
-    coverHint: "Tap the cover to open 🐚✨", closeBook: "✕ Close Book",
+    bookTitle: "Our Book 📖", bookHint: "tap the cover to open ♡", backTop: "⬆ Back to Top",
+    coverHint: "tap to open ♡", closeBook: "✕ Close Book",
     storyTitle: "A Day to Remember ✨❤️",
     storyText: "On Monday, May 25th, 2026, I went out with the most beautiful girl in the world—my girlfriend—to meet up, see each other, and enjoy our time together. We went Downtown, walked a lot, and grabbed a Pepsi. After that, we sat down for a bit, and I got her a beautiful red rose that looked just as lovely as her. Then, we ordered an Uber and headed to Zamalek. That was the best part because we went to the Zamalek Corniche; the weather was amazing, we took so many videos and pictures, and we talked sweetly to each other. She even teared up out of pure emotion when she told me 'I love you.' I told her 'I love you' back more than ten times, and I was so happy and completely relaxed. In the end, I walked her right to her doorstep because I wanted to make sure she was safe, and then I went home. We had such a wonderful time.",
     vidTitle: "Our Video Memory"
@@ -1002,7 +499,7 @@ const translations = {
     btn3: "Le nostre promesse 🤝", btn4: "Cosa fare? 🎡", btn5: "Il nostro libro 📖",
     counterTitle: "Il nostro tempo insieme ❤️", since: "Dal: 13 / 1 / 2026",
     months: "Mesi", days: "Giorni", hours: "Ore", minutes: "Minuti", seconds: "Secondi",
-    mainParagraphs: "Ho fatto questo per te, e spero che sia qualcosa que ti renda felice e ti porti gioia. Voglio solo dirti che ti amo così tanto — sei la persona più bella e straordinaria della mia vita. Prego che Dio ti tenga sempre nella mia vita e che tu rimanga al mio fianco per sempre. Volevo creare qualcosa per ricordare tutti i nostri ricordi insieme, perché come abbiamo detto, saremo davvero diversi da chiunque altro. Non voglio mai che tu ti arrabbi con me, qualunque cosa accada. E infine, voglio solo dirti che ti amo davvero e sono profondamente innamorato di te, luce della mia vita. ❤️Amo tutto di te🥰",
+    mainParagraphs: "Ho fatto questo per te, e spero che sia qualcosa que ti renda felice e ti porti gioia. Voglio solo dirti che ti amo così tanto — sei la persona più bella e straordinaria della mia vita. Prego che Dio ti tenga sempre nella mia vita e che tu rimanga al mio fianco per sempre. Volevo creare qualcosa per ricordare tutti i nostri ricordi insieme, perché come abbiamo detto, saremo davvero diversi da chiunque altro. Non voglio mai che tu ti arrabbi con me, qualunque cosa accada. E infine, voglio solo dirti che ti amo davvero e sono profondamente innamorato di te, luce della mia vita. ❤️ Amo tutto di te 🥰",
     letterNote: "Dolcezza mia Alaa.. ❤️<br>Questa è una nota nascosta dentro questa lettera solo per dirti che sei la cosa più bella che sia mai successa in tutta la mia vita.. Che Dio ti tenga al mio fianco per sempre!",
     envelopeHint: "Clicca sulla busta per aprirla 💌", promisesTitle: "Le nostre promesse 🤝❤️",
     promisesHint: "Tocca o passa il mouse sulle schede per vedere le promesse",
@@ -1011,8 +508,8 @@ const translations = {
     p3f: "Promessa #3 ✨", p3b: "Rimarremo sempre unici rispetto a chiunque altro, continuando la nostra bellissima storia fino alla fine 💍",
     wheelTitle: "Cosa fare oggi? 🎡", wheelHint: "Non riesci a decidere cosa fare? Gira la ruota e lascia che scelga la fortuna! 😉",
     wheelBtn: "Gira la ruota 🎲", wheelSpinning: "Girando la ruota... 🤔🎲",
-    bookTitle: "Il nostro libro 📖", bookHint: "Ogni bel momento che condividiamo è custodito qui.. ❤️", backTop: "⬆ Torna su",
-    coverHint: "Tocca la copertina per aprire 🐚✨", closeBook: "✕ Chiudi il libro",
+    bookTitle: "Il nostro libro 📖", bookHint: "tocca la copertina per aprire ♡", backTop: "⬆ Torna su",
+    coverHint: "tocca per aprire ♡", closeBook: "✕ Chiudi il libro",
     storyTitle: "Un giorno da ricordare ✨❤️",
     storyText: "Lunedì 25 maggio 2026 sono uscito con la ragazza più bella del mondo, la mia fidanzata, per incontrarci, vederci e godere del tempo insieme. Siamo andati in Centro, abbiamo camminato molto e preso una Pepsi. Dopodiché ci siamo seduti per un po' e le ho preso una bellissima rosa rossa che era incantevole proprio come lei. Poi abbiamo ordinato un Uber e ci siamo diretti a Zamalek. Questa è stata la parte migliore perché siamo andati al Zamalek Corniche; il tempo era fantastico, abbiamo fatto tantissimi video e foto e ci siamo parlati dolcemente. Le sono persino venute le lacrime agli occhi per la pura emozione quando mi ha detto 'Ti amo'. Le ho risposto 'Ti amo' a mia volta più di dieci volte, ed ero così felice e completamente rilassato. Alla fine l'ho accompagnata proprio davanti alla porta di casa perché volevo assicurarmi che fosse al sicuro, e poi sono tornato a casa. Abbiamo passato un tempo meraviglioso.",
     vidTitle: "Il nostro video ricordo"
@@ -1024,17 +521,11 @@ const wheelOptions = {
   it: ["Andare al cinema 🎬", "Mangiare un gelato insieme 🍦", "Camminare lungo il Nilo 🌊", "Fare una lunga videochiamata 📞❤️", "Ordinare cibo che amiamo 🍔", "Ascoltare un intero album insieme 🎵"]
 };
 
-function toEmbedUrl(url) {
+function toPreview(url) {
   if (!url) return "";
-  let fileId = "";
-  const reg1 = /\/file\/d\/([^/]+)/;
-  const reg2 = /[?&]id=([^&]+)/;
-  if (reg1.test(url)) { fileId = url.match(reg1)[1]; } 
-  else if (reg2.test(url)) { fileId = url.match(reg2)[1]; }
-  if (fileId) {
-    return `https://drive.google.com/file/d/${fileId}/preview?authuser=0&hl=en&mute=1`;
-  }
-  return url;
+  const match = url.match(/[?&]id=([^&]+)/);
+  if (match) return "https://drive.google.com/file/d/" + match[1] + "/preview";
+  return url.replace("/view", "/preview").replace(/\?.*$/, "");
 }
 
 function toggleLanguage() {
@@ -1074,22 +565,24 @@ function applyTranslations() {
   document.getElementById("text-wheel-title").innerText = lang.wheelTitle;
   document.getElementById("text-wheel-hint").innerText = lang.wheelHint;
   document.getElementById("text-wheel-btn").innerText = lang.wheelBtn;
+  
   document.getElementById("text-book-section-title").innerText = lang.bookTitle;
   document.getElementById("text-book-section-hint").innerText = lang.bookHint;
   document.getElementById("text-cover-hint").innerText = lang.coverHint;
   document.getElementById("text-close-book-btn").innerText = lang.closeBook;
   document.getElementById("text-back-top").innerText = lang.backTop;
 
-  // ترام الصفحات الداخلية حركياً
+  // ترجمة محتوى صفحة القصة (Page 1)
   document.getElementById("text-story-title").innerText = lang.storyTitle;
   document.getElementById("text-story-body").innerText = lang.storyText;
+
+  // ترجمة عناوين صفحات الفيديوهات الـ 5
   for(let i=1; i<=5; i++){
     document.getElementById(`lbl-vid${i}-t`).innerText = `${lang.vidTitle} ${i} ❤️`;
   }
   updateBookIndicator();
 }
 
-/* ===== PASSWORD & DATA LOADING ===== */
 async function checkPass(){
   let pass = document.getElementById("pass").value;
   try {
@@ -1102,93 +595,34 @@ async function checkPass(){
       startHearts();
       loadVideos();
     } else {
-      document.getElementById("error").innerText = translations[currentLang].wrongPass;
+      document.getElementById("error").innerText="Wrong Password 💔";
     }
   } catch(e) {
-    document.getElementById("error").innerText = translations[currentLang].wrongPass;
+    document.getElementById("error").innerText="Wrong Password 💔";
   }
 }
 
 async function loadVideos(){
   const token = sessionStorage.getItem("token");
-  if(!token) return;
-  try {
-    const res = await fetch(`${API}?action=getData&token=${token}`);
-    const result = await res.json();
-    if(result.success){
-      const d = result.data;
-      if(d["main_video"])   { document.getElementById("main-video-frame").src = toEmbedUrl(d["main_video"]); }
-      if(d["letter_video"]) { document.getElementById("letter-video-frame").src = toEmbedUrl(d["letter_video"]); }
-      
-      if(d["book_page1"])   document.getElementById("bp1-video").src = toEmbedUrl(d["book_page1"]);
-      if(d["book_page2"])   document.getElementById("bp2-video").src = toEmbedUrl(d["book_page2"]);
-      if(d["book_page3"])   document.getElementById("bp3-video").src = toEmbedUrl(d["book_page3"]);
-      if(d["book_page4"])   document.getElementById("bp4-video").src = toEmbedUrl(d["book_page4"]);
-      if(d["book_page5"])   document.getElementById("bp5-video").src = toEmbedUrl(d["book_page5"]);
-      
-      // جلب وتحديث الصورة الدائرية في الشاشة الرئيسية والصفحة الأولى من الكتاب
-      if(d["moaz_page"]) {
-          document.getElementById("moaz_page").src = d["moaz_page"];
-          document.getElementById("moaz_page_book").src = d["moaz_page"];
-      }
+  const res = await fetch(`${API}?action=getData&token=${token}`);
+  const result = await res.json();
+  if(result.success){
+    const d = result.data;
+    if(d["main_video"])   { document.getElementById("main-video-frame").src = toPreview(d["main_video"]); }
+    if(d["letter_video"]) { document.getElementById("letter-video-frame").src = toPreview(d["letter_video"]); }
+    if(d["book_page1"])   document.getElementById("bp1-video").src = toPreview(d["book_page1"]);
+    if(d["book_page2"])   document.getElementById("bp2-video").src = toPreview(d["book_page2"]);
+    if(d["book_page3"])   document.getElementById("bp3-video").src = toPreview(d["book_page3"]);
+    if(d["book_page4"])   document.getElementById("bp4-video").src = toPreview(d["book_page4"]);
+    if(d["book_page5"])   document.getElementById("bp5-video").src = toPreview(d["book_page5"]);
+    
+    // جلب رابط الصورة الكبيرة moaz_page وتحديثها في كل من واجهة الموقع وداخل صفحة القصة بالكتاب
+    if(d["moaz_page"]) { 
+      document.getElementById("moaz_page").src = d["moaz_page"];
+      document.getElementById("moaz_page_book").src = d["moaz_page"];
     }
-  } catch(e) {
-    console.error("Error loading elements:", e);
   }
 }
-
-/* ===== INTERACTIVE 3D BOOK ENGINE (6 PAGES TOTAL) ===== */
-function openBook(){
-  if(bCurrentPage > 0) return;
-  document.getElementById("bookCover").classList.add("open");
-  bCurrentPage = 1;
-  updateBookIndicator();
-}
-
-function closeBook(){
-  for(let i=1; i<=6; i++) document.getElementById("bpage"+i).classList.remove("turned");
-  document.getElementById("bookCover").classList.remove("open");
-  bCurrentPage = 0;
-  updateBookIndicator();
-}
-
-function bNext(n){
-  if(bAnimating) return;
-  bAnimating = true;
-  document.getElementById("bpage"+n).classList.add("turned");
-  bCurrentPage = n + 1;
-  updateBookIndicator();
-  setTimeout(() => bAnimating = false, 750);
-}
-
-function bPrev(n){
-  if(bAnimating) return;
-  bAnimating = true;
-  document.getElementById("bpage"+(n-1)).classList.remove("turned");
-  bCurrentPage = n - 1;
-  updateBookIndicator();
-  setTimeout(() => bAnimating = false, 750);
-}
-
-function updateBookIndicator(){
-  const el = document.getElementById("book-indicator");
-  if(bCurrentPage === 0){
-    el.innerText = currentLang === "en" ? "Tap the cover to open" : "Tocca la copertina per aprire";
-  } else {
-    el.innerText = currentLang === "en" ? "Page " + bCurrentPage + " of 6" : "Pagina " + bCurrentPage + " di 6";
-  }
-}
-
-// دعم التمرير بالسحب (Swipe) على الهواتف الذكية
-let bTouchX = 0;
-document.querySelector('.book-scene').addEventListener('touchstart', e => { bTouchX = e.touches[0].clientX; });
-document.querySelector('.book-scene').addEventListener('touchend', e => {
-  const diff = bTouchX - e.changedTouches[0].clientX;
-  if(Math.abs(diff) > 40){
-    if(diff > 0 && bCurrentPage < 6 && bCurrentPage > 0) bNext(bCurrentPage);
-    else if(diff < 0 && bCurrentPage > 1) bPrev(bCurrentPage);
-  }
-});
 
 if(sessionStorage.getItem("token")){
   document.getElementById("login").style.display="none";
@@ -1196,78 +630,115 @@ if(sessionStorage.getItem("token")){
   loadVideos();
 }
 
-/* ===== COUNTER ENGINE ===== */
+/* ===== COUNTER CLOCK ===== */
 const startDate = new Date("2026-01-13T00:00:00");
 function updateCounter() {
-    const now = new Date();
-    let months = now.getMonth() - startDate.getMonth();
-    let days = now.getDate() - startDate.getDate();
-    if (days < 0) {
-        months--;
-        const previousMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
-        days += previousMonth;
-    }
-    let years = now.getFullYear() - startDate.getFullYear();
-    if (months < 0) { years--; months += 12; }
-    const diffMs = now - new Date(now.getFullYear(), now.getMonth(), now.getDate(), startDate.getHours(), startDate.getMinutes(), startDate.getSeconds());
-    let hours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    let minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-    let seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
-    if (hours < 0) { hours += 24; days--; }
-    if (minutes < 0) { minutes += 60; hours--; }
-    if (seconds < 0) { seconds += 60; minutes--; }
-
-    if(document.getElementById("months")) document.getElementById("months").innerText = months;
-    if(document.getElementById("days")) document.getElementById("days").innerText = days;
-    if(document.getElementById("hours")) document.getElementById("hours").innerText = hours;
-    if(document.getElementById("minutes")) document.getElementById("minutes").innerText = minutes;
-    if(document.getElementById("seconds")) document.getElementById("seconds").innerText = seconds;
+  const now = new Date();
+  let months = now.getMonth() - startDate.getMonth();
+  let days = now.getDate() - startDate.getDate();
+  if (days < 0) { months--; days += new Date(now.getFullYear(), now.getMonth(), 0).getDate(); }
+  let years = now.getFullYear() - startDate.getFullYear();
+  if (months < 0) { years--; months += 12; }
+  const diffMs = now - new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+  document.getElementById("months").innerText = months;
+  document.getElementById("days").innerText = days;
+  document.getElementById("hours").innerText = Math.floor(diffMs/(1000*60*60));
+  document.getElementById("minutes").innerText = Math.floor((diffMs%(1000*60*60))/(1000*60));
+  document.getElementById("seconds").innerText = Math.floor((diffMs%(1000*60))/1000);
 }
 setInterval(updateCounter, 1000);
 updateCounter();
 
-/* ===== FALLING HEARTS ===== */
 function startHearts(){
   setInterval(() => {
-    let heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.fontSize = Math.random()*20 + 10 + "px";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),5000);
-  },300);
+    let h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = ["❤️","💕","💗","🌸"][Math.floor(Math.random()*4)];
+    h.style.left = Math.random()*100 + "vw";
+    h.style.fontSize = Math.random()*20+10 + "px";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(), 5000);
+  }, 300);
 }
 
 function toggleLetter() {
-    document.querySelector('.envelope-wrapper').classList.toggle('open');
+  document.querySelector('.envelope-wrapper').classList.toggle('open');
 }
 
-/* ===== WHEEL SYSTEM ===== */
-let currentDegree = 0;
-let isSpinning = false;
-function spinWheel() {
-  if (isSpinning) return;
-  isSpinning = true;
-  const resultDiv = document.getElementById("wheel-result");
-  const wheel = document.getElementById("wheel");
-  resultDiv.innerText = translations[currentLang].wheelSpinning;
-  
-  const randomExtra = Math.floor(Math.random() * 360);
-  const totalSpin = 1800 + randomExtra; 
-  currentDegree += totalSpin;
-  wheel.style.transform = `rotate(${currentDegree}deg)`;
-  
-  setTimeout(() => {
-    isSpinning = false;
-    const normalizedDegree = (360 - (currentDegree % 360)) % 360;
-    const optionIndex = Math.floor(normalizedDegree / 60);
-    const selectedPlan = wheelOptions[currentLang][optionIndex];
-    resultDiv.innerText = currentLang === 'en' ? `Today's plan: ${selectedPlan} ✨❤️` : `Piano di oggi: ${selectedPlan} ✨❤️`;
-  }, 4000);
+/* ===== SPINNING WHEEL ===== */
+let currentDegree=0, isSpinning=false;
+function spinWheel(){
+  if(isSpinning) return;
+  isSpinning=true;
+  const resultDiv=document.getElementById("wheel-result");
+  const wheel=document.getElementById("wheel");
+  resultDiv.innerText=translations[currentLang].wheelSpinning;
+  const totalSpin=1800+Math.floor(Math.random()*360);
+  currentDegree+=totalSpin;
+  wheel.style.transform=`rotate(${currentDegree}deg)`;
+  setTimeout(()=>{
+    isSpinning=false;
+    const idx=Math.floor(((360-(currentDegree%360))%360)/60);
+    const plan = wheelOptions[currentLang][idx];
+    resultDiv.innerText= currentLang === 'en' ? `Today's plan: ${plan} ✨❤️` : `Piano di oggi: ${plan} ✨❤️`;
+  },4000);
 }
 
-// تشغيل التهيئة الأولية عند الإقلاع
+/* ===== 3D BOOK翻页 INTERACTIVE ENGINE (TOTAL 6 PAGES) ===== */
+let bCurrentPage=0, bAnimating=false;
+
+function openBook(){
+  if(bCurrentPage>0) return;
+  document.getElementById("bookCover").classList.add("open");
+  bCurrentPage=1;
+  updateBookIndicator();
+}
+
+function closeBook(){
+  for(let i=1;i<=6;i++) document.getElementById("bpage"+i).classList.remove("turned");
+  document.getElementById("bookCover").classList.remove("open");
+  bCurrentPage=0;
+  updateBookIndicator();
+}
+
+function bNext(n){
+  if(bAnimating) return;
+  bAnimating=true;
+  document.getElementById("bpage"+n).classList.add("turned");
+  bCurrentPage=n+1;
+  updateBookIndicator();
+  setTimeout(()=>bAnimating=false,750);
+}
+
+function bPrev(n){
+  if(bAnimating) return;
+  bAnimating=true;
+  document.getElementById("bpage"+(n-1)).classList.remove("turned");
+  bCurrentPage=n-1;
+  updateBookIndicator();
+  setTimeout(()=>bAnimating=false,750);
+}
+
+function updateBookIndicator(){
+  const el=document.getElementById("book-indicator");
+  if(bCurrentPage===0){
+    el.innerText = currentLang === "en" ? "Tap the cover to open" : "Tocca la copertina per aprire";
+  } else {
+    el.innerText = currentLang === "en" ? "Page "+bCurrentPage+" of 6" : "Pagina "+bCurrentPage+" di 6";
+  }
+}
+
+// دعم السحب على الموبايل
+let bTouchX=0;
+document.querySelector('.book-scene').addEventListener('touchstart',e=>{ bTouchX=e.touches[0].clientX; });
+document.querySelector('.book-scene').addEventListener('touchend',e=>{
+  const diff=bTouchX-e.changedTouches[0].clientX;
+  if(Math.abs(diff)>40){
+    if(diff>0 && bCurrentPage<6 && bCurrentPage>0) bNext(bCurrentPage);
+    else if(diff<0 && bCurrentPage>1) bPrev(bCurrentPage);
+  }
+});
+
 applyTranslations();
 </script>
 </body>
