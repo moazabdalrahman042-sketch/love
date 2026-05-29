@@ -192,6 +192,7 @@ section{
   border-radius: 15px;
   overflow: hidden;
   background: #000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .video-container iframe {
@@ -291,6 +292,7 @@ section{
   border-radius: 8px;
   overflow: hidden;
   background: #000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .letter-video-wrap iframe {
@@ -442,27 +444,93 @@ section{
   text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* ===== MEMORIES SECTION ===== */
-.memory-card {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 20px;
-  padding: 15px;
+/* ===== BOOK VISUALS ===== */
+.book-container {
   width: 100%;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-  text-align: center;
+  max-width: 340px;
+  margin: 20px auto;
+  perspective: 1200px;
+}
+
+.book-page {
+  background: #ffffff;
+  color: #333333;
+  border-radius: 8px;
+  padding: 20px 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   box-sizing: border-box;
+  position: relative;
+  border-left: 5px solid #ff4d6d;
+}
+
+.page-header {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #888;
+  text-align: right;
+  font-weight: bold;
+}
+
+.page-title {
+  font-size: 15px;
+  color: #ff4d6d;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.book-video-wrap {
+  width: 100%;
+  height: 260px;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.book-video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.book-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 15px;
 }
 
-.memory-card p {
-  font-size: 1rem;
-  margin-top: 12px;
-  margin-bottom: 5px;
-  font-weight: bold;
+.nav-page-btn {
+  background: #ff4d6d;
   color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(255, 77, 109, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.nav-page-btn:disabled {
+  background: #ccc;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.page-number-indicator {
+  font-size: 13px;
+  color: #666;
+  font-weight: bold;
 }
 </style>
 </head>
@@ -490,7 +558,7 @@ section{
     <a class="btn" href="#message">Love Message 💌</a>
     <a class="btn" href="#promises">Our Promises 🤝</a>
     <a class="btn" href="#date-wheel">What to do? 🎡</a>
-    <a class="btn" href="#memories-section">Memories 📸</a>
+    <a class="btn" href="#memories-section">Our Book 📖</a>
   </div>
 </section>
 
@@ -609,15 +677,24 @@ section{
 
 <section id="memories-section">
   <div class="glass-panel">
-    <h1 style="font-size: 24px; margin-top:0;">Our Memories 📸</h1>
+    <h1 style="font-size: 24px; margin-top:0;">Our Book 📖</h1>
     <p style="opacity: 0.9; font-size: 14px; margin: 5px 0 15px 0;">Every beautiful moment we share is kept here.. ❤️</p>
-    This is the first place where you told me you wanted to be with me… and I was the happiest person alive 🤍
-
-    <div class="memory-card">
-        <div class="video-container">
-            <iframe id="memory-video-frame" allowfullscreen></iframe>
+    
+    <div class="book-container">
+      <div class="book-page">
+        <div class="page-header" id="page-hdr">PAGE 1</div>
+        <div class="page-title" id="page-title-text">Write your text here for page 1 ❤️</div>
+        
+        <div class="book-video-wrap">
+          <iframe id="book-page-frame" allowfullscreen></iframe>
         </div>
-        <p>Our story in motion.. 🎬❤️</p>
+        
+        <div class="book-controls">
+          <button class="nav-page-btn" id="prev-btn" onclick="changePage(-1)" disabled>&lt;</button>
+          <div class="page-number-indicator" id="page-indicator">Page 1 of 5</div>
+          <button class="nav-page-btn" id="next-btn" onclick="changePage(1)">&gt;</button>
+        </div>
+      </div>
     </div>
 
     <a href="#home" class="btn" style="margin-top: 25px;">⬆ Back to Top</a>
@@ -627,10 +704,16 @@ section{
 <script>
 const API = "https://script.google.com/macros/s/AKfycbzaMXR3_ZAnQXKazFywnNkz8XXkyEntzndVi0gnWyl57z4cTBT7t57L_jv1iRfDyNTNRA/exec";
 
-// دالة ذكية لتحويل أي رابط من جوجل درايف تلقائياً لصيغة العرض الصحيحة في الـ iframe
+// مصفوفة لتخزين روابط الـ 5 صفحات المحملة من الشيت
+let bookPagesUrls = ["", "", "", "", ""];
+let currentPageIndex = 0;
+
+// دالة ذكية ومطورة تقوم باستخراج المعرف (ID) تلقائياً سواء كان الرابط uc أو preview أو view
 function toEmbedUrl(url) {
   if (!url) return "";
   let fileId = "";
+  
+  // فحص روابط التنزيل المباشر أو المعاينة لاستخراج الـ ID
   const reg1 = /\/file\/d\/([^/]+)/;
   const reg2 = /[?&]id=([^&]+)/;
   
@@ -641,7 +724,8 @@ function toEmbedUrl(url) {
   }
   
   if (fileId) {
-    return `https://drive.google.com/file/d/${fileId}/preview`;
+    // إرجاع الرابط بالصيغة الصحيحة تماماً للعرض بداخل الموقع بدون حجب
+    return `https://drive.google.com/file/d/${fileId}/preview?authuser=0&hl=en&mute=1`;
   }
   return url;
 }
@@ -671,18 +755,51 @@ async function loadVideos(){
   const token = sessionStorage.getItem("token");
   if(!token) return;
   
-  const res = await fetch(`${API}?action=getData&token=${token}`);
-  const result = await res.json();
-  if(result.success){
-    const d = result.data;
-    // سحب الفيديوهات من الجوجل شيت حسب أسماء الأعمدة وتوزيعها على الـ iframes
-    if(d["main_video"])   { document.getElementById("main-video-frame").src = toEmbedUrl(d["main_video"]); }
-    if(d["letter_video"]) { document.getElementById("letter-video-frame").src = toEmbedUrl(d["letter_video"]); }
-    if(d["book_page3"])   { document.getElementById("memory-video-frame").src = toEmbedUrl(d["book_page3"]); } // هنا بيسحب فيديو مواز من خانة book_page3 أو غير الاسم حسب عمود الشيت عندك
+  try {
+    const res = await fetch(`${API}?action=getData&token=${token}`);
+    const result = await res.json();
+    if(result.success){
+      const d = result.data;
+      
+      // 1. الفيديوهات العلوية الرئيسية للرسائل والذكريات
+      if(d["main_video"])   { document.getElementById("main-video-frame").src = toEmbedUrl(d["main_video"]); }
+      if(d["letter_video"]) { document.getElementById("letter-video-frame").src = toEmbedUrl(d["letter_video"]); }
+      
+      // 2. تجميع روابط الـ 5 صفحات المخصصة للكتاب بالترتيب
+      bookPagesUrls[0] = d["book_page1"] ? toEmbedUrl(d["book_page1"]) : "";
+      bookPagesUrls[1] = d["book_page2"] ? toEmbedUrl(d["book_page2"]) : "";
+      bookPagesUrls[2] = d["book_page3"] ? toEmbedUrl(d["book_page3"]) : "";
+      bookPagesUrls[3] = d["book_page4"] ? toEmbedUrl(d["book_page4"]) : "";
+      bookPagesUrls[4] = d["book_page5"] ? toEmbedUrl(d["book_page5"]) : "";
+      
+      // عرض الصفحة الأولى فوراً بعد التحميل
+      renderBookPage();
+    }
+  } catch(e) {
+    console.error("Error loading videos:", e);
   }
 }
 
-// لو مسجل دخول قبل كده يفتح على طول ويجيب الفيديوهات
+// التحكم في تقليب صفحات الكتاب (من 1 لـ 5)
+function renderBookPage() {
+  document.getElementById("page-hdr").innerText = `PAGE ${currentPageIndex + 1}`;
+  document.getElementById("page-title-text").innerText = `Write your text here for page ${currentPageIndex + 1} ❤️`;
+  document.getElementById("book-page-frame").src = bookPagesUrls[currentPageIndex];
+  document.getElementById("page-indicator").innerText = `Page ${currentPageIndex + 1} of 5`;
+  
+  // تحديث حالة الأزرار
+  document.getElementById("prev-btn").disabled = (currentPageIndex === 0);
+  document.getElementById("next-btn").disabled = (currentPageIndex === 4);
+}
+
+function changePage(direction) {
+  currentPageIndex += direction;
+  if (currentPageIndex < 0) currentPageIndex = 0;
+  if (currentPageIndex > 4) currentPageIndex = 4;
+  renderBookPage();
+}
+
+// الدخول التلقائي في حال تحديث الصفحة وكان التوكن مسجلاً
 if(sessionStorage.getItem("token")){
   document.getElementById("login").style.display="none";
   startHearts();
@@ -694,7 +811,6 @@ const startDate = new Date("2026-01-13T00:00:00");
 
 function updateCounter() {
     const now = new Date();
-    
     let months = now.getMonth() - startDate.getMonth();
     let days = now.getDate() - startDate.getDate();
     
@@ -725,7 +841,6 @@ function updateCounter() {
     if(document.getElementById("minutes")) document.getElementById("minutes").innerText = minutes;
     if(document.getElementById("seconds")) document.getElementById("seconds").innerText = seconds;
 }
-
 setInterval(updateCounter, 1000);
 updateCounter();
 
@@ -735,11 +850,9 @@ function startHearts(){
     let heart = document.createElement("div");
     heart.classList.add("heart");
     heart.innerHTML = "❤️";
-
     heart.style.left = Math.random()*100 + "vw";
     heart.style.fontSize = Math.random()*20 + 10 + "px";
     document.body.appendChild(heart);
-
     setTimeout(()=>heart.remove(),5000);
   },300);
 }
@@ -759,14 +872,12 @@ const options = [
   "Order food we love 🍔",
   "Listen to a full album together 🎵"
 ];
-
 let currentDegree = 0;
 let isSpinning = false;
 
 function spinWheel() {
   if (isSpinning) return;
   isSpinning = true;
-  
   const resultDiv = document.getElementById("wheel-result");
   const wheel = document.getElementById("wheel");
   resultDiv.innerText = "Spinning the wheel... 🤔🎲";
@@ -774,7 +885,6 @@ function spinWheel() {
   const randomExtra = Math.floor(Math.random() * 360);
   const totalSpin = 1800 + randomExtra; 
   currentDegree += totalSpin;
-  
   wheel.style.transform = `rotate(${currentDegree}deg)`;
   
   setTimeout(() => {
@@ -785,6 +895,5 @@ function spinWheel() {
   }, 4000);
 }
 </script>
-
 </body>
 </html>
