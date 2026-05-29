@@ -361,7 +361,6 @@ section{
   </div>
 </section>
 
-<!-- BOOK SECTION -->
 <section id="book-section">
   <h2 style="font-family:'Playfair Display',serif; font-style:italic; font-size:28px; margin-bottom:8px;">Our Book 📖</h2>
   <p style="opacity:0.8; font-size:13px; margin-bottom:25px; letter-spacing:1px;">tap the cover to open ♡</p>
@@ -370,7 +369,6 @@ section{
     <div class="book-back-cover"></div>
     <div class="book-pages">
 
-      <!-- Page 5 -->
       <div class="bpage" id="bpage5">
         <div class="bpage-inner">
           <span class="bpage-num">Page 5</span>
@@ -381,7 +379,6 @@ section{
         <button class="bpage-prev" onclick="bPrev(5)">‹</button>
       </div>
 
-      <!-- Page 4 -->
       <div class="bpage" id="bpage4">
         <div class="bpage-inner">
           <span class="bpage-num">Page 4</span>
@@ -393,7 +390,6 @@ section{
         <button class="bpage-prev" onclick="bPrev(4)">‹</button>
       </div>
 
-      <!-- Page 3 -->
       <div class="bpage" id="bpage3">
         <div class="bpage-inner">
           <span class="bpage-num">Page 3</span>
@@ -405,7 +401,6 @@ section{
         <button class="bpage-prev" onclick="bPrev(3)">‹</button>
       </div>
 
-      <!-- Page 2 -->
       <div class="bpage" id="bpage2">
         <div class="bpage-inner">
           <span class="bpage-num">Page 2</span>
@@ -417,7 +412,6 @@ section{
         <button class="bpage-prev" onclick="bPrev(2)">‹</button>
       </div>
 
-      <!-- Page 1 -->
       <div class="bpage" id="bpage1">
         <div class="bpage-inner">
           <span class="bpage-num">Page 1</span>
@@ -430,7 +424,6 @@ section{
 
     </div>
 
-    <!-- Front Cover -->
     <div class="book-cover" id="bookCover" onclick="openBook()">
       <svg class="cover-svg" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
         <ellipse cx="100" cy="120" rx="85" ry="55" fill="#f5c6d0" stroke="#d4849a" stroke-width="1.5"/>
@@ -462,13 +455,26 @@ section{
 <script>
 const API = "https://script.google.com/macros/s/AKfycbzaMXR3_ZAnQXKazFywnNkz8XXkyEntzndVi0gnWyl57z4cTBT7t57L_jv1iRfDyNTNRA/exec";
 
-function toPreview(url) {
+// دالة ذكية ومطورة لتحويل أي رابط من جوجل درايف تلقائياً لصيغة العرض الصحيحة في الـ iframe
+function toEmbedUrl(url) {
   if (!url) return "";
-  // convert /uc?export=download&id=XXX to /file/d/XXX/preview
-  const match = url.match(/[?&]id=([^&]+)/);
-  if (match) return "https://drive.google.com/file/d/" + match[1] + "/preview";
-  // already /file/d/XXX/view or /preview
-  return url.replace("/view", "/preview").replace(/\?.*$/, "");
+  
+  // استخراج الـ ID الخاص بالملف باستخدام RegExp مرن
+  let fileId = "";
+  const reg1 = /\/file\/d\/([^/]+)/;
+  const reg2 = /[?&]id=([^&]+)/;
+  
+  if (reg1.test(url)) {
+    fileId = url.match(reg1)[1];
+  } else if (reg2.test(url)) {
+    fileId = url.match(reg2)[1];
+  }
+  
+  if (fileId) {
+    return `https://drive.google.com/file/d/${fileId}/preview`;
+  }
+  
+  return url;
 }
 
 async function checkPass(){
@@ -495,13 +501,16 @@ async function loadVideos(){
   const result = await res.json();
   if(result.success){
     const d = result.data;
-    if(d["main_video"])   { document.getElementById("main-video-frame").src = toPreview(d["main_video"]); document.getElementById("memory-video-frame").src = toPreview(d["main_video"]); }
-    if(d["letter_video"]) document.getElementById("letter-video-frame").src = toPreview(d["letter_video"]);
-    if(d["book_page1"])   document.getElementById("bp1-video").src = toPreview(d["book_page1"]);
-    if(d["book_page2"])   document.getElementById("bp2-video").src = toPreview(d["book_page2"]);
-    if(d["book_page3"])   document.getElementById("bp3-video").src = toPreview(d["book_page3"]);
-    if(d["book_page4"])   document.getElementById("bp4-video").src = toPreview(d["book_page4"]);
-    if(d["book_page5"])   document.getElementById("bp5-video").src = toPreview(d["book_page5"]);
+    if(d["main_video"])   { 
+      document.getElementById("main-video-frame").src = toEmbedUrl(d["main_video"]); 
+      document.getElementById("memory-video-frame").src = toEmbedUrl(d["main_video"]); 
+    }
+    if(d["letter_video"]) document.getElementById("letter-video-frame").src = toEmbedUrl(d["letter_video"]);
+    if(d["book_page1"])   document.getElementById("bp1-video").src = toEmbedUrl(d["book_page1"]);
+    if(d["book_page2"])   document.getElementById("bp2-video").src = toEmbedUrl(d["book_page2"]);
+    if(d["book_page3"])   document.getElementById("bp3-video").src = toEmbedUrl(d["book_page3"]);
+    if(d["book_page4"])   document.getElementById("bp4-video").src = toEmbedUrl(d["book_page4"]);
+    if(d["book_page5"])   document.getElementById("bp5-video").src = toEmbedUrl(d["book_page5"]);
   }
 }
 
