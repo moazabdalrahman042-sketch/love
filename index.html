@@ -1,1 +1,899 @@
-ddd
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love You Alaa</title>
+
+<style>
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  overflow-x:hidden;
+  background: linear-gradient(180deg, #ff4d6d 0%, #ff758f 35%, #ffb3c1 70%, #ffe5ec 100%);
+  background-attachment: fixed;
+  color: white;
+}
+
+/* ===== LOGIN SCREEN ===== */
+#login{
+  position:fixed;
+  width:100%;
+  height:100vh;
+  background:linear-gradient(135deg,#ff4d6d,#ffb3c1);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:999;
+}
+
+#login h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#login input{
+  padding:12px 20px;
+  border:none;
+  border-radius:25px;
+  margin:10px;
+  width: 200px;
+  text-align: center;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  outline: none;
+}
+
+#login button{
+  padding:10px 30px;
+  border:none;
+  border-radius:25px;
+  background:white;
+  color:#ff4d6d;
+  font-weight:bold;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  transition: transform 0.2s;
+}
+
+#login button:hover {
+  transform: scale(1.05);
+}
+
+/* ===== SECTIONS ===== */
+section{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+  padding:40px 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 24px;
+  padding: 30px 20px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.btn{
+  background:white;
+  color:#ff4d6d;
+  padding:12px 25px;
+  border-radius:25px;
+  text-decoration:none;
+  margin:8px;
+  font-weight:bold;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* ===== HEARTS ===== */
+.heart{
+  position:fixed;
+  color:#fff;
+  text-shadow: 0 0 5px rgba(255,0,0,0.5);
+  font-size:20px;
+  animation: fall 5s linear infinite;
+  top:-10px;
+  z-index: 998;
+  pointer-events: none;
+}
+
+@keyframes fall{
+  0%{transform:translateY(-10px) rotate(0deg); opacity:1;}
+  100%{transform:translateY(110vh) rotate(360deg); opacity:0;}
+}
+
+/* ===== COUNTER ===== */
+.counter-title {
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.since-date {
+  font-size: 14px;
+  color: #ffe5ec;
+  margin-bottom: 25px;
+}
+
+.countdown-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.time-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  border-radius: 14px;
+  width: 62px;
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-card span {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  display: block;
+}
+
+.time-card p {
+  font-size: 10px;
+  color: #ffe5ec;
+  margin: 4px 0 0 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+/* ===== VIDEOS & MEDIA ===== */
+.video-container {
+  width: 100%;
+  max-width: 320px; 
+  margin: 20px auto;
+  box-sizing: border-box;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.video-container iframe {
+  width: 100%;       
+  height: 320px;
+  border: none;
+  display: block;
+}
+
+.us-photo {
+  width: 150px;          
+  height: 150px;          
+  border-radius: 50%;   
+  object-fit: cover;
+  border: 4px solid #fff; 
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.35); 
+  margin-bottom: 15px;
+}
+
+/* ===== ENVELOPE STYLES ===== */
+#love-letter-section {
+  padding: 20px 0 0 0;
+  text-align: center;
+  width: 100%;
+}
+
+.envelope-wrapper {
+  position: relative;
+  width: 280px;
+  height: 180px;
+  background-color: #f48fb1; 
+  margin: 30px auto;
+  cursor: pointer;
+  transition: 0.5s;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.envelope-wrapper .body-env {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 140px 100px 140px;
+  border-color: transparent transparent #f06292 transparent;
+  z-index: 2;
+}
+
+.envelope-wrapper .flap {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 90px 140px 0 140px;
+  border-color: #f06292 transparent transparent transparent;
+  z-index: 3;
+  transform-origin: top;
+  transition: transform 0.4s ease, z-index 0.2s 0.2s;
+}
+
+.letter {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  width: 250px;
+  height: 150px;
+  background-color: #fff;
+  z-index: 1;
+  transition: all 0.6s ease-in-out;
+  padding: 12px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.letter-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.letter-text {
+  font-size: 11px;
+  color: #333;
+  line-height: 1.3;
+  margin: 0 0 8px 0;
+  direction: ltr; 
+}
+
+.letter-video-wrap {
+  width: 100%;
+  max-width: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.letter-video-wrap iframe {
+  width: 100%;
+  height: 135px;
+  border: none;
+  display: block;
+}
+
+.envelope-wrapper.open .flap {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.envelope-wrapper.open .letter {
+  bottom: 80px; 
+  height: 280px; 
+  z-index: 4;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.click-hint {
+  color: #fff;
+  font-size: 13px;
+  margin-top: 5px;
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+/* ===== 1. FLIP CARDS (OUR PROMISES) ===== */
+.promises-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 80px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner, .flip-card:hover .flip-card-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+.flip-card-front {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-size: 16px;
+}
+
+.flip-card-back {
+  background: white;
+  color: #ff4d6d;
+  transform: rotateX(180deg);
+  font-size: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ===== 2. SPINNING WHEEL ===== */
+.wheel-wrapper {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  margin: 20px auto;
+}
+
+.wheel {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 5px solid white;
+  position: relative;
+  overflow: hidden;
+  transition: transform 4s cubic-bezier(0.1, 0.8, 0.1, 1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  background: conic-gradient(
+    #ff4d6d 0deg 60deg,
+    #ff758f 60deg 120deg,
+    #ff8fa3 120deg 180deg,
+    #ffb3c1 180deg 240deg,
+    #ffccd5 240deg 300deg,
+    #fff0f3 300deg 360deg
+  );
+}
+
+.wheel-arrow {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 20px solid white;
+  z-index: 10;
+}
+
+.wheel-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  z-index: 5;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#wheel-result {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  min-height: 24px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* ===== BOOK VISUALS ===== */
+.book-container {
+  width: 100%;
+  max-width: 340px;
+  margin: 20px auto;
+  perspective: 1200px;
+}
+
+.book-page {
+  background: #ffffff;
+  color: #333333;
+  border-radius: 8px;
+  padding: 20px 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+  border-left: 5px solid #ff4d6d;
+}
+
+.page-header {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #888;
+  text-align: right;
+  font-weight: bold;
+}
+
+.page-title {
+  font-size: 15px;
+  color: #ff4d6d;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.book-video-wrap {
+  width: 100%;
+  height: 260px;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.book-video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.book-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.nav-page-btn {
+  background: #ff4d6d;
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(255, 77, 109, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.nav-page-btn:disabled {
+  background: #ccc;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.page-number-indicator {
+  font-size: 13px;
+  color: #666;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div id="login">
+  <h2>Enter Password ❤️</h2>
+  <input type="password" id="pass" placeholder="Password" onkeydown="if(event.key==='Enter') checkPass()">
+  <button onclick="checkPass()">Enter</button>
+  <p id="error" style="color:white; font-weight: bold; margin-top: 15px;"></p>
+</div>
+
+<audio id="music" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<section id="home">
+  <div class="glass-panel">
+    <img src="us.jpg" alt="Us" class="us-photo">
+    <h1 style="font-size: 26px; margin: 10px 0;">❤️ LOVE YOU ALAA ❤️</h1>
+    <p style="margin-bottom: 25px; opacity: 0.9;">Welcome to our story</p>
+
+    <a class="btn" href="#counter">Time Counter ⏳</a>
+    <a class="btn" href="#message">Love Message 💌</a>
+    <a class="btn" href="#promises">Our Promises 🤝</a>
+    <a class="btn" href="#date-wheel">What to do? 🎡</a>
+    <a class="btn" href="#memories-section">Our Book 📖</a>
+  </div>
+</section>
+
+<section id="counter">
+  <div class="glass-panel">
+    <h2 class="counter-title">Our Time Together ❤️</h2>
+    <p class="since-date">Since: 13 / 1 / 2026</p>
+    
+    <div class="countdown-container">
+        <div class="time-card">
+            <span id="months">0</span>
+            <p>Months</p>
+        </div>
+        <div class="time-card">
+            <span id="days">0</span>
+            <p>Days</p>
+        </div>
+        <div class="time-card">
+            <span id="hours">0</span>
+            <p>Hours</p>
+        </div>
+        <div class="time-card">
+            <span id="minutes">0</span>
+            <p>Minutes</p>
+        </div>
+        <div class="time-card">
+            <span id="seconds">0</span>
+            <p>Seconds</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section id="message">
+  <div class="glass-panel">
+    <h1 style="font-size: 22px; margin-top: 0;">❤️ I LOVE YOU ALAA ❤️</h1>
+    <p style="font-size: 14px; line-height: 1.5; text-align: justify; text-justify: inter-word;">
+      I made this for you, and I hope it’s something that makes you happy and brings you joy.
+      I just want to tell you that I love you so much — you are the most beautiful and amazing person in my life.
+      I pray that God always keeps you in my life and that you stay by my side forever.
+      I wanted to create something for us to remember all our memories together, because like we said, we are truly going to be different from anyone else.
+      I never want you to be upset with me, no matter what happens.
+      And finally, I just want to say that I truly love you and I’m deeply in love with you, my light of life. ❤️I love all of you🥰
+    </p>
+
+    <div class="video-container">
+        <iframe id="main-video-frame" allowfullscreen></iframe>
+    </div>
+
+    <div id="love-letter-section">
+        <div class="envelope-wrapper" onclick="toggleLetter()">
+            <div class="envelope">
+                <div class="flap"></div>
+                <div class="body-env"></div>
+                <div class="letter">
+                    <div class="letter-content">
+                        <p class="letter-text">
+                            My sweetheart Alaa.. ❤️<br>
+                            This is a hidden note inside this letter just to tell you that you are the most beautiful thing that has ever happened in my entire life.. May God keep you by my side forever!
+                        </p>
+                        <div class="letter-video-wrap">
+                            <iframe id="letter-video-frame" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="click-hint">Click on the envelope to open it 💌</p>
+    </div>
+  </div>
+</section>
+
+<section id="promises">
+  <div class="glass-panel">
+    <h1 style="font-size: 24px; margin-top: 0;">Our Promises 🤝❤️</h1>
+    <p style="font-size: 13px; opacity: 0.9; margin-bottom: 20px;">Tap or hover over the cards to see our promises</p>
+    
+    <div class="promises-container">
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">Promise #1 🔒</div>
+          <div class="flip-card-back">I will always stay by your side through every single step, and I will never let you go ❤️</div>
+        </div>
+      </div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">Promise #2 🌸</div>
+          <div class="flip-card-back">No disagreement will ever last between us, and I'll do whatever it takes to make your heart happy 🥰</div>
+        </div>
+      </div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">Promise #3 ✨</div>
+          <div class="flip-card-back">We will always remain unique from anyone else, continuing our beautiful story until the very end 💍</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="date-wheel">
+  <div class="glass-panel">
+    <h1 style="font-size: 24px; margin-top: 0;">What to do today? 🎡</h1>
+    <p style="font-size: 13px; opacity: 0.9; margin-bottom: 15px;">Can't decide what to do? Spin the wheel and let luck choose! 😉</p>
+    
+    <div class="wheel-wrapper">
+      <div class="wheel-arrow"></div>
+      <div class="wheel-center"></div>
+      <div class="wheel" id="wheel"></div>
+    </div>
+    
+    <button class="btn" onclick="spinWheel()" style="margin-top: 10px;">Spin the Wheel 🎲</button>
+    <div id="wheel-result"></div>
+  </div>
+</section>
+
+<section id="memories-section">
+  <div class="glass-panel">
+    <h1 style="font-size: 24px; margin-top:0;">Our Book 📖</h1>
+    <p style="opacity: 0.9; font-size: 14px; margin: 5px 0 15px 0;">Every beautiful moment we share is kept here.. ❤️</p>
+    
+    <div class="book-container">
+      <div class="book-page">
+        <div class="page-header" id="page-hdr">PAGE 1</div>
+        <div class="page-title" id="page-title-text">Write your text here for page 1 ❤️</div>
+        
+        <div class="book-video-wrap">
+          <iframe id="book-page-frame" allowfullscreen></iframe>
+        </div>
+        
+        <div class="book-controls">
+          <button class="nav-page-btn" id="prev-btn" onclick="changePage(-1)" disabled>&lt;</button>
+          <div class="page-number-indicator" id="page-indicator">Page 1 of 5</div>
+          <button class="nav-page-btn" id="next-btn" onclick="changePage(1)">&gt;</button>
+        </div>
+      </div>
+    </div>
+
+    <a href="#home" class="btn" style="margin-top: 25px;">⬆ Back to Top</a>
+  </div>
+</section>
+
+<script>
+const API = "https://script.google.com/macros/s/AKfycbzaMXR3_ZAnQXKazFywnNkz8XXkyEntzndVi0gnWyl57z4cTBT7t57L_jv1iRfDyNTNRA/exec";
+
+// مصفوفة لتخزين روابط الـ 5 صفحات المحملة من الشيت
+let bookPagesUrls = ["", "", "", "", ""];
+let currentPageIndex = 0;
+
+// دالة ذكية ومطورة تقوم باستخراج المعرف (ID) تلقائياً سواء كان الرابط uc أو preview أو view
+function toEmbedUrl(url) {
+  if (!url) return "";
+  let fileId = "";
+  
+  // فحص روابط التنزيل المباشر أو المعاينة لاستخراج الـ ID
+  const reg1 = /\/file\/d\/([^/]+)/;
+  const reg2 = /[?&]id=([^&]+)/;
+  
+  if (reg1.test(url)) {
+    fileId = url.match(reg1)[1];
+  } else if (reg2.test(url)) {
+    fileId = url.match(reg2)[1];
+  }
+  
+  if (fileId) {
+    // إرجاع الرابط بالصيغة الصحيحة تماماً للعرض بداخل الموقع بدون حجب
+    return `https://drive.google.com/file/d/${fileId}/preview?authuser=0&hl=en&mute=1`;
+  }
+  return url;
+}
+
+/* ===== PASSWORD & LOAD DATA ===== */
+async function checkPass(){
+  let pass = document.getElementById("pass").value;
+
+  try {
+    const res = await fetch(`${API}?action=login&password=${pass}`);
+    const data = await res.json();
+    if(data.success){
+      sessionStorage.setItem("token", data.token);
+      document.getElementById("login").style.display="none";
+      document.getElementById("music").play();
+      startHearts();
+      loadVideos();
+    } else {
+      document.getElementById("error").innerText="Wrong Password 💔";
+    }
+  } catch(e) {
+    document.getElementById("error").innerText="Wrong Password 💔";
+  }
+}
+
+async function loadVideos(){
+  const token = sessionStorage.getItem("token");
+  if(!token) return;
+  
+  try {
+    const res = await fetch(`${API}?action=getData&token=${token}`);
+    const result = await res.json();
+    if(result.success){
+      const d = result.data;
+      
+      // 1. الفيديوهات العلوية الرئيسية للرسائل والذكريات
+      if(d["main_video"])   { document.getElementById("main-video-frame").src = toEmbedUrl(d["main_video"]); }
+      if(d["letter_video"]) { document.getElementById("letter-video-frame").src = toEmbedUrl(d["letter_video"]); }
+      
+      // 2. تجميع روابط الـ 5 صفحات المخصصة للكتاب بالترتيب
+      bookPagesUrls[0] = d["book_page1"] ? toEmbedUrl(d["book_page1"]) : "";
+      bookPagesUrls[1] = d["book_page2"] ? toEmbedUrl(d["book_page2"]) : "";
+      bookPagesUrls[2] = d["book_page3"] ? toEmbedUrl(d["book_page3"]) : "";
+      bookPagesUrls[3] = d["book_page4"] ? toEmbedUrl(d["book_page4"]) : "";
+      bookPagesUrls[4] = d["book_page5"] ? toEmbedUrl(d["book_page5"]) : "";
+      
+      // عرض الصفحة الأولى فوراً بعد التحميل
+      renderBookPage();
+    }
+  } catch(e) {
+    console.error("Error loading videos:", e);
+  }
+}
+
+// التحكم في تقليب صفحات الكتاب (من 1 لـ 5)
+function renderBookPage() {
+  document.getElementById("page-hdr").innerText = `PAGE ${currentPageIndex + 1}`;
+  document.getElementById("page-title-text").innerText = `Write your text here for page ${currentPageIndex + 1} ❤️`;
+  document.getElementById("book-page-frame").src = bookPagesUrls[currentPageIndex];
+  document.getElementById("page-indicator").innerText = `Page ${currentPageIndex + 1} of 5`;
+  
+  // تحديث حالة الأزرار
+  document.getElementById("prev-btn").disabled = (currentPageIndex === 0);
+  document.getElementById("next-btn").disabled = (currentPageIndex === 4);
+}
+
+function changePage(direction) {
+  currentPageIndex += direction;
+  if (currentPageIndex < 0) currentPageIndex = 0;
+  if (currentPageIndex > 4) currentPageIndex = 4;
+  renderBookPage();
+}
+
+// الدخول التلقائي في حال تحديث الصفحة وكان التوكن مسجلاً
+if(sessionStorage.getItem("token")){
+  document.getElementById("login").style.display="none";
+  startHearts();
+  loadVideos();
+}
+
+/* ===== TIMER ===== */
+const startDate = new Date("2026-01-13T00:00:00");
+
+function updateCounter() {
+    const now = new Date();
+    let months = now.getMonth() - startDate.getMonth();
+    let days = now.getDate() - startDate.getDate();
+    
+    if (days < 0) {
+        months--;
+        const previousMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+        days += previousMonth;
+    }
+    
+    let years = now.getFullYear() - startDate.getFullYear();
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+    
+    const diffMs = now - new Date(now.getFullYear(), now.getMonth(), now.getDate(), startDate.getHours(), startDate.getMinutes(), startDate.getSeconds());
+    let hours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
+    
+    if (hours < 0) { hours += 24; days--; }
+    if (minutes < 0) { minutes += 60; hours--; }
+    if (seconds < 0) { seconds += 60; minutes--; }
+
+    if(document.getElementById("months")) document.getElementById("months").innerText = months;
+    if(document.getElementById("days")) document.getElementById("days").innerText = days;
+    if(document.getElementById("hours")) document.getElementById("hours").innerText = hours;
+    if(document.getElementById("minutes")) document.getElementById("minutes").innerText = minutes;
+    if(document.getElementById("seconds")) document.getElementById("seconds").innerText = seconds;
+}
+setInterval(updateCounter, 1000);
+updateCounter();
+
+/* ===== HEARTS ===== */
+function startHearts(){
+  setInterval(() => {
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = Math.random()*20 + 10 + "px";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),5000);
+  },300);
+}
+
+/* ===== TOGGLE LETTER ===== */
+function toggleLetter() {
+    const envelope = document.querySelector('.envelope-wrapper');
+    envelope.classList.toggle('open');
+}
+
+/* ===== SPINNING WHEEL LOGIC ===== */
+const options = [
+  "Go to the cinema 🎬",
+  "Eat ice cream together 🍦",
+  "Walk by the Nile 🌊",
+  "Have a long video call 📞❤️",
+  "Order food we love 🍔",
+  "Listen to a full album together 🎵"
+];
+let currentDegree = 0;
+let isSpinning = false;
+
+function spinWheel() {
+  if (isSpinning) return;
+  isSpinning = true;
+  const resultDiv = document.getElementById("wheel-result");
+  const wheel = document.getElementById("wheel");
+  resultDiv.innerText = "Spinning the wheel... 🤔🎲";
+  
+  const randomExtra = Math.floor(Math.random() * 360);
+  const totalSpin = 1800 + randomExtra; 
+  currentDegree += totalSpin;
+  wheel.style.transform = `rotate(${currentDegree}deg)`;
+  
+  setTimeout(() => {
+    isSpinning = false;
+    const normalizedDegree = (360 - (currentDegree % 360)) % 360;
+    const optionIndex = Math.floor(normalizedDegree / 60);
+    resultDiv.innerText = `Today's plan: ${options[optionIndex]} ✨❤️`;
+  }, 4000);
+}
+</script>
+</body>
+</html>
