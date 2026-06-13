@@ -288,37 +288,3 @@ if (sessionStorage.getItem("token")) {
   loadVideos();
 }
 applyTranslations();
-
-document.getElementById('start-btn').addEventListener('click', function() {
-    this.style.display = 'none';
-    const content = document.getElementById('celebration-content');
-    content.classList.remove('hidden');
-
-    const container = document.querySelector('.fireworks-container');
-    const colors = ['#ff416c', '#ff4b2b', '#ffec3d', '#3df5ff', '#70ff3d'];
-    
-    const createFirework = () => {
-        for (let i = 0; i < 50; i++) {
-            const firework = document.createElement('div');
-            firework.classList.add('firework');
-            firework.style.left = Math.random() * 100 + 'vw';
-            firework.style.top = Math.random() * 100 + 'vh';
-            firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            firework.style.setProperty('--x', (Math.random() - 0.5) * 300 + 'px');
-            firework.style.setProperty('--y', (Math.random() - 0.5) * 300 + 'px');
-            container.appendChild(firework);
-            setTimeout(() => firework.remove(), 1000);
-        }
-    };
-
-    const fireworkInterval = setInterval(createFirework, 500);
-
-    setTimeout(function() {
-        clearInterval(fireworkInterval);
-        const overlay = document.getElementById('surprise-overlay');
-        overlay.style.opacity = '0';
-        setTimeout(() => {
-            overlay.remove();
-        }, 1000);
-    }, 7000); 
-});
