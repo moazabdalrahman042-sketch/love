@@ -1,4 +1,3 @@
-
 const API = "https://script.google.com/macros/s/AKfycbzaMXR3_ZAnQXKazFywnNkz8XXkyEntzndVi0gnWyl57z4cTBT7t57L_jv1iRfDyNTNRA/exec";
 
 let bCurrentPage = 0;
