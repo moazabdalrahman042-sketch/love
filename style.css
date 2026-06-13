@@ -327,16 +327,4 @@ document.getElementById('start-btn').addEventListener('click', function() {
             container.appendChild(firework);
             setTimeout(() => firework.remove(), 1000);
         }
-    };
-
-    const fireworkInterval = setInterval(createFirework, 500);
-
-    setTimeout(function() {
-        clearInterval(fireworkInterval);
-        const overlay = document.getElementById('surprise-overlay');
-        overlay.style.opacity = '0';
-        setTimeout(() => {
-            overlay.remove();
-        }, 1000);
-    }, 7000); 
-});
+   
