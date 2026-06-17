@@ -688,6 +688,9 @@ section {
   <source src="song.mp3" type="audio/mpeg">
 </audio>
 
+<!-- SNOW AUDIO -->
+<audio id="snow-music" loop></audio>
+
 <!-- SNOW TRANSITION -->
 <div id="snow-transition"></div>
 
@@ -1202,7 +1205,14 @@ async function loadVideos() {
       if (d["book_page3"])   document.getElementById("bp3-video").src = toEmbedUrl(d["book_page3"]);
       if (d["book_page4"])   document.getElementById("bp4-video").src = toEmbedUrl(d["book_page4"]);
       if (d["book_page5"])   document.getElementById("bp5-video").src = toEmbedUrl(d["book_page5"]);
-      // Snow photos from sheet
+      // Snow song
+      if (d["song.mp3"]) {
+        const reg1 = /\/file\/d\/([^/]+)/;
+        const fileId = d["song.mp3"].match(reg1)?.[1];
+        if (fileId) {
+          document.getElementById("snow-music").src = "https://drive.google.com/uc?export=download&id=" + fileId;
+        }
+      }
       for (let i = 1; i <= 5; i++) {
         const key = "alaa" + i + ".jpg";
         const url = d[key];
@@ -1238,6 +1248,8 @@ function openSnowWorld() {
     trans.classList.remove("active");
     startSnowCanvas();
     setTimeout(() => startTypewriter(), 800);
+    const snowMusic = document.getElementById("snow-music");
+    if (snowMusic.src) { snowMusic.currentTime = 0; snowMusic.play().catch(()=>{}); }
   }, 600);
 }
 
@@ -1250,6 +1262,7 @@ function closeSnowWorld() {
     snowWorldOpen = false;
     stopSnowCanvas();
     clearTypewriter();
+    document.getElementById("snow-music").pause();
     trans.classList.remove("active");
   }, 600);
 }
