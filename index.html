@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -151,6 +152,60 @@ section {
   grid-column: 1 / -1;
 }
 
+/* ===== SUNFLOWER BUTTON ===== */
+.sunflower-btn-wrap {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+}
+.sunflower-portal-btn {
+  background: linear-gradient(135deg, #fff9c4, #ffe082, #ffca28);
+  border: none;
+  border-radius: 22px;
+  padding: 14px 24px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 20px rgba(255,200,0,0.4);
+  transition: all 0.3s ease;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.sunflower-portal-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.4) 0%, transparent 70%);
+  pointer-events: none;
+}
+.sunflower-portal-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(255,200,0,0.6);
+}
+.sunflower-portal-btn:active { transform: scale(0.97); }
+.sunflower-icon { font-size: 36px; animation: sunSpin 8s linear infinite; display: block; line-height: 1; }
+@keyframes sunSpin {
+  0% { filter: drop-shadow(0 0 4px rgba(255,200,0,0.6)); }
+  50% { filter: drop-shadow(0 0 12px rgba(255,200,0,1)); }
+  100% { filter: drop-shadow(0 0 4px rgba(255,200,0,0.6)); }
+}
+.sunflower-label {
+  font-size: 13px;
+  font-weight: bold;
+  color: #5d3a00;
+  text-align: center;
+  line-height: 1.3;
+}
+.sunflower-sublabel {
+  font-size: 10px;
+  color: #8b5e00;
+  opacity: 0.85;
+}
+
 /* ===== ENVELOPE ===== */
 #love-letter-section { padding: 20px 0 0 0; text-align: center; width: 100%; }
 .envelope-wrapper {
@@ -229,7 +284,6 @@ section {
   position: relative; margin: 20px auto;
 }
 
-/* الغلاف */
 .book-cover {
   width: 300px; height: 430px; position: absolute; top: 0; left: 0;
   border-radius: 4px 14px 14px 4px;
@@ -247,7 +301,6 @@ section {
 .cover-title-text { font-size: 16px; color: #ffe0ec; text-align: center; padding: 0 20px; line-height: 1.6; text-shadow: 0 2px 8px rgba(0,0,0,0.3); font-weight: bold; }
 .cover-hint-text { position: absolute; bottom: 18px; font-size: 11px; color: rgba(255,224,236,0.7); letter-spacing: 2px; text-transform: uppercase; }
 
-/* صفحات الكتاب */
 .book-pages { width: 300px; height: 430px; position: absolute; top: 0; left: 0; }
 
 .bpage {
@@ -258,7 +311,6 @@ section {
   overflow: hidden;
 }
 
-/* FIX: الصفحة 1 لازم تكون فوق الكل = أعلى z-index */
 #bpage1 { z-index: 16; background: #fffdf5; }
 #bpage2 { z-index: 15; background: #fdf5ff; }
 #bpage3 { z-index: 14; background: #f5f8ff; }
@@ -277,7 +329,6 @@ section {
 .bpage-divider { width: 50px; height: 1px; background: linear-gradient(90deg, transparent, #e8a0b4, transparent); margin: 5px auto 10px; }
 .bpage-text { font-size: 12.5px; color: #444; text-align: justify; line-height: 1.5; margin-bottom: 8px; width: 100%; overflow-y: auto; max-height: 200px; }
 
-/* الفيديو داخل الكتاب */
 .bpage-video {
   width: 100%; border-radius: 10px; overflow: hidden;
   background: #111; margin-top: auto; margin-bottom: 5px;
@@ -285,7 +336,6 @@ section {
 }
 .bpage-video iframe { width: 100%; height: 195px; border: none; display: block; }
 
-/* أزرار التقليب */
 .bpage-next {
   position: absolute; bottom: 14px; right: 14px;
   background: linear-gradient(135deg, #e8789e, #c0446e);
@@ -319,6 +369,306 @@ section {
   width: 100px; height: 100px; border-radius: 50%; object-fit: cover;
   border: 3px solid #ff4d6d; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-bottom: 8px;
 }
+
+/* ===== SNOW WORLD OVERLAY ===== */
+#snow-world {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: linear-gradient(180deg, #0a1628 0%, #0d2137 40%, #1a3a5c 100%);
+}
+#snow-world.visible { display: flex; }
+
+/* Back arrow */
+.snow-back-btn {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 2100;
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  color: white;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.snow-back-btn:hover { background: rgba(255,255,255,0.3); transform: scale(1.1); }
+
+/* Snowflakes canvas */
+#snowCanvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2001;
+}
+
+/* Snow world content */
+.snow-content {
+  position: relative;
+  z-index: 2050;
+  width: 100%;
+  max-width: 400px;
+  padding: 80px 20px 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Snow house */
+.snow-house {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.snow-house-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #e0f4ff;
+  text-shadow: 0 0 20px rgba(150,220,255,0.8);
+  text-align: center;
+  letter-spacing: 1px;
+}
+.snow-house-subtitle {
+  font-size: 13px;
+  color: rgba(200,235,255,0.7);
+  text-align: center;
+}
+
+/* Candle */
+.candle-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 10px 0 5px;
+}
+.candle-body {
+  width: 22px; height: 60px;
+  background: linear-gradient(180deg, #fffde7, #fff9c4, #f9d84b);
+  border-radius: 4px 4px 2px 2px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(255,220,80,0.3);
+}
+.candle-body::after {
+  content: '';
+  position: absolute;
+  top: -8px; left: 50%;
+  transform: translateX(-50%);
+  width: 2px; height: 8px;
+  background: #555;
+  border-radius: 1px;
+}
+.candle-flame {
+  width: 14px; height: 22px;
+  background: radial-gradient(ellipse at 50% 80%, #fff 0%, #ffe082 30%, #ff9800 70%, transparent 100%);
+  border-radius: 50% 50% 30% 30%;
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: flicker 1.5s ease-in-out infinite;
+  filter: blur(0.5px);
+}
+@keyframes flicker {
+  0%, 100% { transform: translateX(-50%) scaleY(1) scaleX(1); opacity: 1; }
+  25% { transform: translateX(-50%) scaleY(1.08) scaleX(0.92); opacity: 0.95; }
+  50% { transform: translateX(-50%) scaleY(0.94) scaleX(1.06); opacity: 1; }
+  75% { transform: translateX(-50%) scaleY(1.05) scaleX(0.96); opacity: 0.97; }
+}
+.candle-glow {
+  width: 60px; height: 60px;
+  background: radial-gradient(circle, rgba(255,200,50,0.25) 0%, transparent 70%);
+  position: absolute;
+  top: -45px; left: 50%;
+  transform: translateX(-50%);
+  animation: glowPulse 1.5s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.2); }
+}
+
+/* Typewriter message */
+.snow-message-box {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 20px 22px;
+  width: 100%;
+  box-sizing: border-box;
+  backdrop-filter: blur(8px);
+}
+.snow-message-title {
+  font-size: 13px;
+  color: rgba(200,235,255,0.6);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.snow-typewriter {
+  font-size: 15px;
+  color: #e8f4ff;
+  line-height: 1.7;
+  min-height: 80px;
+  text-align: center;
+}
+.snow-typewriter .cursor {
+  display: inline-block;
+  width: 2px; height: 18px;
+  background: #7dd3fc;
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* Snow photo album */
+.snow-album-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e0f4ff;
+  text-shadow: 0 0 15px rgba(150,220,255,0.6);
+  text-align: center;
+}
+.snow-album-subtitle {
+  font-size: 12px;
+  color: rgba(200,235,255,0.6);
+  margin-top: 4px;
+  text-align: center;
+}
+
+.snow-album-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.snow-photo-card {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.snow-photo-card:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 8px 30px rgba(100,200,255,0.25); border-color: rgba(150,220,255,0.4); }
+.snow-photo-card img {
+  width: 100%; aspect-ratio: 1; object-fit: cover; display: block;
+  transition: transform 0.4s ease;
+}
+.snow-photo-card:hover img { transform: scale(1.05); }
+
+.snow-photo-card .photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(10,22,40,0.85) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.snow-photo-card:hover .photo-overlay { opacity: 1; }
+.photo-overlay span {
+  font-size: 11px;
+  color: #e0f4ff;
+  font-weight: bold;
+}
+
+/* Wide 5th photo */
+.snow-photo-card.wide {
+  grid-column: 1 / -1;
+}
+.snow-photo-card.wide img { aspect-ratio: 16/9; }
+
+/* Snow photo overlay (lightbox) */
+#snow-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(5,12,25,0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  backdrop-filter: blur(8px);
+}
+#snow-lightbox.open { display: flex; }
+#snow-lightbox img {
+  max-width: 92vw;
+  max-height: 75vh;
+  border-radius: 16px;
+  border: 2px solid rgba(150,220,255,0.3);
+  box-shadow: 0 0 40px rgba(100,180,255,0.2);
+  object-fit: contain;
+}
+#snow-lightbox .lb-caption {
+  color: #a8d8f0;
+  font-size: 14px;
+  text-align: center;
+  font-style: italic;
+}
+#snow-lightbox .lb-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: rgba(255,255,255,0.15);
+  border: none; color: white;
+  width: 40px; height: 40px; border-radius: 50%;
+  font-size: 20px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Snow footer hearts */
+.snow-footer {
+  text-align: center;
+  color: rgba(200,235,255,0.5);
+  font-size: 13px;
+  padding-bottom: 30px;
+}
+.snow-footer .big-heart {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 8px;
+  animation: heartBeat 1.5s ease-in-out infinite;
+}
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* Transition overlay */
+#snow-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 1999;
+  background: radial-gradient(circle at center, #a8d8f0, #4a90b8, #0a1628);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+#snow-transition.active { opacity: 1; pointer-events: all; }
 </style>
 </head>
 
@@ -338,6 +688,82 @@ section {
 <audio id="music" loop>
   <source src="song.mp3" type="audio/mpeg">
 </audio>
+
+<!-- SNOW TRANSITION -->
+<div id="snow-transition"></div>
+
+<!-- SNOW WORLD -->
+<div id="snow-world">
+  <button class="snow-back-btn" onclick="closeSnowWorld()" title="Back">&#8592;</button>
+  <canvas id="snowCanvas"></canvas>
+
+  <div class="snow-content">
+
+    <!-- Title -->
+    <div class="snow-house">
+      <div style="font-size:48px; margin-bottom:4px;">🏔️❄️</div>
+      <div class="snow-house-title" id="sw-title">Our Snow City ✨</div>
+      <div class="snow-house-subtitle" id="sw-subtitle">A magical moment we'll never forget</div>
+    </div>
+
+    <!-- Candle -->
+    <div class="candle-wrap">
+      <div class="candle-body" style="position:relative;">
+        <div class="candle-flame"></div>
+        <div class="candle-glow"></div>
+      </div>
+    </div>
+
+    <!-- Typewriter message -->
+    <div class="snow-message-box">
+      <div class="snow-message-title" id="sw-msg-title">A message written in snow ❄️</div>
+      <div class="snow-typewriter" id="sw-typewriter"><span class="cursor"></span></div>
+    </div>
+
+    <!-- Album -->
+    <div style="width:100%">
+      <div class="snow-album-title" id="sw-album-title">📸 Our Snow City Album</div>
+      <div class="snow-album-subtitle" id="sw-album-subtitle">Tap any photo to open it ✨</div>
+
+      <div class="snow-album-grid">
+        <div class="snow-photo-card" onclick="openLightbox('alaa1.jpg', '❄️ Snow City Memory 1')">
+          <img src="alaa1.jpg" alt="Snow Memory 1" onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#2d6a8a)'; this.style.minHeight='120px';">
+          <div class="photo-overlay"><span>Memory 1 ❄️</span></div>
+        </div>
+        <div class="snow-photo-card" onclick="openLightbox('alaa2.jpg', '❄️ Snow City Memory 2')">
+          <img src="alaa2.jpg" alt="Snow Memory 2" onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#2d6a8a)'; this.style.minHeight='120px';">
+          <div class="photo-overlay"><span>Memory 2 ❄️</span></div>
+        </div>
+        <div class="snow-photo-card" onclick="openLightbox('alaa3.jpg', '❄️ Snow City Memory 3')">
+          <img src="alaa3.jpg" alt="Snow Memory 3" onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#2d6a8a)'; this.style.minHeight='120px';">
+          <div class="photo-overlay"><span>Memory 3 ❄️</span></div>
+        </div>
+        <div class="snow-photo-card" onclick="openLightbox('alaa4.jpg', '❄️ Snow City Memory 4')">
+          <img src="alaa4.jpg" alt="Snow Memory 4" onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#2d6a8a)'; this.style.minHeight='120px';">
+          <div class="photo-overlay"><span>Memory 4 ❄️</span></div>
+        </div>
+        <div class="snow-photo-card wide" onclick="openLightbox('alaa5.jpg', '❄️ Snow City Memory 5')">
+          <img src="alaa5.jpg" alt="Snow Memory 5" onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#2d6a8a)'; this.style.minHeight='120px';">
+          <div class="photo-overlay"><span>Memory 5 ❄️</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="snow-footer">
+      <span class="big-heart">🤍</span>
+      <span id="sw-footer">Every snowflake reminded me of you</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div id="snow-lightbox">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-caption" id="lb-cap"></div>
+</div>
 
 <!-- HOME -->
 <section id="home">
@@ -367,6 +793,16 @@ section {
         <span class="btn-icon">📖</span>
         <span class="btn-label">Our Book</span>
       </a>
+
+      <!-- SUNFLOWER PORTAL -->
+      <div class="sunflower-btn-wrap">
+        <button class="sunflower-portal-btn" onclick="openSnowWorld()" id="sunflower-portal-btn">
+          <span class="sunflower-icon">🌻</span>
+          <span class="sunflower-label" id="sw-btn-label">Our Snow City ❄️</span>
+          <span class="sunflower-sublabel" id="sw-btn-sub">Touch the sunflower to enter</span>
+        </button>
+      </div>
+
     </div>
   </div>
 </section>
@@ -475,8 +911,6 @@ section {
       <div class="book-back-cover"></div>
 
       <div class="book-pages">
-        <!-- الصفحات مرتبة من 6 لـ 1 في الـ HTML عشان الـ z-index بـ ID يشتغل صح -->
-
         <div class="bpage" id="bpage6">
           <div class="bpage-inner">
             <span class="bpage-num">Page 6</span>
@@ -544,7 +978,7 @@ section {
           <button class="bpage-next" onclick="bNext(1)">›</button>
         </div>
 
-      </div><!-- end book-pages -->
+      </div>
 
       <div class="book-cover" id="bookCover" onclick="openBook()">
         <svg class="cover-svg" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
@@ -568,7 +1002,7 @@ section {
         <p class="cover-hint-text" id="text-cover-hint">Tap the cover to open 🐚✨</p>
       </div>
 
-    </div><!-- end book-scene -->
+    </div>
 
     <p class="book-indicator" id="book-indicator">Tap the cover to open</p>
     <button class="book-close-btn" onclick="closeBook()" id="text-close-book-btn">✕ Close Book</button>
@@ -603,7 +1037,16 @@ const translations = {
     coverHint: "Tap the cover to open 🐚✨", closeBook: "✕ Close Book",
     storyTitle: "A Day to Remember ✨❤️",
     storyText: "On Monday, May 25th, 2026, I went out with the most beautiful girl in the world—my girlfriend—to meet up, see each other, and enjoy our time together. We went Downtown, walked a lot, and grabbed a Pepsi. After that, we sat down for a bit, and I got her a beautiful red rose that looked just as lovely as her. Then, we ordered an Uber and headed to Zamalek. That was the best part because we went to the Zamalek Corniche; the weather was amazing, we took so many videos and pictures, and we talked sweetly to each other. She even teared up out of pure emotion when she told me 'I love you.' I told her 'I love you' back more than ten times, and I was so happy and completely relaxed. In the end, I walked her right to her doorstep because I wanted to make sure she was safe, and then I went home. We had such a wonderful time.",
-    vidTitle: "Our Video Memory"
+    vidTitle: "Our Video Memory",
+    swBtnLabel: "Our Snow City ❄️",
+    swBtnSub: "Touch the sunflower to enter",
+    swTitle: "Our Snow City ✨",
+    swSubtitle: "A magical moment we'll never forget",
+    swMsgTitle: "A message written in snow ❄️",
+    swTypeMsg: "In the heart of the snow and the cold, you were the warmest thing I've ever felt. That day in Snow City with you was like living inside a dream I never wanted to wake up from. Every snowflake that fell reminded me how rare and beautiful you are. ❤️",
+    swAlbumTitle: "📸 Our Snow City Album",
+    swAlbumSub: "Tap any photo to open it ✨",
+    swFooter: "Every snowflake reminded me of you"
   },
   it: {
     loginTitle: "Inserisci la password ❤️", loginBtn: "Entra", wrongPass: "Password errata 💔",
@@ -624,7 +1067,16 @@ const translations = {
     coverHint: "Tocca la copertina per aprire 🐚✨", closeBook: "✕ Chiudi il libro",
     storyTitle: "Un giorno da ricordare ✨❤️",
     storyText: "Lunedì 25 maggio 2026 sono uscito con la ragazza più bella del mondo, la mia fidanzata, per incontrarci, vederci e godere del tempo insieme. Siamo andati in Centro, abbiamo camminato molto e preso una Pepsi. Dopodiché ci siamo seduti per un po' e le ho preso una bellissima rosa rossa che era incantevole proprio come lei. Poi abbiamo ordinato un Uber e ci siamo diretti a Zamalek. Questa è stata la parte migliore perché siamo andati al Zamalek Corniche; il tempo era fantastico, abbiamo fatto tantissimi video e foto e ci siamo parlati dolcemente. Le sono persino venute le lacrime agli occhi per la pura emozione quando mi ha detto 'Ti amo'. Le ho risposto 'Ti amo' a mia volta più di dieci volte, ed ero così felice e completamente rilassato. Alla fine l'ho accompagnata proprio davanti alla porta di casa perché volevo assicurarmi che fosse al sicuro, e poi sono tornato a casa. Abbiamo passato un tempo meraviglioso.",
-    vidTitle: "Il nostro video ricordo"
+    vidTitle: "Il nostro video ricordo",
+    swBtnLabel: "La nostra Snow City ❄️",
+    swBtnSub: "Tocca il girasole per entrare",
+    swTitle: "La nostra Snow City ✨",
+    swSubtitle: "Un momento magico che non dimenticheremo mai",
+    swMsgTitle: "Un messaggio scritto nella neve ❄️",
+    swTypeMsg: "Nel cuore della neve e del freddo, eri la cosa più calda che abbia mai sentito. Quel giorno a Snow City con te era come vivere dentro un sogno da cui non volevo mai svegliarmi. Ogni fiocco di neve che cadeva mi ricordava quanto sei rara e bella. ❤️",
+    swAlbumTitle: "📸 Il nostro album Snow City",
+    swAlbumSub: "Tocca qualsiasi foto per aprirla ✨",
+    swFooter: "Ogni fiocco di neve mi ricordava di te"
   }
 };
 
@@ -633,26 +1085,16 @@ const wheelOptions = {
   it: ["Andare al cinema 🎬", "Mangiare un gelato insieme 🍦", "Camminare lungo il Nilo 🌊", "Fare una lunga videochiamata 📞❤️", "Ordinare cibo che amiamo 🍔", "Ascoltare un intero album insieme 🎵"]
 };
 
-/* ===== FIX: toEmbedUrl تدعم Google Drive + YouTube ===== */
 function toEmbedUrl(url) {
   if (!url) return "";
-
-  // YouTube
   const ytReg = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s]+)/;
-  if (ytReg.test(url)) {
-    return "https://www.youtube.com/embed/" + url.match(ytReg)[1];
-  }
-
-  // Google Drive
+  if (ytReg.test(url)) return "https://www.youtube.com/embed/" + url.match(ytReg)[1];
   const reg1 = /\/file\/d\/([^/]+)/;
   const reg2 = /[?&]id=([^&]+)/;
   let fileId = "";
-  if (reg1.test(url)) { fileId = url.match(reg1)[1]; }
-  else if (reg2.test(url)) { fileId = url.match(reg2)[1]; }
-  if (fileId) {
-    return "https://drive.google.com/file/d/" + fileId + "/preview?authuser=0&hl=en";
-  }
-
+  if (reg1.test(url)) fileId = url.match(reg1)[1];
+  else if (reg2.test(url)) fileId = url.match(reg2)[1];
+  if (fileId) return "https://drive.google.com/file/d/" + fileId + "/preview?authuser=0&hl=en";
   return url;
 }
 
@@ -703,6 +1145,15 @@ function applyTranslations() {
   for (let i = 1; i <= 5; i++) {
     document.getElementById("lbl-vid" + i + "-t").innerText = lang.vidTitle + " " + i + " ❤️";
   }
+  // Snow world translations
+  document.getElementById("sw-btn-label").innerText = lang.swBtnLabel;
+  document.getElementById("sw-btn-sub").innerText = lang.swBtnSub;
+  document.getElementById("sw-title").innerText = lang.swTitle;
+  document.getElementById("sw-subtitle").innerText = lang.swSubtitle;
+  document.getElementById("sw-msg-title").innerText = lang.swMsgTitle;
+  document.getElementById("sw-album-title").innerText = lang.swAlbumTitle;
+  document.getElementById("sw-album-subtitle").innerText = lang.swAlbumSub;
+  document.getElementById("sw-footer").innerText = lang.swFooter;
   updateBookIndicator();
 }
 
@@ -741,11 +1192,120 @@ async function loadVideos() {
       if (d["book_page3"])   document.getElementById("bp3-video").src = toEmbedUrl(d["book_page3"]);
       if (d["book_page4"])   document.getElementById("bp4-video").src = toEmbedUrl(d["book_page4"]);
       if (d["book_page5"])   document.getElementById("bp5-video").src = toEmbedUrl(d["book_page5"]);
-      // الصورة بتتحمل من us.jpg في الـ folder مباشرة
     }
   } catch (e) {
     console.error("Error loading data:", e);
   }
+}
+
+/* ===== SNOW WORLD ===== */
+let snowAnimId = null;
+let typewriterTimeout = null;
+let snowWorldOpen = false;
+
+function openSnowWorld() {
+  const trans = document.getElementById("snow-transition");
+  trans.classList.add("active");
+  setTimeout(() => {
+    document.getElementById("snow-world").classList.add("visible");
+    document.body.style.overflow = "hidden";
+    snowWorldOpen = true;
+    trans.classList.remove("active");
+    startSnowCanvas();
+    setTimeout(() => startTypewriter(), 800);
+  }, 600);
+}
+
+function closeSnowWorld() {
+  const trans = document.getElementById("snow-transition");
+  trans.classList.add("active");
+  setTimeout(() => {
+    document.getElementById("snow-world").classList.remove("visible");
+    document.body.style.overflow = "";
+    snowWorldOpen = false;
+    stopSnowCanvas();
+    clearTypewriter();
+    trans.classList.remove("active");
+  }, 600);
+}
+
+/* Snow canvas */
+function startSnowCanvas() {
+  const canvas = document.getElementById("snowCanvas");
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const flakes = Array.from({length: 120}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 3 + 1,
+    speed: Math.random() * 1.2 + 0.3,
+    drift: Math.random() * 0.5 - 0.25,
+    opacity: Math.random() * 0.6 + 0.3
+  }));
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    flakes.forEach(f => {
+      ctx.beginPath();
+      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${f.opacity})`;
+      ctx.fill();
+      f.y += f.speed;
+      f.x += f.drift;
+      if (f.y > canvas.height) { f.y = -5; f.x = Math.random() * canvas.width; }
+      if (f.x > canvas.width) f.x = 0;
+      if (f.x < 0) f.x = canvas.width;
+    });
+    snowAnimId = requestAnimationFrame(draw);
+  }
+  draw();
+
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+}
+
+function stopSnowCanvas() {
+  if (snowAnimId) { cancelAnimationFrame(snowAnimId); snowAnimId = null; }
+  const canvas = document.getElementById("snowCanvas");
+  const ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+/* Typewriter */
+function startTypewriter() {
+  const el = document.getElementById("sw-typewriter");
+  const msg = translations[currentLang].swTypeMsg;
+  el.innerHTML = '<span class="cursor"></span>';
+  let i = 0;
+  function type() {
+    if (i < msg.length) {
+      el.innerHTML = msg.substring(0, i + 1) + '<span class="cursor"></span>';
+      i++;
+      typewriterTimeout = setTimeout(type, 38);
+    } else {
+      el.innerHTML = msg + '<span class="cursor"></span>';
+    }
+  }
+  type();
+}
+
+function clearTypewriter() {
+  if (typewriterTimeout) { clearTimeout(typewriterTimeout); typewriterTimeout = null; }
+  document.getElementById("sw-typewriter").innerHTML = '<span class="cursor"></span>';
+}
+
+/* Lightbox */
+function openLightbox(src, caption) {
+  document.getElementById("lb-img").src = src;
+  document.getElementById("lb-cap").innerText = caption;
+  document.getElementById("snow-lightbox").classList.add("open");
+}
+function closeLightbox() {
+  document.getElementById("snow-lightbox").classList.remove("open");
 }
 
 /* ===== BOOK ENGINE ===== */
@@ -757,9 +1317,7 @@ function openBook() {
 }
 
 function closeBook() {
-  for (let i = 1; i <= 6; i++) {
-    document.getElementById("bpage" + i).classList.remove("turned");
-  }
+  for (let i = 1; i <= 6; i++) document.getElementById("bpage" + i).classList.remove("turned");
   document.getElementById("bookCover").classList.remove("open");
   bCurrentPage = 0;
   updateBookIndicator();
@@ -792,7 +1350,6 @@ function updateBookIndicator() {
   }
 }
 
-/* Swipe support */
 let bTouchX = 0;
 document.querySelector('.book-scene').addEventListener('touchstart', e => { bTouchX = e.touches[0].clientX; });
 document.querySelector('.book-scene').addEventListener('touchend', e => {
