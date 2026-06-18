@@ -205,6 +205,79 @@ section {
   opacity: 0.85;
 }
 
+/* ===== MUSIC TOGGLE BUTTON ===== */
+.music-btn-wrap {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+}
+.music-toggle-btn {
+  background: linear-gradient(135deg, #ffe0e6, #ffc2d1, #ff8fab);
+  border: none;
+  border-radius: 22px;
+  padding: 14px 24px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 20px rgba(255,100,130,0.4);
+  transition: all 0.3s ease;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.music-toggle-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.4) 0%, transparent 70%);
+  pointer-events: none;
+}
+.music-toggle-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(255,100,130,0.6);
+}
+.music-toggle-btn:active { transform: scale(0.97); }
+.music-toggle-btn.playing {
+  background: linear-gradient(135deg, #c2f0c2, #a8e6a8, #7dd87d);
+  box-shadow: 0 4px 20px rgba(100,200,100,0.4);
+}
+.music-toggle-btn.playing:hover {
+  box-shadow: 0 8px 30px rgba(100,200,100,0.6);
+}
+.music-icon {
+  font-size: 32px;
+  display: block;
+  line-height: 1;
+  animation: musicPulse 2s ease-in-out infinite;
+}
+@keyframes musicPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px rgba(255,100,130,0.6)); }
+  50% { transform: scale(1.1); filter: drop-shadow(0 0 12px rgba(255,100,130,1)); }
+}
+.music-toggle-btn.playing .music-icon {
+  animation: musicBounce 1s ease-in-out infinite;
+}
+@keyframes musicBounce {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.15) rotate(-5deg); }
+  75% { transform: scale(1.15) rotate(5deg); }
+}
+.music-label {
+  font-size: 13px;
+  font-weight: bold;
+  color: #8b1e3f;
+  text-align: center;
+  line-height: 1.3;
+}
+.music-sublabel {
+  font-size: 10px;
+  color: #a04060;
+  opacity: 0.85;
+}
+
 /* ===== ENVELOPE ===== */
 #love-letter-section { padding: 20px 0 0 0; text-align: center; width: 100%; }
 .envelope-wrapper {
@@ -748,6 +821,26 @@ section {
           <img src="alaa5.jpg" alt="Snow Memory 5" onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#2d6a8a)'; this.style.minHeight='120px';">
           <div class="photo-overlay"><span>Memory 5 ❄️</span></div>
         </div>
+        <div class="snow-photo-card" onclick="openLightbox('alaa6.jpg', '❄️ Snow City Memory 6')">
+          <img src="alaa6.jpg" alt="Snow Memory 6" onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#2d6a8a)'; this.style.minHeight='120px';">
+          <div class="photo-overlay"><span>Memory 6 ❄️</span></div>
+        </div>
+        <div class="snow-photo-card" onclick="openLightbox('alaa7.jpg', '❄️ Snow City Memory 7')">
+          <img src="alaa7.jpg" alt="Snow Memory 7" onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#2d6a8a)'; this.style.minHeight='120px';">
+          <div class="photo-overlay"><span>Memory 7 ❄️</span></div>
+        </div>
+        <div class="snow-photo-card" onclick="openLightbox('alaa8.jpg', '❄️ Snow City Memory 8')">
+          <img src="alaa8.jpg" alt="Snow Memory 8" onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#2d6a8a)'; this.style.minHeight='120px';">
+          <div class="photo-overlay"><span>Memory 8 ❄️</span></div>
+        </div>
+        <div class="snow-photo-card" onclick="openLightbox('alaa9.jpg', '❄️ Snow City Memory 9')">
+          <img src="alaa9.jpg" alt="Snow Memory 9" onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#2d6a8a)'; this.style.minHeight='120px';">
+          <div class="photo-overlay"><span>Memory 9 ❄️</span></div>
+        </div>
+        <div class="snow-photo-card wide" onclick="openLightbox('alaa10.jpg', '❄️ Snow City Memory 10')">
+          <img src="alaa10.jpg" alt="Snow Memory 10" onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#2d6a8a)'; this.style.minHeight='120px';">
+          <div class="photo-overlay"><span>Memory 10 ❄️</span></div>
+        </div>
       </div>
     </div>
 
@@ -802,6 +895,15 @@ section {
           <span class="sunflower-icon">🌻</span>
           <span class="sunflower-label" id="sw-btn-label">Our Snow City ❄️</span>
           <span class="sunflower-sublabel" id="sw-btn-sub">Touch the sunflower to enter</span>
+        </button>
+      </div>
+
+      <!-- MUSIC TOGGLE -->
+      <div class="music-btn-wrap">
+        <button class="music-toggle-btn" onclick="toggleMusic()" id="music-toggle-btn">
+          <span class="music-icon" id="music-icon">🎵</span>
+          <span class="music-label" id="music-label">Play Our Song</span>
+          <span class="music-sublabel" id="music-sublabel">Bahaa Sultan - Sawa Sawa</span>
         </button>
       </div>
 
@@ -1048,7 +1150,10 @@ const translations = {
     swTypeMsg: "In the heart of the snow and the cold, you were the warmest thing I've ever felt. That day in Snow City with you was like living inside a dream I never wanted to wake up from. Every snowflake that fell reminded me how rare and beautiful you are. ❤️",
     swAlbumTitle: "📸 Our Snow City Album",
     swAlbumSub: "Tap any photo to open it ✨",
-    swFooter: "Every snowflake reminded me of you"
+    swFooter: "Every snowflake reminded me of you",
+    musicPlay: "Play Our Song",
+    musicPause: "Pause Our Song",
+    musicSub: "Bahaa Sultan - Sawa Sawa"
   },
   it: {
     loginTitle: "Inserisci la password ❤️", loginBtn: "Entra", wrongPass: "Password errata 💔",
@@ -1078,7 +1183,10 @@ const translations = {
     swTypeMsg: "Nel cuore della neve e del freddo, eri la cosa più calda che abbia mai sentito. Quel giorno a Snow City con te era come vivere dentro un sogno da cui non volevo mai svegliarmi. Ogni fiocco di neve che cadeva mi ricordava quanto sei rara e bella. ❤️",
     swAlbumTitle: "📸 Il nostro album Snow City",
     swAlbumSub: "Tocca qualsiasi foto per aprirla ✨",
-    swFooter: "Ogni fiocco di neve mi ricordava di te"
+    swFooter: "Ogni fiocco di neve mi ricordava di te",
+    musicPlay: "Riproduci la nostra canzone",
+    musicPause: "Metti in pausa",
+    musicSub: "Bahaa Sultan - Sawa Sawa"
   }
 };
 
@@ -1156,6 +1264,14 @@ function applyTranslations() {
   document.getElementById("sw-album-title").innerText = lang.swAlbumTitle;
   document.getElementById("sw-album-subtitle").innerText = lang.swAlbumSub;
   document.getElementById("sw-footer").innerText = lang.swFooter;
+  // Music button translations
+  const musicBtn = document.getElementById("music-toggle-btn");
+  if (musicBtn && !isMusicPlaying) {
+    document.getElementById("music-label").innerText = lang.musicPlay;
+    document.getElementById("music-sublabel").innerText = lang.musicSub;
+  } else if (musicBtn) {
+    document.getElementById("music-label").innerText = lang.musicPause;
+  }
   updateBookIndicator();
 }
 
@@ -1168,7 +1284,6 @@ async function checkPass() {
     if (data.success) {
       sessionStorage.setItem("token", data.token);
       document.getElementById("login").style.display = "none";
-      document.getElementById("music").play();
       startHearts();
       loadVideos();
     } else {
@@ -1213,7 +1328,7 @@ async function loadVideos() {
           document.getElementById("snow-music").src = "https://drive.google.com/uc?export=download&id=" + fileId;
         }
       }
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 10; i++) {
         const key = "alaa" + i + ".jpg";
         const url = d[key];
         if (url) {
@@ -1233,6 +1348,28 @@ async function loadVideos() {
   }
 }
 
+/* ===== MUSIC TOGGLE ===== */
+let isMusicPlaying = false;
+function toggleMusic() {
+  const music = document.getElementById("music");
+  const btn = document.getElementById("music-toggle-btn");
+  const icon = document.getElementById("music-icon");
+  const label = document.getElementById("music-label");
+  if (isMusicPlaying) {
+    music.pause();
+    btn.classList.remove("playing");
+    icon.innerText = "🎵";
+    label.innerText = currentLang === "en" ? "Play Our Song" : "Riproduci la nostra canzone";
+    isMusicPlaying = false;
+  } else {
+    music.play().catch(() => {});
+    btn.classList.add("playing");
+    icon.innerText = "🎶";
+    label.innerText = currentLang === "en" ? "Pause Our Song" : "Metti in pausa";
+    isMusicPlaying = true;
+  }
+}
+
 /* ===== SNOW WORLD ===== */
 let snowAnimId = null;
 let typewriterTimeout = null;
@@ -1249,7 +1386,7 @@ function openSnowWorld() {
     startSnowCanvas();
     setTimeout(() => startTypewriter(), 800);
     const snowMusic = document.getElementById("snow-music");
-    if (snowMusic.src) { snowMusic.currentTime = 0; snowMusic.play().catch(()=>{}); }
+    if (snowMusic.src && !isMusicPlaying) { snowMusic.currentTime = 0; snowMusic.play().catch(()=>{}); }
   }, 600);
 }
 
