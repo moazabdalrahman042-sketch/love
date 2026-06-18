@@ -818,11 +818,1139 @@ section {
   transition: opacity 0.6s ease;
 }
 #snow-transition.active { opacity: 1; pointer-events: all; }
+
+/* ===== THEME DROPDOWN ===== */
+.theme-dropdown-wrap {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+}
+.theme-dropdown-btn {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 110px;
+  justify-content: center;
+}
+.theme-dropdown-btn:hover {
+  background: white;
+  color: #ff4d6d;
+  transform: scale(1.05);
+}
+.theme-dropdown-btn.active {
+  background: white;
+  color: #ff4d6d;
+  border-radius: 20px 20px 0 0;
+}
+.theme-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  padding: 8px 0;
+  min-width: 150px;
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+.theme-dropdown-menu.open {
+  display: flex;
+}
+.theme-option {
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #444;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+.theme-option:hover {
+  background: rgba(255,77,109,0.1);
+  color: #ff4d6d;
+}
+.theme-option.active {
+  background: rgba(255,77,109,0.15);
+  color: #ff4d6d;
+}
+.theme-option .color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+/* THEME: PINK (default) */
+body.theme-pink {
+  background: linear-gradient(180deg, #ff4d6d 0%, #ff758f 35%, #ffb3c1 70%, #ffe5ec 100%);
+}
+
+/* THEME: SUNSET */
+body.theme-sunset {
+  background: linear-gradient(180deg, #ff6b35 0%, #f7931e 25%, #fcee21 50%, #ff6b9d 75%, #c44569 100%);
+}
+body.theme-sunset .glass-panel {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.2);
+}
+body.theme-sunset .btn,
+body.theme-sunset .home-btn-card {
+  color: #c44569;
+}
+body.theme-sunset .home-btn-card:hover {
+  color: #ff6b35;
+}
+body.theme-sunset .time-card {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.25);
+}
+body.theme-sunset .wheel {
+  background: conic-gradient(#ff6b35 0deg 60deg, #f7931e 60deg 120deg, #fcee21 120deg 180deg, #ff6b9d 180deg 240deg, #c44569 240deg 300deg, #ff8a65 300deg 360deg);
+}
+body.theme-sunset .flip-card-front {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.3);
+}
+body.theme-sunset .flip-card-back {
+  color: #c44569;
+}
+body.theme-sunset .book-cover {
+  background: linear-gradient(135deg, #8b3a1a, #c44569, #e8785e);
+}
+body.theme-sunset .bpage-title-text,
+body.theme-sunset .counter-title {
+  color: #fff5e6;
+}
+body.theme-sunset .sunflower-portal-btn {
+  background: linear-gradient(135deg, #ffe0b2, #ffcc80, #ff9800);
+}
+body.theme-sunset .sunflower-label {
+  color: #5d3a00;
+}
+body.theme-sunset .theme-dropdown-btn {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.3);
+}
+body.theme-sunset .theme-dropdown-btn:hover,
+body.theme-sunset .theme-dropdown-btn.active {
+  background: white;
+  color: #c44569;
+}
+body.theme-sunset .theme-option:hover,
+body.theme-sunset .theme-option.active {
+  background: rgba(196,69,105,0.1);
+  color: #c44569;
+}
+
+/* THEME: MIDNIGHT */
+body.theme-midnight {
+  background: linear-gradient(180deg, #0f0c29 0%, #302b63 35%, #24243e 70%, #1a1a2e 100%);
+}
+body.theme-midnight .glass-panel {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.15);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+body.theme-midnight .btn,
+body.theme-midnight .home-btn-card {
+  color: #7b2cbf;
+}
+body.theme-midnight .home-btn-card:hover {
+  color: #9d4edd;
+}
+body.theme-midnight .time-card {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+}
+body.theme-midnight .time-card span {
+  color: #e0aaff;
+  text-shadow: 0 0 10px rgba(224,170,255,0.5);
+}
+body.theme-midnight .time-card p {
+  color: #c77dff;
+}
+body.theme-midnight .wheel {
+  background: conic-gradient(#7b2cbf 0deg 60deg, #9d4edd 60deg 120deg, #c77dff 120deg 180deg, #e0aaff 180deg 240deg, #ff9e00 240deg 300deg, #ff6d00 300deg 360deg);
+}
+body.theme-midnight .flip-card-front {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+  color: #e0aaff;
+}
+body.theme-midnight .flip-card-back {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #e0aaff;
+  border: 1px solid rgba(224,170,255,0.3);
+}
+body.theme-midnight .book-cover {
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  border-left-color: #0f0c29;
+}
+body.theme-midnight .bpage-title-text,
+body.theme-midnight .counter-title {
+  color: #e0aaff;
+  text-shadow: 0 0 15px rgba(224,170,255,0.4);
+}
+body.theme-midnight .since-date {
+  color: #c77dff;
+}
+body.theme-midnight .sunflower-portal-btn {
+  background: linear-gradient(135deg, #240046, #3c096c, #5a189a);
+  box-shadow: 0 4px 20px rgba(123,44,191,0.4);
+}
+body.theme-midnight .sunflower-portal-btn:hover {
+  box-shadow: 0 8px 30px rgba(157,78,221,0.6);
+}
+body.theme-midnight .sunflower-label {
+  color: #e0aaff;
+}
+body.theme-midnight .sunflower-sublabel {
+  color: #c77dff;
+}
+body.theme-midnight .sunflower-icon {
+  filter: drop-shadow(0 0 8px rgba(224,170,255,0.8));
+}
+body.theme-midnight .theme-dropdown-btn {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+  color: #e0aaff;
+}
+body.theme-midnight .theme-dropdown-btn:hover,
+body.theme-midnight .theme-dropdown-btn.active {
+  background: rgba(224,170,255,0.2);
+  color: #fff;
+}
+body.theme-midnight .theme-dropdown-menu {
+  background: rgba(26,26,46,0.95);
+  border-color: rgba(224,170,255,0.2);
+}
+body.theme-midnight .theme-option {
+  color: #c77dff;
+}
+body.theme-midnight .theme-option:hover,
+body.theme-midnight .theme-option.active {
+  background: rgba(123,44,191,0.2);
+  color: #e0aaff;
+}
+body.theme-midnight #login {
+  background: linear-gradient(135deg, #0f0c29, #302b63);
+}
+body.theme-midnight .heart {
+  color: #e0aaff;
+  text-shadow: 0 0 10px rgba(224,170,255,0.6);
+}
+body.theme-midnight .click-hint {
+  color: #c77dff;
+}
+body.theme-midnight .wheel-arrow {
+  border-top-color: #e0aaff;
+}
+body.theme-midnight .wheel-center {
+  background: #e0aaff;
+  box-shadow: 0 0 15px rgba(224,170,255,0.5);
+}
+body.theme-midnight .book-indicator {
+  color: #c77dff;
+}
+body.theme-midnight .book-close-btn {
+  background: rgba(224,170,255,0.15);
+  border-color: rgba(224,170,255,0.3);
+  color: #e0aaff;
+}
+body.theme-midnight .book-close-btn:hover {
+  background: rgba(224,170,255,0.3);
+}
+body.theme-midnight .lang-btn {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+  color: #e0aaff;
+}
+body.theme-midnight .lang-btn:hover {
+  background: rgba(224,170,255,0.2);
+  color: #fff;
+}
+body.theme-midnight .envelope-wrapper {
+  background-color: #5a189a;
+}
+body.theme-midnight .envelope-wrapper .body-env {
+  border-color: transparent transparent #3c096c transparent;
+}
+body.theme-midnight .envelope-wrapper .flap {
+  border-color: #3c096c transparent transparent transparent;
+}
+body.theme-midnight .letter {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+body.theme-midnight .letter-text {
+  color: #e0aaff;
+}
+body.theme-midnight .cover-title-text {
+  color: #e0aaff;
+}
+body.theme-midnight .cover-hint-text {
+  color: #c77dff;
+}
+body.theme-midnight .bpage {
+  box-shadow: 2px 2px 15px rgba(0,0,0,0.4);
+}
+body.theme-midnight .bpage-num {
+  color: #9d4edd;
+}
+body.theme-midnight .bpage-text {
+  color: #c77dff;
+}
+body.theme-midnight .bpage-next {
+  background: linear-gradient(135deg, #7b2cbf, #5a189a);
+  box-shadow: 0 3px 10px rgba(123,44,191,0.4);
+}
+body.theme-midnight .bpage-prev {
+  background: rgba(123,44,191,0.15);
+  color: #9d4edd;
+  border-color: rgba(157,78,221,0.3);
+}
+body.theme-midnight .book-back-cover {
+  background: linear-gradient(135deg, #0f0c29, #1a1a2e);
+}
+body.theme-midnight h1,
+body.theme-midnight h2 {
+  text-shadow: 0 0 20px rgba(224,170,255,0.3);
+}
+
+/* THEME: OCEAN */
+body.theme-ocean {
+  background: linear-gradient(180deg, #0066cc 0%, #0099cc 25%, #00cccc 50%, #66e0ff 75%, #b3f0ff 100%);
+}
+body.theme-ocean .glass-panel {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.25);
+}
+body.theme-ocean .btn,
+body.theme-ocean .home-btn-card {
+  color: #0066cc;
+}
+body.theme-ocean .home-btn-card:hover {
+  color: #0099cc;
+}
+body.theme-ocean .time-card {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.3);
+}
+body.theme-ocean .time-card span {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0,204,255,0.5);
+}
+body.theme-ocean .wheel {
+  background: conic-gradient(#0066cc 0deg 60deg, #0099cc 60deg 120deg, #00cccc 120deg 180deg, #66e0ff 180deg 240deg, #b3f0ff 240deg 300deg, #0066cc 300deg 360deg);
+}
+body.theme-ocean .flip-card-front {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.35);
+  color: #fff;
+}
+body.theme-ocean .flip-card-back {
+  color: #0066cc;
+}
+body.theme-ocean .book-cover {
+  background: linear-gradient(135deg, #003d7a, #0066cc, #0099cc);
+  border-left-color: #002a52;
+}
+body.theme-ocean .bpage-title-text,
+body.theme-ocean .counter-title {
+  color: #fff;
+  text-shadow: 0 0 15px rgba(0,204,255,0.4);
+}
+body.theme-ocean .since-date {
+  color: #b3f0ff;
+}
+body.theme-ocean .sunflower-portal-btn {
+  background: linear-gradient(135deg, #e0f7fa, #b2ebf2, #80deea);
+  box-shadow: 0 4px 20px rgba(0,153,204,0.4);
+}
+body.theme-ocean .sunflower-label {
+  color: #0066cc;
+}
+body.theme-ocean .sunflower-sublabel {
+  color: #0099cc;
+}
+body.theme-ocean .theme-dropdown-btn {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.3);
+}
+body.theme-ocean .theme-dropdown-btn:hover,
+body.theme-ocean .theme-dropdown-btn.active {
+  background: white;
+  color: #0066cc;
+}
+body.theme-ocean .theme-option:hover,
+body.theme-ocean .theme-option.active {
+  background: rgba(0,102,204,0.1);
+  color: #0066cc;
+}
+body.theme-ocean #login {
+  background: linear-gradient(135deg, #0066cc, #0099cc);
+}
+body.theme-ocean .heart {
+  color: #b3f0ff;
+  text-shadow: 0 0 10px rgba(0,204,255,0.6);
+}
+body.theme-ocean .click-hint {
+  color: #b3f0ff;
+}
+body.theme-ocean .wheel-arrow {
+  border-top-color: #fff;
+}
+body.theme-ocean .wheel-center {
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0,204,255,0.5);
+}
+body.theme-ocean .book-indicator {
+  color: #b3f0ff;
+}
+body.theme-ocean .book-close-btn {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.3);
+  color: #fff;
+}
+body.theme-ocean .lang-btn {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.3);
+}
+body.theme-ocean .lang-btn:hover {
+  background: white;
+  color: #0066cc;
+}
+body.theme-ocean .envelope-wrapper {
+  background-color: #0099cc;
+}
+body.theme-ocean .envelope-wrapper .body-env {
+  border-color: transparent transparent #0077aa transparent;
+}
+body.theme-ocean .envelope-wrapper .flap {
+  border-color: #0077aa transparent transparent transparent;
+}
+body.theme-ocean .letter {
+  background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+}
+body.theme-ocean .letter-text {
+  color: #0066cc;
+}
+body.theme-ocean .cover-title-text {
+  color: #fff;
+}
+body.theme-ocean .cover-hint-text {
+  color: #b3f0ff;
+}
+body.theme-ocean .bpage-num {
+  color: #0099cc;
+}
+body.theme-ocean .bpage-text {
+  color: #0066cc;
+}
+body.theme-ocean .bpage-next {
+  background: linear-gradient(135deg, #0099cc, #0066cc);
+  box-shadow: 0 3px 10px rgba(0,153,204,0.4);
+}
+body.theme-ocean .bpage-prev {
+  background: rgba(0,153,204,0.15);
+  color: #0099cc;
+  border-color: rgba(0,153,204,0.3);
+}
+body.theme-ocean .book-back-cover {
+  background: linear-gradient(135deg, #003d7a, #0066cc);
+}
+body.theme-ocean h1,
+body.theme-ocean h2 {
+  text-shadow: 0 0 20px rgba(0,204,255,0.3);
+}
+
+/* THEME: SAKURA */
+body.theme-sakura {
+  background: linear-gradient(180deg, #ffb7c5 0%, #ffc8dd 25%, #ffafcc 50%, #bde0fe 75%, #cdb4db 100%);
+}
+body.theme-sakura .glass-panel {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.3);
+}
+body.theme-sakura .btn,
+body.theme-sakura .home-btn-card {
+  color: #ff006e;
+}
+body.theme-sakura .home-btn-card:hover {
+  color: #ff4d6d;
+}
+body.theme-sakura .time-card {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.35);
+}
+body.theme-sakura .wheel {
+  background: conic-gradient(#ff006e 0deg 60deg, #ff4d6d 60deg 120deg, #ffb7c5 120deg 180deg, #ffc8dd 180deg 240deg, #bde0fe 240deg 300deg, #cdb4db 300deg 360deg);
+}
+body.theme-sakura .flip-card-front {
+  background: rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.4);
+  color: #fff;
+}
+body.theme-sakura .flip-card-back {
+  color: #ff006e;
+}
+body.theme-sakura .book-cover {
+  background: linear-gradient(135deg, #ff006e, #ff4d6d, #ffb7c5);
+  border-left-color: #cc0055;
+}
+body.theme-sakura .bpage-title-text,
+body.theme-sakura .counter-title {
+  color: #fff;
+}
+body.theme-sakura .since-date {
+  color: #ffc8dd;
+}
+body.theme-sakura .sunflower-portal-btn {
+  background: linear-gradient(135deg, #ffc8dd, #ffb7c5, #ffafcc);
+  box-shadow: 0 4px 20px rgba(255,0,110,0.3);
+}
+body.theme-sakura .sunflower-label {
+  color: #ff006e;
+}
+body.theme-sakura .sunflower-sublabel {
+  color: #ff4d6d;
+}
+body.theme-sakura .theme-dropdown-btn {
+  background: rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.4);
+}
+body.theme-sakura .theme-dropdown-btn:hover,
+body.theme-sakura .theme-dropdown-btn.active {
+  background: white;
+  color: #ff006e;
+}
+body.theme-sakura .theme-option:hover,
+body.theme-sakura .theme-option.active {
+  background: rgba(255,0,110,0.1);
+  color: #ff006e;
+}
+body.theme-sakura #login {
+  background: linear-gradient(135deg, #ff006e, #ffb7c5);
+}
+body.theme-sakura .heart {
+  color: #ffc8dd;
+  text-shadow: 0 0 10px rgba(255,0,110,0.5);
+}
+body.theme-sakura .click-hint {
+  color: #ffc8dd;
+}
+body.theme-sakura .wheel-arrow {
+  border-top-color: #fff;
+}
+body.theme-sakura .wheel-center {
+  background: #fff;
+  box-shadow: 0 0 15px rgba(255,0,110,0.4);
+}
+body.theme-sakura .book-indicator {
+  color: #ffc8dd;
+}
+body.theme-sakura .book-close-btn {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.4);
+  color: #fff;
+}
+body.theme-sakura .lang-btn {
+  background: rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.4);
+}
+body.theme-sakura .lang-btn:hover {
+  background: white;
+  color: #ff006e;
+}
+body.theme-sakura .envelope-wrapper {
+  background-color: #ff4d6d;
+}
+body.theme-sakura .envelope-wrapper .body-env {
+  border-color: transparent transparent #ff006e transparent;
+}
+body.theme-sakura .envelope-wrapper .flap {
+  border-color: #ff006e transparent transparent transparent;
+}
+body.theme-sakura .letter {
+  background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+}
+body.theme-sakura .letter-text {
+  color: #ff006e;
+}
+body.theme-sakura .cover-title-text {
+  color: #fff;
+}
+body.theme-sakura .cover-hint-text {
+  color: #ffc8dd;
+}
+body.theme-sakura .bpage-num {
+  color: #ff4d6d;
+}
+body.theme-sakura .bpage-text {
+  color: #ff006e;
+}
+body.theme-sakura .bpage-next {
+  background: linear-gradient(135deg, #ff4d6d, #ff006e);
+  box-shadow: 0 3px 10px rgba(255,0,110,0.3);
+}
+body.theme-sakura .bpage-prev {
+  background: rgba(255,0,110,0.15);
+  color: #ff4d6d;
+  border-color: rgba(255,77,109,0.3);
+}
+body.theme-sakura .book-back-cover {
+  background: linear-gradient(135deg, #cc0055, #ff006e);
+}
+body.theme-sakura h1,
+body.theme-sakura h2 {
+  text-shadow: 0 0 20px rgba(255,0,110,0.2);
+}
+
+/* THEME: FOREST */
+body.theme-forest {
+  background: linear-gradient(180deg, #1b4332 0%, #2d6a4f 25%, #40916c 50%, #52b788 75%, #74c69d 100%);
+}
+body.theme-forest .glass-panel {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+}
+body.theme-forest .btn,
+body.theme-forest .home-btn-card {
+  color: #1b4332;
+}
+body.theme-forest .home-btn-card:hover {
+  color: #2d6a4f;
+}
+body.theme-forest .time-card {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.25);
+}
+body.theme-forest .time-card span {
+  color: #d8f3dc;
+  text-shadow: 0 0 10px rgba(82,183,136,0.5);
+}
+body.theme-forest .time-card p {
+  color: #b7e4c7;
+}
+body.theme-forest .wheel {
+  background: conic-gradient(#1b4332 0deg 60deg, #2d6a4f 60deg 120deg, #40916c 120deg 180deg, #52b788 180deg 240deg, #74c69d 240deg 300deg, #95d5b2 300deg 360deg);
+}
+body.theme-forest .flip-card-front {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.3);
+  color: #d8f3dc;
+}
+body.theme-forest .flip-card-back {
+  background: linear-gradient(135deg, #1b4332, #2d6a4f);
+  color: #d8f3dc;
+  border: 1px solid rgba(82,183,136,0.3);
+}
+body.theme-forest .book-cover {
+  background: linear-gradient(135deg, #081c15, #1b4332, #2d6a4f);
+  border-left-color: #081c15;
+}
+body.theme-forest .bpage-title-text,
+body.theme-forest .counter-title {
+  color: #d8f3dc;
+  text-shadow: 0 0 15px rgba(82,183,136,0.4);
+}
+body.theme-forest .since-date {
+  color: #b7e4c7;
+}
+body.theme-forest .sunflower-portal-btn {
+  background: linear-gradient(135deg, #d8f3dc, #b7e4c7, #95d5b2);
+  box-shadow: 0 4px 20px rgba(45,106,79,0.4);
+}
+body.theme-forest .sunflower-label {
+  color: #1b4332;
+}
+body.theme-forest .sunflower-sublabel {
+  color: #2d6a4f;
+}
+body.theme-forest .theme-dropdown-btn {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.25);
+  color: #d8f3dc;
+}
+body.theme-forest .theme-dropdown-btn:hover,
+body.theme-forest .theme-dropdown-btn.active {
+  background: rgba(216,243,220,0.2);
+  color: #fff;
+}
+body.theme-forest .theme-dropdown-menu {
+  background: rgba(27,67,50,0.95);
+  border-color: rgba(82,183,136,0.2);
+}
+body.theme-forest .theme-option {
+  color: #b7e4c7;
+}
+body.theme-forest .theme-option:hover,
+body.theme-forest .theme-option.active {
+  background: rgba(82,183,136,0.2);
+  color: #d8f3dc;
+}
+body.theme-forest #login {
+  background: linear-gradient(135deg, #1b4332, #2d6a4f);
+}
+body.theme-forest .heart {
+  color: #d8f3dc;
+  text-shadow: 0 0 10px rgba(82,183,136,0.6);
+}
+body.theme-forest .click-hint {
+  color: #b7e4c7;
+}
+body.theme-forest .wheel-arrow {
+  border-top-color: #d8f3dc;
+}
+body.theme-forest .wheel-center {
+  background: #d8f3dc;
+  box-shadow: 0 0 15px rgba(82,183,136,0.5);
+}
+body.theme-forest .book-indicator {
+  color: #b7e4c7;
+}
+body.theme-forest .book-close-btn {
+  background: rgba(82,183,136,0.15);
+  border-color: rgba(82,183,136,0.3);
+  color: #d8f3dc;
+}
+body.theme-forest .book-close-btn:hover {
+  background: rgba(82,183,136,0.3);
+}
+body.theme-forest .lang-btn {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.25);
+  color: #d8f3dc;
+}
+body.theme-forest .lang-btn:hover {
+  background: rgba(216,243,220,0.2);
+  color: #fff;
+}
+body.theme-forest .envelope-wrapper {
+  background-color: #2d6a4f;
+}
+body.theme-forest .envelope-wrapper .body-env {
+  border-color: transparent transparent #1b4332 transparent;
+}
+body.theme-forest .envelope-wrapper .flap {
+  border-color: #1b4332 transparent transparent transparent;
+}
+body.theme-forest .letter {
+  background: linear-gradient(135deg, #d8f3dc, #b7e4c7);
+}
+body.theme-forest .letter-text {
+  color: #1b4332;
+}
+body.theme-forest .cover-title-text {
+  color: #d8f3dc;
+}
+body.theme-forest .cover-hint-text {
+  color: #b7e4c7;
+}
+body.theme-forest .bpage {
+  box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+}
+body.theme-forest .bpage-num {
+  color: #52b788;
+}
+body.theme-forest .bpage-text {
+  color: #b7e4c7;
+}
+body.theme-forest .bpage-next {
+  background: linear-gradient(135deg, #2d6a4f, #1b4332);
+  box-shadow: 0 3px 10px rgba(45,106,79,0.4);
+}
+body.theme-forest .bpage-prev {
+  background: rgba(82,183,136,0.15);
+  color: #52b788;
+  border-color: rgba(82,183,136,0.3);
+}
+body.theme-forest .book-back-cover {
+  background: linear-gradient(135deg, #081c15, #1b4332);
+}
+body.theme-forest h1,
+body.theme-forest h2 {
+  text-shadow: 0 0 20px rgba(82,183,136,0.3);
+}
+
+/* THEME: GOLDEN */
+body.theme-golden {
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #e94560 100%);
+}
+body.theme-golden .glass-panel {
+  background: rgba(255,215,0,0.08);
+  border-color: rgba(255,215,0,0.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+body.theme-golden .btn,
+body.theme-golden .home-btn-card {
+  color: #b8860b;
+}
+body.theme-golden .home-btn-card:hover {
+  color: #daa520;
+}
+body.theme-golden .time-card {
+  background: rgba(255,215,0,0.1);
+  border-color: rgba(255,215,0,0.2);
+}
+body.theme-golden .time-card span {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255,215,0,0.6);
+}
+body.theme-golden .time-card p {
+  color: #daa520;
+}
+body.theme-golden .wheel {
+  background: conic-gradient(#ffd700 0deg 60deg, #daa520 60deg 120deg, #b8860b 120deg 180deg, #cd853f 180deg 240deg, #d2691e 240deg 300deg, #ff8c00 300deg 360deg);
+}
+body.theme-golden .flip-card-front {
+  background: rgba(255,215,0,0.1);
+  border-color: rgba(255,215,0,0.2);
+  color: #ffd700;
+}
+body.theme-golden .flip-card-back {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #ffd700;
+  border: 1px solid rgba(255,215,0,0.3);
+}
+body.theme-golden .book-cover {
+  background: linear-gradient(135deg, #1a1a2e, #b8860b, #ffd700);
+  border-left-color: #1a1a2e;
+}
+body.theme-golden .bpage-title-text,
+body.theme-golden .counter-title {
+  color: #ffd700;
+  text-shadow: 0 0 15px rgba(255,215,0,0.5);
+}
+body.theme-golden .since-date {
+  color: #daa520;
+}
+body.theme-golden .sunflower-portal-btn {
+  background: linear-gradient(135deg, #ffd700, #daa520, #b8860b);
+  box-shadow: 0 4px 20px rgba(255,215,0,0.4);
+}
+body.theme-golden .sunflower-label {
+  color: #1a1a2e;
+}
+body.theme-golden .sunflower-sublabel {
+  color: #533483;
+}
+body.theme-golden .sunflower-icon {
+  filter: drop-shadow(0 0 8px rgba(255,215,0,0.8));
+}
+body.theme-golden .theme-dropdown-btn {
+  background: rgba(255,215,0,0.15);
+  border-color: rgba(255,215,0,0.3);
+  color: #ffd700;
+}
+body.theme-golden .theme-dropdown-btn:hover,
+body.theme-golden .theme-dropdown-btn.active {
+  background: rgba(255,215,0,0.25);
+  color: #fff;
+}
+body.theme-golden .theme-dropdown-menu {
+  background: rgba(26,26,46,0.95);
+  border-color: rgba(255,215,0,0.2);
+}
+body.theme-golden .theme-option {
+  color: #daa520;
+}
+body.theme-golden .theme-option:hover,
+body.theme-golden .theme-option.active {
+  background: rgba(255,215,0,0.15);
+  color: #ffd700;
+}
+body.theme-golden #login {
+  background: linear-gradient(135deg, #1a1a2e, #b8860b);
+}
+body.theme-golden .heart {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255,215,0,0.7);
+}
+body.theme-golden .click-hint {
+  color: #daa520;
+}
+body.theme-golden .wheel-arrow {
+  border-top-color: #ffd700;
+}
+body.theme-golden .wheel-center {
+  background: #ffd700;
+  box-shadow: 0 0 15px rgba(255,215,0,0.6);
+}
+body.theme-golden .book-indicator {
+  color: #daa520;
+}
+body.theme-golden .book-close-btn {
+  background: rgba(255,215,0,0.15);
+  border-color: rgba(255,215,0,0.3);
+  color: #ffd700;
+}
+body.theme-golden .book-close-btn:hover {
+  background: rgba(255,215,0,0.3);
+}
+body.theme-golden .lang-btn {
+  background: rgba(255,215,0,0.15);
+  border-color: rgba(255,215,0,0.3);
+  color: #ffd700;
+}
+body.theme-golden .lang-btn:hover {
+  background: rgba(255,215,0,0.25);
+  color: #fff;
+}
+body.theme-golden .envelope-wrapper {
+  background-color: #b8860b;
+}
+body.theme-golden .envelope-wrapper .body-env {
+  border-color: transparent transparent #daa520 transparent;
+}
+body.theme-golden .envelope-wrapper .flap {
+  border-color: #daa520 transparent transparent transparent;
+}
+body.theme-golden .letter {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+body.theme-golden .letter-text {
+  color: #ffd700;
+}
+body.theme-golden .cover-title-text {
+  color: #ffd700;
+}
+body.theme-golden .cover-hint-text {
+  color: #daa520;
+}
+body.theme-golden .bpage {
+  box-shadow: 2px 2px 15px rgba(0,0,0,0.5);
+}
+body.theme-golden .bpage-num {
+  color: #daa520;
+}
+body.theme-golden .bpage-text {
+  color: #daa520;
+}
+body.theme-golden .bpage-next {
+  background: linear-gradient(135deg, #b8860b, #daa520);
+  box-shadow: 0 3px 10px rgba(255,215,0,0.4);
+}
+body.theme-golden .bpage-prev {
+  background: rgba(255,215,0,0.15);
+  color: #daa520;
+  border-color: rgba(255,215,0,0.3);
+}
+body.theme-golden .book-back-cover {
+  background: linear-gradient(135deg, #1a1a2e, #b8860b);
+}
+body.theme-golden h1,
+body.theme-golden h2 {
+  text-shadow: 0 0 20px rgba(255,215,0,0.4);
+}
+
+/* Smooth theme transitions */
+body, .glass-panel, .time-card, .flip-card-front, .flip-card-back, .book-cover, .btn, .home-btn-card, .sunflower-portal-btn, .theme-dropdown-btn, .lang-btn, .envelope-wrapper, .letter, .bpage, .wheel, .wheel-center, .book-close-btn, .book-back-cover {
+  transition: all 0.8s ease;
+}
+
+
+/* ===== MOON IN HOME ===== */
+.home-moon-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 15px auto;
+  position: relative;
+}
+
+.home-moon-svg {
+  width: 160px;
+  height: 160px;
+  filter: drop-shadow(0 0 12px rgba(255,255,255,0.4));
+  transition: filter 1.5s ease, transform 1.5s ease;
+  animation: moonHomeFloat 5s ease-in-out infinite;
+}
+
+@keyframes moonHomeFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.home-moon-body {
+  fill: #f5f5f5;
+  transition: fill 1.5s ease;
+}
+
+.home-moon-craters {
+  fill: #e0e0e0;
+  opacity: 0.4;
+  transition: opacity 1.5s ease;
+}
+
+.home-moon-glow {
+  fill: none;
+  stroke: rgba(255,255,255,0.3);
+  stroke-width: 2;
+  opacity: 0;
+  transition: opacity 1.5s ease, stroke-width 1.5s ease;
+}
+
+.home-moon-names {
+  font-family: 'Brush Script MT', 'Segoe Script', 'Dancing Script', cursive;
+  font-size: 18px;
+  fill: #ff4d6d;
+  opacity: 0.7;
+  transition: opacity 1.5s ease, fill 1.5s ease;
+  text-anchor: middle;
+}
+
+.home-moon-heart {
+  font-size: 12px;
+  fill: #ff4d6d;
+  opacity: 0.6;
+  transition: opacity 1.5s ease;
+}
+
+/* DAY MODE - subtle */
+.home-moon-wrap.day-mode .home-moon-svg {
+  filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
+  transform: scale(0.9);
+}
+.home-moon-wrap.day-mode .home-moon-body {
+  fill: #e8e8e8;
+}
+.home-moon-wrap.day-mode .home-moon-craters {
+  opacity: 0.2;
+}
+.home-moon-wrap.day-mode .home-moon-glow {
+  opacity: 0;
+  stroke-width: 0;
+}
+.home-moon-wrap.day-mode .home-moon-names {
+  opacity: 0.4;
+  fill: #cc8899;
+}
+.home-moon-wrap.day-mode .home-moon-heart {
+  opacity: 0.3;
+}
+
+/* NIGHT MODE - glowing */
+.home-moon-wrap.night-mode .home-moon-svg {
+  filter: drop-shadow(0 0 25px rgba(255,255,255,0.7)) drop-shadow(0 0 50px rgba(255,255,200,0.4));
+  transform: scale(1);
+}
+.home-moon-wrap.night-mode .home-moon-body {
+  fill: #fffef0;
+}
+.home-moon-wrap.night-mode .home-moon-craters {
+  opacity: 0.6;
+}
+.home-moon-wrap.night-mode .home-moon-glow {
+  opacity: 1;
+  stroke-width: 3;
+  stroke: rgba(255,255,220,0.5);
+}
+.home-moon-wrap.night-mode .home-moon-names {
+  opacity: 1;
+  fill: #ff4d6d;
+  filter: drop-shadow(0 0 5px rgba(255,77,109,0.6));
+}
+.home-moon-wrap.night-mode .home-moon-heart {
+  opacity: 1;
+  filter: drop-shadow(0 0 4px rgba(255,77,109,0.5));
+}
+
+/* Moon stars around */
+.moon-home-stars {
+  position: absolute;
+  inset: -20px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+.home-moon-wrap.night-mode .moon-home-stars {
+  opacity: 1;
+}
+.moon-home-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  animation: starHomeTwinkle 2s ease-in-out infinite;
+}
+.moon-home-star:nth-child(1) { top: 5%; left: 15%; animation-delay: 0s; }
+.moon-home-star:nth-child(2) { top: 25%; left: 85%; animation-delay: 0.5s; }
+.moon-home-star:nth-child(3) { top: 55%; left: 5%; animation-delay: 1s; }
+.moon-home-star:nth-child(4) { top: 85%; left: 75%; animation-delay: 1.5s; }
+.moon-home-star:nth-child(5) { top: 10%; left: 50%; animation-delay: 0.3s; }
+.moon-home-star:nth-child(6) { top: 75%; left: 35%; animation-delay: 0.8s; }
+
+@keyframes starHomeTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
 </style>
 </head>
 
 <body>
 
+<div class="theme-dropdown-wrap">
+  <button class="theme-dropdown-btn" onclick="toggleThemeMenu()" id="theme-dropdown-btn">
+    <span id="theme-dropdown-icon">🎨</span>
+    <span id="theme-dropdown-label">Theme</span>
+    <span style="margin-left:4px; font-size:10px;">▼</span>
+  </button>
+  <div class="theme-dropdown-menu" id="theme-dropdown-menu">
+    <button class="theme-option" data-theme="pink" onclick="setTheme('pink')">
+      <span class="color-dot" style="background: linear-gradient(135deg, #ff4d6d, #ffb3c1);"></span>
+      <span id="theme-name-pink">Pink</span>
+    </button>
+    <button class="theme-option" data-theme="sunset" onclick="setTheme('sunset')">
+      <span class="color-dot" style="background: linear-gradient(135deg, #ff6b35, #fcee21);"></span>
+      <span id="theme-name-sunset">Sunset</span>
+    </button>
+    <button class="theme-option" data-theme="midnight" onclick="setTheme('midnight')">
+      <span class="color-dot" style="background: linear-gradient(135deg, #0f0c29, #7b2cbf);"></span>
+      <span id="theme-name-midnight">Midnight</span>
+    </button>
+    <button class="theme-option" data-theme="ocean" onclick="setTheme('ocean')">
+      <span class="color-dot" style="background: linear-gradient(135deg, #0066cc, #00cccc);"></span>
+      <span id="theme-name-ocean">Ocean</span>
+    </button>
+    <button class="theme-option" data-theme="sakura" onclick="setTheme('sakura')">
+      <span class="color-dot" style="background: linear-gradient(135deg, #ff006e, #bde0fe);"></span>
+      <span id="theme-name-sakura">Sakura</span>
+    </button>
+    <button class="theme-option" data-theme="forest" onclick="setTheme('forest')">
+      <span class="color-dot" style="background: linear-gradient(135deg, #1b4332, #52b788);"></span>
+      <span id="theme-name-forest">Forest</span>
+    </button>
+    <button class="theme-option" data-theme="golden" onclick="setTheme('golden')">
+      <span class="color-dot" style="background: linear-gradient(135deg, #1a1a2e, #ffd700);"></span>
+      <span id="theme-name-golden">Golden</span>
+    </button>
+  </div>
+</div>
 <div class="lang-switcher">
   <button class="lang-btn" onclick="toggleLanguage()" id="lang-toggle-btn">EN | IT</button>
 </div>
@@ -966,7 +2094,33 @@ section {
 <!-- HOME -->
 <section id="home">
   <div class="glass-panel">
-    <img id="moaz_page" alt="Us" src="us.jpg" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 15px auto; border: 4px solid rgba(255, 255, 255, 0.5); box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+    <div class="home-moon-wrap" id="homeMoonWrap">
+  <div class="moon-home-stars">
+    <div class="moon-home-star"></div>
+    <div class="moon-home-star"></div>
+    <div class="moon-home-star"></div>
+    <div class="moon-home-star"></div>
+    <div class="moon-home-star"></div>
+    <div class="moon-home-star"></div>
+  </div>
+  <svg class="home-moon-svg" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+    <!-- Glow ring -->
+    <circle class="home-moon-glow" cx="80" cy="80" r="76"/>
+    <!-- Moon body -->
+    <circle class="home-moon-body" cx="80" cy="80" r="65"/>
+    <!-- Craters -->
+    <circle class="home-moon-craters" cx="58" cy="58" r="8"/>
+    <circle class="home-moon-craters" cx="98" cy="72" r="10"/>
+    <circle class="home-moon-craters" cx="72" cy="98" r="7"/>
+    <circle class="home-moon-craters" cx="45" cy="92" r="5"/>
+    <circle class="home-moon-craters" cx="105" cy="52" r="4"/>
+    <circle class="home-moon-craters" cx="85" cy="45" r="5"/>
+    <!-- Names -->
+    <text class="home-moon-names" x="80" y="68" font-weight="bold">Moaz</text>
+    <text class="home-moon-heart" x="80" y="82">❤</text>
+    <text class="home-moon-names" x="80" y="96" font-weight="bold">Alaa</text>
+  </svg>
+</div>
     <h1 style="font-size:26px; margin:10px 0; text-shadow:0 2px 10px rgba(0,0,0,0.15);">❤️ LOVE YOU ALAA ❤️</h1>
     <p style="margin-bottom:20px; opacity:0.9; font-size:14px;" id="text-home-welcome">Welcome to our story</p>
 
@@ -1209,6 +2363,79 @@ section {
 </section>
 
 <script>
+
+/* ===== THEME DROPDOWN ===== */
+let currentTheme = 'pink';
+const themeNames = {
+  en: { pink: 'Pink', sunset: 'Sunset', midnight: 'Midnight', ocean: 'Ocean', sakura: 'Sakura', forest: 'Forest', golden: 'Golden' },
+  it: { pink: 'Rosa', sunset: 'Tramonto', midnight: 'Mezzanotte', ocean: 'Oceano', sakura: 'Sakura', forest: 'Foresta', golden: 'Dorato' }
+};
+
+function toggleThemeMenu() {
+  const menu = document.getElementById('theme-dropdown-menu');
+  const btn = document.getElementById('theme-dropdown-btn');
+  menu.classList.toggle('open');
+  btn.classList.toggle('active');
+}
+
+function setTheme(theme) {
+  const body = document.body;
+  body.classList.remove('theme-pink', 'theme-sunset', 'theme-midnight', 'theme-ocean', 'theme-sakura', 'theme-forest', 'theme-golden');
+  if (theme !== 'pink') {
+    body.classList.add('theme-' + theme);
+  }
+  currentTheme = theme;
+  document.querySelectorAll('.theme-option').forEach(opt => {
+    opt.classList.remove('active');
+    if (opt.dataset.theme === theme) {
+      opt.classList.add('active');
+    }
+  });
+  document.getElementById('theme-dropdown-label').innerText = themeNames[currentLang][theme];
+  document.getElementById('theme-dropdown-menu').classList.remove('open');
+  document.getElementById('theme-dropdown-btn').classList.remove('active');
+  localStorage.setItem('theme', theme);
+}
+
+function loadTheme() {
+  const saved = localStorage.getItem('theme');
+  if (saved && saved !== 'pink') {
+    setTheme(saved);
+  }
+  document.getElementById('theme-dropdown-label').innerText = themeNames[currentLang][currentTheme];
+  document.querySelectorAll('.theme-option').forEach(opt => {
+    const t = opt.dataset.theme;
+    const span = opt.querySelector('span:last-child');
+    if (span) span.innerText = themeNames[currentLang][t];
+  });
+}
+
+document.addEventListener('click', (e) => {
+  const wrap = document.querySelector('.theme-dropdown-wrap');
+  if (wrap && !wrap.contains(e.target)) {
+    document.getElementById('theme-dropdown-menu').classList.remove('open');
+    document.getElementById('theme-dropdown-btn').classList.remove('active');
+  }
+});
+
+/* ===== MOON DAY/NIGHT ===== */
+function updateMoonMode() {
+  const hour = new Date().getHours();
+  const moon = document.getElementById('homeMoonWrap');
+  if (!moon) return;
+  const isNight = hour >= 18 || hour < 6;
+  if (isNight) {
+    moon.classList.remove('day-mode');
+    moon.classList.add('night-mode');
+  } else {
+    moon.classList.remove('night-mode');
+    moon.classList.add('day-mode');
+  }
+}
+
+setInterval(updateMoonMode, 60000);
+updateMoonMode();
+
 const API = "https://script.google.com/macros/s/AKfycbzaMXR3_ZAnQXKazFywnNkz8XXkyEntzndVi0gnWyl57z4cTBT7t57L_jv1iRfDyNTNRA/exec";
 
 let bCurrentPage = 0;
@@ -1349,6 +2576,14 @@ function applyTranslations() {
   for (let i = 1; i <= 5; i++) {
     document.getElementById("lbl-vid" + i + "-t").innerText = lang.vidTitle + " " + i + " ❤️";
   }
+  // Theme names update
+  document.getElementById('theme-dropdown-label').innerText = themeNames[currentLang][currentTheme];
+  document.querySelectorAll('.theme-option').forEach(opt => {
+    const t = opt.dataset.theme;
+    const span = opt.querySelector('span:last-child');
+    if (span) span.innerText = themeNames[currentLang][t];
+  });
+
   // Snow world translations
   document.getElementById("sw-btn-label").innerText = lang.swBtnLabel;
   document.getElementById("sw-btn-sub").innerText = lang.swBtnSub;
@@ -1823,6 +3058,7 @@ if (sessionStorage.getItem("token")) {
 }
 setupMusicPlayer();
 applyTranslations();
+loadTheme();
 </script>
 </body>
 </html>
