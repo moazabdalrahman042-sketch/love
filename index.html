@@ -278,191 +278,6 @@ section {
   opacity: 0.85;
 }
 
-/* ===== MOON PHASE ===== */
-#moon-phase-section {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 40px 20px;
-}
-.moon-container {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 20px auto;
-}
-.moon {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 0 60px rgba(255,255,255,0.3), 0 0 100px rgba(255,200,100,0.1);
-  transition: all 0.5s ease;
-}
-.moon-glow {
-  position: absolute;
-  inset: -20px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  animation: moonGlow 4s ease-in-out infinite;
-}
-@keyframes moonGlow {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.1); opacity: 0.8; }
-}
-.moon-shadow {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: rgba(10,20,40,0.85);
-  transition: all 0.5s ease;
-}
-.moon-stars {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-.moon-star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: white;
-  border-radius: 50%;
-  animation: twinkle 2s ease-in-out infinite;
-}
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
-.moon-phase-title {
-  font-size: 22px;
-  color: #fff;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  margin: 15px 0 5px;
-}
-.moon-phase-name {
-  font-size: 18px;
-  color: #ffe5ec;
-  font-weight: bold;
-  margin: 5px 0;
-}
-.moon-message {
-  font-size: 14px;
-  color: rgba(255,255,255,0.9);
-  text-align: center;
-  max-width: 300px;
-  line-height: 1.6;
-  margin: 10px 0;
-  font-style: italic;
-  min-height: 60px;
-}
-.moon-date {
-  font-size: 12px;
-  color: rgba(255,255,255,0.6);
-  margin-top: 5px;
-}
-
-/* ===== BUTTERFLIES ===== */
-#butterflies-section {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 40px 20px;
-  position: relative;
-  overflow: hidden;
-}
-.butterfly-container {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  height: 400px;
-  margin: 20px auto;
-}
-.butterfly {
-  position: absolute;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  z-index: 10;
-}
-.butterfly:hover {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 15px currentColor);
-}
-.butterfly-wing {
-  font-size: 32px;
-  display: block;
-  animation: butterflyFlap 1.5s ease-in-out infinite;
-}
-@keyframes butterflyFlap {
-  0%, 100% { transform: scaleX(1) rotate(0deg); }
-  25% { transform: scaleX(0.6) rotate(-10deg); }
-  75% { transform: scaleX(0.6) rotate(10deg); }
-}
-.butterfly-message-popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(20px);
-  padding: 30px 25px;
-  border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  z-index: 3000;
-  max-width: 320px;
-  width: 90%;
-  text-align: center;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  opacity: 0;
-}
-.butterfly-message-popup.open {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 1;
-}
-.butterfly-message-popup .butterfly-icon {
-  font-size: 48px;
-  margin-bottom: 15px;
-  display: block;
-}
-.butterfly-message-popup .butterfly-text {
-  font-size: 16px;
-  color: #444;
-  line-height: 1.6;
-  font-style: italic;
-}
-.butterfly-message-popup .butterfly-close {
-  margin-top: 20px;
-  background: linear-gradient(135deg, #ff4d6d, #ff758f);
-  border: none;
-  color: white;
-  padding: 10px 25px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-}
-.butterfly-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  z-index: 2999;
-  display: none;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.butterfly-overlay.open {
-  display: block;
-  opacity: 1;
-}
-
 /* ===== ENVELOPE ===== */
 #love-letter-section { padding: 20px 0 0 0; text-align: center; width: 100%; }
 .envelope-wrapper {
@@ -1172,14 +987,6 @@ section {
         <span class="btn-icon">🎡</span>
         <span class="btn-label">What to do?</span>
       </a>
-      <a class="home-btn-card" href="#moon-phase-section" id="nav-btn-6">
-        <span class="btn-icon">🌙</span>
-        <span class="btn-label">Our Moon</span>
-      </a>
-      <a class="home-btn-card" href="#butterflies-section" id="nav-btn-7">
-        <span class="btn-icon">🦋</span>
-        <span class="btn-label">Messages</span>
-      </a>
       <a class="home-btn-card home-btn-wide" href="#memories-section" id="nav-btn-5">
         <span class="btn-icon">📖</span>
         <span class="btn-label">Our Book</span>
@@ -1289,46 +1096,6 @@ section {
     </div>
     <button class="btn" onclick="spinWheel()" style="margin-top:10px;" id="text-wheel-btn">Spin the Wheel 🎲</button>
     <div id="wheel-result"></div>
-  </div>
-</section>
-
-<!-- MOON PHASE -->
-<section id="moon-phase-section">
-  <div class="glass-panel">
-    <h2 style="font-size:24px; margin-top:0;" id="text-moon-title">Our Moon Tonight 🌙</h2>
-    <p style="font-size:13px; opacity:0.9; margin-bottom:15px;" id="text-moon-hint">The moon changes, but my love for you never does</p>
-
-    <div class="moon-container">
-      <div class="moon-glow"></div>
-      <div class="moon" id="moon">
-        <div class="moon-shadow" id="moon-shadow"></div>
-        <div class="moon-stars" id="moon-stars"></div>
-      </div>
-    </div>
-
-    <div class="moon-phase-name" id="moon-phase-name">Loading...</div>
-    <div class="moon-message" id="moon-message">...</div>
-    <div class="moon-date" id="moon-date"></div>
-  </div>
-</section>
-
-<!-- BUTTERFLIES -->
-<section id="butterflies-section">
-  <div class="glass-panel" style="max-width:400px;">
-    <h2 style="font-size:24px; margin-top:0;" id="text-butterfly-title">Messages in Flight 🦋</h2>
-    <p style="font-size:13px; opacity:0.9; margin-bottom:15px;" id="text-butterfly-hint">Touch a butterfly to reveal a secret message</p>
-
-    <div class="butterfly-container" id="butterfly-container">
-      <!-- Butterflies will be generated by JS -->
-    </div>
-  </div>
-
-  <!-- Butterfly Message Popup -->
-  <div class="butterfly-overlay" id="butterfly-overlay" onclick="closeButterflyMessage()"></div>
-  <div class="butterfly-message-popup" id="butterfly-popup">
-    <span class="butterfly-icon" id="butterfly-popup-icon">🦋</span>
-    <p class="butterfly-text" id="butterfly-popup-text"></p>
-    <button class="butterfly-close" onclick="closeButterflyMessage()" id="text-butterfly-close">Close ✨</button>
   </div>
 </section>
 
@@ -1480,12 +1247,7 @@ const translations = {
     swFooter: "Every snowflake reminded me of you",
     snowMusicPlay: "Play Our Song",
     snowMusicPause: "Pause Our Song",
-    snowMusicSub: "Bahaa Sultan - Sawa Sawa",
-    moonTitle: "Our Moon Tonight 🌙",
-    moonHint: "The moon changes, but my love for you never does",
-    butterflyTitle: "Messages in Flight 🦋",
-    butterflyHint: "Touch a butterfly to reveal a secret message",
-    butterflyClose: "Close ✨"
+    snowMusicSub: "Bahaa Sultan - Sawa Sawa"
   },
   it: {
     loginTitle: "Inserisci la password ❤️", loginBtn: "Entra", wrongPass: "Password errata 💔",
@@ -1518,12 +1280,7 @@ const translations = {
     swFooter: "Ogni fiocco di neve mi ricordava di te",
     snowMusicPlay: "Riproduci la nostra canzone",
     snowMusicPause: "Metti in pausa",
-    snowMusicSub: "Bahaa Sultan - Sawa Sawa",
-    moonTitle: "La nostra Luna stasera 🌙",
-    moonHint: "La luna cambia, ma il mio amore per te no",
-    butterflyTitle: "Messaggi in volo 🦋",
-    butterflyHint: "Tocca una farfalla per rivelare un messaggio segreto",
-    butterflyClose: "Chiudi ✨"
+    snowMusicSub: "Bahaa Sultan - Sawa Sawa"
   }
 };
 
@@ -1561,8 +1318,6 @@ function applyTranslations() {
   document.querySelector("#nav-btn-3 .btn-label").innerText = lang.btn3;
   document.querySelector("#nav-btn-4 .btn-label").innerText = lang.btn4;
   document.querySelector("#nav-btn-5 .btn-label").innerText = lang.btn5;
-  document.querySelector("#nav-btn-6 .btn-label").innerText = lang.btn6;
-  document.querySelector("#nav-btn-7 .btn-label").innerText = lang.btn7;
   document.getElementById("text-counter-title").innerText = lang.counterTitle;
   document.getElementById("text-counter-since").innerText = lang.since;
   document.getElementById("lbl-months").innerText = lang.months;
@@ -1611,13 +1366,6 @@ function applyTranslations() {
   } else if (snowMusicBtn) {
     document.getElementById("snow-music-label").innerText = lang.snowMusicPause;
   }
-  // Moon phase translations
-  document.getElementById("text-moon-title").innerText = lang.moonTitle;
-  document.getElementById("text-moon-hint").innerText = lang.moonHint;
-  // Butterfly translations
-  document.getElementById("text-butterfly-title").innerText = lang.butterflyTitle;
-  document.getElementById("text-butterfly-hint").innerText = lang.butterflyHint;
-  document.getElementById("text-butterfly-close").innerText = lang.butterflyClose;
   updateBookIndicator();
 }
 
@@ -1951,167 +1699,6 @@ function closeLightbox() {
   document.getElementById("snow-lightbox").classList.remove("open");
 }
 
-/* ===== MOON PHASE ===== */
-const moonPhases = {
-  en: [
-    { name: "New Moon 🌑", message: "Even in the darkest night, you are my light ✨" },
-    { name: "Waxing Crescent 🌒", message: "Our love is growing, just like the moon 🌱" },
-    { name: "First Quarter 🌓", message: "Halfway there, but fully in love with you 💫" },
-    { name: "Waxing Gibbous 🌔", message: "Almost full, just like my heart for you 💖" },
-    { name: "Full Moon 🌕", message: "Tonight is perfect for us — I love you to the moon and back 🌙" },
-    { name: "Waning Gibbous 🌖", message: "The moon may fade, but my love never will 💘" },
-    { name: "Last Quarter 🌗", message: "Still shining, still loving you forever ✨" },
-    { name: "Waning Crescent 🌘", message: "A new cycle begins, with you always by my side 💕" }
-  ],
-  it: [
-    { name: "Luna Nuova 🌑", message: "Anche nella notte più buia, tu sei la mia luce ✨" },
-    { name: "Luna Crescente 🌒", message: "Il nostro amore cresce, proprio come la luna 🌱" },
-    { name: "Primo Quarto 🌓", message: "A metà strada, ma completamente innamorato di te 💫" },
-    { name: "Gibbosa Crescente 🌔", message: "Quasi piena, proprio come il mio cuore per te 💖" },
-    { name: "Luna Piena 🌕", message: "Stasera è perfetta per noi — ti amo fino alla luna e ritorno 🌙" },
-    { name: "Gibbosa Calante 🌖", message: "La luna può svanire, ma il mio amore no 💘" },
-    { name: "Ultimo Quarto 🌗", message: "Brilla ancora, ti amo ancora per sempre ✨" },
-    { name: "Luna Calante 🌘", message: "Un nuovo ciclo inizia, con te sempre al mio fianco 💕" }
-  ]
-};
-
-function getMoonPhase(date) {
-  const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
-
-  let c, e, jd, b;
-  if (month < 3) { year--; month += 12; }
-  c = 365.25 * year;
-  e = 30.6 * month;
-  jd = c + e + day - 694039.09;
-  jd /= 29.5305882;
-  b = parseInt(jd);
-  jd -= b;
-  b = Math.round(jd * 8);
-  if (b >= 8) b = 0;
-  return b;
-}
-
-function updateMoonPhase() {
-  const now = new Date();
-  const phaseIndex = getMoonPhase(now);
-  const phase = moonPhases[currentLang][phaseIndex];
-
-  document.getElementById("moon-phase-name").innerText = phase.name;
-  document.getElementById("moon-message").innerText = phase.message;
-  document.getElementById("moon-date").innerText = now.toLocaleDateString(currentLang === "en" ? "en-US" : "it-IT", { 
-    weekday: "long", year: "numeric", month: "long", day: "numeric" 
-  });
-
-  // Update moon visual
-  const shadow = document.getElementById("moon-shadow");
-  const moon = document.getElementById("moon");
-  const starsContainer = document.getElementById("moon-stars");
-
-  // Clear old stars
-  starsContainer.innerHTML = "";
-
-  // Add stars
-  for (let i = 0; i < 20; i++) {
-    const star = document.createElement("div");
-    star.className = "moon-star";
-    star.style.left = Math.random() * 100 + "%";
-    star.style.top = Math.random() * 100 + "%";
-    star.style.animationDelay = Math.random() * 2 + "s";
-    starsContainer.appendChild(star);
-  }
-
-  // Moon colors based on phase
-  const colors = [
-    "#1a1a2e", "#16213e", "#0f3460", "#e94560", 
-    "#ffd700", "#ff6b6b", "#4ecdc4", "#45b7d1"
-  ];
-  moon.style.background = `radial-gradient(circle at 30% 30%, ${colors[phaseIndex]}, ${colors[(phaseIndex + 1) % 8]})`;
-  moon.style.boxShadow = `0 0 60px ${colors[phaseIndex]}40, 0 0 100px ${colors[phaseIndex]}20`;
-
-  // Shadow position based on phase
-  const shadowPositions = [
-    "100%", "75%", "50%", "25%", "0%", "25%", "50%", "75%"
-  ];
-  shadow.style.right = shadowPositions[phaseIndex];
-}
-
-/* ===== BUTTERFLIES ===== */
-const butterflies = {
-  en: [
-    { icon: "🩷", color: "#ff69b4", message: "You are the most beautiful thing in my life 🌸" },
-    { icon: "💜", color: "#da70d6", message: "My heart beats only for you 💓" },
-    { icon: "💙", color: "#87ceeb", message: "You are my calm in every storm 🌊" },
-    { icon: "💛", color: "#ffd700", message: "You light up my world like sunshine ☀️" },
-    { icon: "🧡", color: "#ffa500", message: "Every moment with you is warm and bright 🔥" },
-    { icon: "🤍", color: "#f5f5f5", message: "Pure love, pure heart, pure you 🤍" },
-    { icon: "❤️", color: "#ff1493", message: "I love you more than words can say 💕" }
-  ],
-  it: [
-    { icon: "🩷", color: "#ff69b4", message: "Sei la cosa più bella della mia vita 🌸" },
-    { icon: "💜", color: "#da70d6", message: "Il mio cuore batte solo per te 💓" },
-    { icon: "💙", color: "#87ceeb", message: "Sei la mia calma in ogni tempesta 🌊" },
-    { icon: "💛", color: "#ffd700", message: "Illumini il mio mondo come il sole ☀️" },
-    { icon: "🧡", color: "#ffa500", message: "Ogni momento con te è caldo e luminoso 🔥" },
-    { icon: "🤍", color: "#f5f5f5", message: "Amore puro, cuore puro, tu pura 🤍" },
-    { icon: "❤️", color: "#ff1493", message: "Ti amo più di quanto le parole possano dire 💕" }
-  ]
-};
-
-let butterflyElements = [];
-let butterflyAnimationId = null;
-
-function createButterflies() {
-  const container = document.getElementById("butterfly-container");
-  container.innerHTML = "";
-  butterflyElements = [];
-
-  const data = butterflies[currentLang];
-
-  data.forEach((b, i) => {
-    const el = document.createElement("div");
-    el.className = "butterfly";
-    el.innerHTML = `<span class="butterfly-wing">${b.icon}</span>`;
-    el.style.color = b.color;
-    el.style.left = (15 + Math.random() * 70) + "%";
-    el.style.top = (10 + Math.random() * 80) + "%";
-    el.style.filter = `drop-shadow(0 0 8px ${b.color}80)`;
-    el.dataset.index = i;
-    el.onclick = (e) => { e.stopPropagation(); openButterflyMessage(i); };
-    container.appendChild(el);
-    butterflyElements.push({ el, x: parseFloat(el.style.left), y: parseFloat(el.style.top), speedX: (Math.random() - 0.5) * 0.3, speedY: (Math.random() - 0.5) * 0.2 });
-  });
-}
-
-function animateButterflies() {
-  butterflyElements.forEach(b => {
-    b.x += b.speedX;
-    b.y += b.speedY;
-
-    if (b.x < 5 || b.x > 85) b.speedX *= -1;
-    if (b.y < 5 || b.y > 85) b.speedY *= -1;
-
-    b.el.style.left = b.x + "%";
-    b.el.style.top = b.y + "%";
-  });
-
-  butterflyAnimationId = requestAnimationFrame(animateButterflies);
-}
-
-function openButterflyMessage(index) {
-  const data = butterflies[currentLang][index];
-  document.getElementById("butterfly-popup-icon").innerText = data.icon;
-  document.getElementById("butterfly-popup-text").innerText = data.message;
-  document.getElementById("butterfly-popup").classList.add("open");
-  document.getElementById("butterfly-overlay").classList.add("open");
-}
-
-function closeButterflyMessage() {
-  document.getElementById("butterfly-popup").classList.remove("open");
-  document.getElementById("butterfly-overlay").classList.remove("open");
-}
-
 /* ===== BOOK ENGINE ===== */
 function openBook() {
   if (bCurrentPage > 0) return;
@@ -2202,191 +1789,6 @@ function startHearts() {
   }, 300);
 }
 
-/* ===== MOON PHASE ===== */
-#moon-phase-section {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 40px 20px;
-}
-.moon-container {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 20px auto;
-}
-.moon {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 0 60px rgba(255,255,255,0.3), 0 0 100px rgba(255,200,100,0.1);
-  transition: all 0.5s ease;
-}
-.moon-glow {
-  position: absolute;
-  inset: -20px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  animation: moonGlow 4s ease-in-out infinite;
-}
-@keyframes moonGlow {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.1); opacity: 0.8; }
-}
-.moon-shadow {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: rgba(10,20,40,0.85);
-  transition: all 0.5s ease;
-}
-.moon-stars {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-.moon-star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: white;
-  border-radius: 50%;
-  animation: twinkle 2s ease-in-out infinite;
-}
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
-.moon-phase-title {
-  font-size: 22px;
-  color: #fff;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  margin: 15px 0 5px;
-}
-.moon-phase-name {
-  font-size: 18px;
-  color: #ffe5ec;
-  font-weight: bold;
-  margin: 5px 0;
-}
-.moon-message {
-  font-size: 14px;
-  color: rgba(255,255,255,0.9);
-  text-align: center;
-  max-width: 300px;
-  line-height: 1.6;
-  margin: 10px 0;
-  font-style: italic;
-  min-height: 60px;
-}
-.moon-date {
-  font-size: 12px;
-  color: rgba(255,255,255,0.6);
-  margin-top: 5px;
-}
-
-/* ===== BUTTERFLIES ===== */
-#butterflies-section {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 40px 20px;
-  position: relative;
-  overflow: hidden;
-}
-.butterfly-container {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  height: 400px;
-  margin: 20px auto;
-}
-.butterfly {
-  position: absolute;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  z-index: 10;
-}
-.butterfly:hover {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 15px currentColor);
-}
-.butterfly-wing {
-  font-size: 32px;
-  display: block;
-  animation: butterflyFlap 1.5s ease-in-out infinite;
-}
-@keyframes butterflyFlap {
-  0%, 100% { transform: scaleX(1) rotate(0deg); }
-  25% { transform: scaleX(0.6) rotate(-10deg); }
-  75% { transform: scaleX(0.6) rotate(10deg); }
-}
-.butterfly-message-popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(20px);
-  padding: 30px 25px;
-  border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  z-index: 3000;
-  max-width: 320px;
-  width: 90%;
-  text-align: center;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  opacity: 0;
-}
-.butterfly-message-popup.open {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 1;
-}
-.butterfly-message-popup .butterfly-icon {
-  font-size: 48px;
-  margin-bottom: 15px;
-  display: block;
-}
-.butterfly-message-popup .butterfly-text {
-  font-size: 16px;
-  color: #444;
-  line-height: 1.6;
-  font-style: italic;
-}
-.butterfly-message-popup .butterfly-close {
-  margin-top: 20px;
-  background: linear-gradient(135deg, #ff4d6d, #ff758f);
-  border: none;
-  color: white;
-  padding: 10px 25px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-}
-.butterfly-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  z-index: 2999;
-  display: none;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.butterfly-overlay.open {
-  display: block;
-  opacity: 1;
-}
-
 /* ===== ENVELOPE ===== */
 function toggleLetter() {
   document.querySelector('.envelope-wrapper').classList.toggle('open');
@@ -2420,9 +1822,6 @@ if (sessionStorage.getItem("token")) {
   loadVideos();
 }
 setupMusicPlayer();
-updateMoonPhase();
-createButterflies();
-animateButterflies();
 applyTranslations();
 </script>
 </body>
