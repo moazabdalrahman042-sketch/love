@@ -712,6 +712,83 @@ section {
   display: flex; align-items: center; justify-content: center;
 }
 
+/* Snow World Music Button */
+.snow-music-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+.snow-music-btn {
+  background: linear-gradient(135deg, rgba(255,200,220,0.25), rgba(255,150,180,0.2));
+  border: 1.5px solid rgba(255,200,220,0.4);
+  border-radius: 22px;
+  padding: 12px 28px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 4px 20px rgba(255,100,130,0.2);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 280px;
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+.snow-music-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+.snow-music-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 25px rgba(255,100,130,0.35);
+  border-color: rgba(255,200,220,0.6);
+}
+.snow-music-btn:active { transform: scale(0.97); }
+.snow-music-btn.playing {
+  background: linear-gradient(135deg, rgba(150,220,180,0.3), rgba(100,200,150,0.25));
+  border-color: rgba(150,220,180,0.5);
+  box-shadow: 0 4px 20px rgba(100,200,150,0.3);
+}
+.snow-music-btn.playing:hover {
+  box-shadow: 0 6px 25px rgba(100,200,150,0.4);
+}
+.snow-music-icon {
+  font-size: 28px;
+  display: block;
+  line-height: 1;
+  animation: snowMusicPulse 2s ease-in-out infinite;
+}
+@keyframes snowMusicPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px rgba(255,200,220,0.6)); }
+  50% { transform: scale(1.1); filter: drop-shadow(0 0 10px rgba(255,200,220,0.9)); }
+}
+.snow-music-btn.playing .snow-music-icon {
+  animation: snowMusicBounce 1s ease-in-out infinite;
+}
+@keyframes snowMusicBounce {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.15) rotate(-5deg); }
+  75% { transform: scale(1.15) rotate(5deg); }
+}
+.snow-music-label {
+  font-size: 13px;
+  font-weight: bold;
+  color: #e0f4ff;
+  text-align: center;
+  line-height: 1.3;
+  text-shadow: 0 0 10px rgba(150,220,255,0.3);
+}
+.snow-music-sublabel {
+  font-size: 10px;
+  color: rgba(200,235,255,0.7);
+}
+
 /* Snow footer hearts */
 .snow-footer {
   text-align: center;
@@ -762,7 +839,9 @@ section {
 </audio>
 
 <!-- SNOW AUDIO -->
-<audio id="snow-music" loop></audio>
+<audio id="snow-music" loop>
+  <source src="https://raw.githubusercontent.com/moazabdalrahman042-sketch/love/main/Bahaa%20Sultan%20-%20Sawa%20Sawa%20(Music%20Video)%20_%202026%20_%20%D8%A8%D9%87%D8%A7%D8%A1%20%D8%B3%D9%84%D8%B7%D8%A7%D9%86%20-%20%D8%A3%D8%BA%D9%86%D9%8A%D8%A9%20%D9%85%D8%B3%D9%84%D8%B3%D9%84%20%D8%B3%D9%88%D8%A7%20%D8%B3%D9%88%D8%A7%20(%D9%81%D9%8A%D8%AF%D9%8A%D9%88%20%D9%83%D9%84%D9%8A%D8%A8).mp3" type="audio/mpeg">
+</audio>
 
 <!-- SNOW TRANSITION -->
 <div id="snow-transition"></div>
@@ -844,6 +923,15 @@ section {
       </div>
     </div>
 
+    <!-- Music Toggle in Snow World -->
+    <div class="snow-music-wrap">
+      <button class="snow-music-btn" onclick="toggleSnowMusic()" id="snow-music-btn">
+        <span class="snow-music-icon" id="snow-music-icon">🎵</span>
+        <span class="snow-music-label" id="snow-music-label">Play Our Song</span>
+        <span class="snow-music-sublabel" id="snow-music-sublabel">Bahaa Sultan - Sawa Sawa</span>
+      </button>
+    </div>
+
     <!-- Footer -->
     <div class="snow-footer">
       <span class="big-heart">🤍</span>
@@ -895,15 +983,6 @@ section {
           <span class="sunflower-icon">🌻</span>
           <span class="sunflower-label" id="sw-btn-label">Our Snow City ❄️</span>
           <span class="sunflower-sublabel" id="sw-btn-sub">Touch the sunflower to enter</span>
-        </button>
-      </div>
-
-      <!-- MUSIC TOGGLE -->
-      <div class="music-btn-wrap">
-        <button class="music-toggle-btn" onclick="toggleMusic()" id="music-toggle-btn">
-          <span class="music-icon" id="music-icon">🎵</span>
-          <span class="music-label" id="music-label">Play Our Song</span>
-          <span class="music-sublabel" id="music-sublabel">Bahaa Sultan - Sawa Sawa</span>
         </button>
       </div>
 
@@ -1151,9 +1230,9 @@ const translations = {
     swAlbumTitle: "📸 Our Snow City Album",
     swAlbumSub: "Tap any photo to open it ✨",
     swFooter: "Every snowflake reminded me of you",
-    musicPlay: "Play Our Song",
-    musicPause: "Pause Our Song",
-    musicSub: "Bahaa Sultan - Sawa Sawa"
+    snowMusicPlay: "Play Our Song",
+    snowMusicPause: "Pause Our Song",
+    snowMusicSub: "Bahaa Sultan - Sawa Sawa"
   },
   it: {
     loginTitle: "Inserisci la password ❤️", loginBtn: "Entra", wrongPass: "Password errata 💔",
@@ -1184,9 +1263,9 @@ const translations = {
     swAlbumTitle: "📸 Il nostro album Snow City",
     swAlbumSub: "Tocca qualsiasi foto per aprirla ✨",
     swFooter: "Ogni fiocco di neve mi ricordava di te",
-    musicPlay: "Riproduci la nostra canzone",
-    musicPause: "Metti in pausa",
-    musicSub: "Bahaa Sultan - Sawa Sawa"
+    snowMusicPlay: "Riproduci la nostra canzone",
+    snowMusicPause: "Metti in pausa",
+    snowMusicSub: "Bahaa Sultan - Sawa Sawa"
   }
 };
 
@@ -1264,13 +1343,13 @@ function applyTranslations() {
   document.getElementById("sw-album-title").innerText = lang.swAlbumTitle;
   document.getElementById("sw-album-subtitle").innerText = lang.swAlbumSub;
   document.getElementById("sw-footer").innerText = lang.swFooter;
-  // Music button translations
-  const musicBtn = document.getElementById("music-toggle-btn");
-  if (musicBtn && !isMusicPlaying) {
-    document.getElementById("music-label").innerText = lang.musicPlay;
-    document.getElementById("music-sublabel").innerText = lang.musicSub;
-  } else if (musicBtn) {
-    document.getElementById("music-label").innerText = lang.musicPause;
+  // Snow music button translations
+  const snowMusicBtn = document.getElementById("snow-music-btn");
+  if (snowMusicBtn && !isSnowMusicPlaying) {
+    document.getElementById("snow-music-label").innerText = lang.snowMusicPlay;
+    document.getElementById("snow-music-sublabel").innerText = lang.snowMusicSub;
+  } else if (snowMusicBtn) {
+    document.getElementById("snow-music-label").innerText = lang.snowMusicPause;
   }
   updateBookIndicator();
 }
@@ -1348,25 +1427,25 @@ async function loadVideos() {
   }
 }
 
-/* ===== MUSIC TOGGLE ===== */
-let isMusicPlaying = false;
-function toggleMusic() {
-  const music = document.getElementById("music");
-  const btn = document.getElementById("music-toggle-btn");
-  const icon = document.getElementById("music-icon");
-  const label = document.getElementById("music-label");
-  if (isMusicPlaying) {
+/* ===== SNOW WORLD MUSIC TOGGLE ===== */
+let isSnowMusicPlaying = false;
+function toggleSnowMusic() {
+  const music = document.getElementById("snow-music");
+  const btn = document.getElementById("snow-music-btn");
+  const icon = document.getElementById("snow-music-icon");
+  const label = document.getElementById("snow-music-label");
+  if (isSnowMusicPlaying) {
     music.pause();
     btn.classList.remove("playing");
     icon.innerText = "🎵";
     label.innerText = currentLang === "en" ? "Play Our Song" : "Riproduci la nostra canzone";
-    isMusicPlaying = false;
+    isSnowMusicPlaying = false;
   } else {
     music.play().catch(() => {});
     btn.classList.add("playing");
     icon.innerText = "🎶";
     label.innerText = currentLang === "en" ? "Pause Our Song" : "Metti in pausa";
-    isMusicPlaying = true;
+    isSnowMusicPlaying = true;
   }
 }
 
@@ -1385,8 +1464,7 @@ function openSnowWorld() {
     trans.classList.remove("active");
     startSnowCanvas();
     setTimeout(() => startTypewriter(), 800);
-    const snowMusic = document.getElementById("snow-music");
-    if (snowMusic.src && !isMusicPlaying) { snowMusic.currentTime = 0; snowMusic.play().catch(()=>{}); }
+    // Music is now controlled by the toggle button, not auto-play
   }, 600);
 }
 
@@ -1399,7 +1477,17 @@ function closeSnowWorld() {
     snowWorldOpen = false;
     stopSnowCanvas();
     clearTypewriter();
-    document.getElementById("snow-music").pause();
+    const snowMusic = document.getElementById("snow-music");
+    snowMusic.pause();
+    snowMusic.currentTime = 0;
+    // Reset button state
+    isSnowMusicPlaying = false;
+    const btn = document.getElementById("snow-music-btn");
+    if (btn) {
+      btn.classList.remove("playing");
+      document.getElementById("snow-music-icon").innerText = "🎵";
+      document.getElementById("snow-music-label").innerText = currentLang === "en" ? "Play Our Song" : "Riproduci la nostra canzone";
+    }
     trans.classList.remove("active");
   }, 600);
 }
