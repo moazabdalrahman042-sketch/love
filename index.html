@@ -819,6 +819,7 @@ section {
 }
 #snow-transition.active { opacity: 1; pointer-events: all; }
 </style>
+<script src="https://w.soundcloud.com/player/api.js"></script>
 </head>
 
 <body>
@@ -839,9 +840,10 @@ section {
 </audio>
 
 <!-- SNOW AUDIO -->
-<audio id="snow-music" loop>
-  <source src="https://raw.githubusercontent.com/moazabdalrahman042-sketch/love/main/Bahaa%20Sultan%20-%20Sawa%20Sawa%20(Music%20Video)%20_%202026%20_%20%D8%A8%D9%87%D8%A7%D8%A1%20%D8%B3%D9%84%D8%B7%D8%A7%D9%86%20-%20%D8%A3%D8%BA%D9%86%D9%8A%D8%A9%20%D9%85%D8%B3%D9%84%D8%B3%D9%84%20%D8%B3%D9%88%D8%A7%20%D8%B3%D9%88%D8%A7%20(%D9%81%D9%8A%D8%AF%D9%8A%D9%88%20%D9%83%D9%84%D9%8A%D8%A8).mp3" type="audio/mpeg">
-</audio>
+<div id="snow-music-container" style="position:fixed; bottom:0; left:0; width:100%; height:120px; z-index:3000; display:none; background:rgba(10,22,40,0.9); backdrop-filter:blur(10px);">
+  <iframe id="snow-music-iframe" width="100%" height="120" scrolling="no" frameborder="no" allow="autoplay" src=""></iframe>
+  <button onclick="hideMusicPlayer()" style="position:absolute; top:5px; right:10px; background:rgba(255,255,255,0.2); border:none; color:white; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:16px;">✕</button>
+</div>
 
 <!-- SNOW TRANSITION -->
 <div id="snow-transition"></div>
@@ -858,6 +860,15 @@ section {
       <div style="font-size:48px; margin-bottom:4px;">🏔️❄️</div>
       <div class="snow-house-title" id="sw-title">Our Snow City ✨</div>
       <div class="snow-house-subtitle" id="sw-subtitle">A magical moment we'll never forget</div>
+    </div>
+
+    <!-- Music Toggle in Snow World -->
+    <div class="snow-music-wrap">
+      <button class="snow-music-btn" onclick="toggleSnowMusic()" id="snow-music-btn">
+        <span class="snow-music-icon" id="snow-music-icon">🎵</span>
+        <span class="snow-music-label" id="snow-music-label">Play Our Song</span>
+        <span class="snow-music-sublabel" id="snow-music-sublabel">Bahaa Sultan - Sawa Sawa</span>
+      </button>
     </div>
 
     <!-- Candle -->
@@ -921,15 +932,6 @@ section {
           <div class="photo-overlay"><span>Memory 10 ❄️</span></div>
         </div>
       </div>
-    </div>
-
-    <!-- Music Toggle in Snow World -->
-    <div class="snow-music-wrap">
-      <button class="snow-music-btn" onclick="toggleSnowMusic()" id="snow-music-btn">
-        <span class="snow-music-icon" id="snow-music-icon">🎵</span>
-        <span class="snow-music-label" id="snow-music-label">Play Our Song</span>
-        <span class="snow-music-sublabel" id="snow-music-sublabel">Bahaa Sultan - Sawa Sawa</span>
-      </button>
     </div>
 
     <!-- Footer -->
@@ -1399,14 +1401,7 @@ async function loadVideos() {
       if (d["book_page3"])   document.getElementById("bp3-video").src = toEmbedUrl(d["book_page3"]);
       if (d["book_page4"])   document.getElementById("bp4-video").src = toEmbedUrl(d["book_page4"]);
       if (d["book_page5"])   document.getElementById("bp5-video").src = toEmbedUrl(d["book_page5"]);
-      // Snow song
-      if (d["song.mp3"]) {
-        const reg1 = /\/file\/d\/([^/]+)/;
-        const fileId = d["song.mp3"].match(reg1)?.[1];
-        if (fileId) {
-          document.getElementById("snow-music").src = "https://drive.google.com/uc?export=download&id=" + fileId;
-        }
-      }
+      // Snow song is now loaded from SoundCloud directly (see toggleSnowMusic)
       for (let i = 1; i <= 10; i++) {
         const key = "alaa" + i + ".jpg";
         const url = d[key];
@@ -1430,23 +1425,54 @@ async function loadVideos() {
 /* ===== SNOW WORLD MUSIC TOGGLE ===== */
 let isSnowMusicPlaying = false;
 function toggleSnowMusic() {
-  const music = document.getElementById("snow-music");
   const btn = document.getElementById("snow-music-btn");
   const icon = document.getElementById("snow-music-icon");
   const label = document.getElementById("snow-music-label");
+  const container = document.getElementById("snow-music-container");
+  const iframe = document.getElementById("snow-music-iframe");
+
   if (isSnowMusicPlaying) {
-    music.pause();
+    // Stop music
+    iframe.src = "";
+    container.style.display = "none";
     btn.classList.remove("playing");
     icon.innerText = "🎵";
     label.innerText = currentLang === "en" ? "Play Our Song" : "Riproduci la nostra canzone";
     isSnowMusicPlaying = false;
   } else {
-    music.play().catch(() => {});
+    // Start music - show SoundCloud player
+    container.style.display = "block";
+    iframe.src = "https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F2267130563&show_artwork=true&auto_play=true";
     btn.classList.add("playing");
     icon.innerText = "🎶";
     label.innerText = currentLang === "en" ? "Pause Our Song" : "Metti in pausa";
     isSnowMusicPlaying = true;
+
+    // Try to use SoundCloud Widget API when ready
+    setTimeout(() => {
+      try {
+        const widget = SC.Widget(iframe);
+        widget.play();
+      } catch(e) {
+        console.log("SoundCloud API not ready yet, using auto_play");
+      }
+    }, 1500);
   }
+}
+
+function hideMusicPlayer() {
+  const container = document.getElementById("snow-music-container");
+  const iframe = document.getElementById("snow-music-iframe");
+  const btn = document.getElementById("snow-music-btn");
+  const icon = document.getElementById("snow-music-icon");
+  const label = document.getElementById("snow-music-label");
+
+  iframe.src = "";
+  container.style.display = "none";
+  btn.classList.remove("playing");
+  icon.innerText = "🎵";
+  label.innerText = currentLang === "en" ? "Play Our Song" : "Riproduci la nostra canzone";
+  isSnowMusicPlaying = false;
 }
 
 /* ===== SNOW WORLD ===== */
@@ -1477,9 +1503,11 @@ function closeSnowWorld() {
     snowWorldOpen = false;
     stopSnowCanvas();
     clearTypewriter();
-    const snowMusic = document.getElementById("snow-music");
-    snowMusic.pause();
-    snowMusic.currentTime = 0;
+    // Stop music and hide player
+    const iframe = document.getElementById("snow-music-iframe");
+    const container = document.getElementById("snow-music-container");
+    if (iframe) iframe.src = "";
+    if (container) container.style.display = "none";
     // Reset button state
     isSnowMusicPlaying = false;
     const btn = document.getElementById("snow-music-btn");
