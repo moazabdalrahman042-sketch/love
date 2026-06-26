@@ -6,6 +6,8 @@
 <title>Love You Alaa</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -176,8 +178,7 @@ section {
 }
 .sunflower-portal-btn::before {
   content: '';
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.4) 0%, transparent 70%);
   pointer-events: none;
 }
@@ -230,8 +231,7 @@ section {
 }
 .music-toggle-btn::before {
   content: '';
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.4) 0%, transparent 70%);
   pointer-events: none;
 }
@@ -457,7 +457,6 @@ section {
 }
 #snow-world.visible { display: flex; }
 
-/* Back arrow */
 .snow-back-btn {
   position: fixed;
   top: 18px;
@@ -477,7 +476,6 @@ section {
 }
 .snow-back-btn:hover { background: rgba(255,255,255,0.3); transform: scale(1.1); }
 
-/* Snowflakes canvas */
 #snowCanvas {
   position: fixed;
   inset: 0;
@@ -485,7 +483,6 @@ section {
   z-index: 2001;
 }
 
-/* Snow world content */
 .snow-content {
   position: relative;
   z-index: 2050;
@@ -499,7 +496,6 @@ section {
   gap: 30px;
 }
 
-/* Snow house */
 .snow-house {
   width: 100%;
   display: flex;
@@ -522,7 +518,6 @@ section {
   text-align: center;
 }
 
-/* Candle */
 .candle-wrap {
   display: flex;
   flex-direction: column;
@@ -577,7 +572,6 @@ section {
   50% { opacity: 1; transform: translateX(-50%) scale(1.2); }
 }
 
-/* Typewriter message */
 .snow-message-box {
   background: rgba(255,255,255,0.07);
   border: 1px solid rgba(255,255,255,0.15);
@@ -611,7 +605,6 @@ section {
 }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-/* Snow photo album */
 .snow-album-title {
   font-size: 18px;
   font-weight: bold;
@@ -668,13 +661,11 @@ section {
   font-weight: bold;
 }
 
-/* Wide 5th photo */
 .snow-photo-card.wide {
   grid-column: 1 / -1;
 }
 .snow-photo-card.wide img { aspect-ratio: 16/9; }
 
-/* Snow photo overlay (lightbox) */
 #snow-lightbox {
   position: fixed;
   inset: 0;
@@ -712,7 +703,6 @@ section {
   display: flex; align-items: center; justify-content: center;
 }
 
-/* Snow World Music Button */
 .snow-music-wrap {
   width: 100%;
   display: flex;
@@ -789,7 +779,6 @@ section {
   color: rgba(200,235,255,0.7);
 }
 
-/* Snow footer hearts */
 .snow-footer {
   text-align: center;
   color: rgba(200,235,255,0.5);
@@ -807,7 +796,6 @@ section {
   50% { transform: scale(1.15); }
 }
 
-/* Transition overlay */
 #snow-transition {
   position: fixed;
   inset: 0;
@@ -1772,7 +1760,6 @@ body, .glass-panel, .time-card, .flip-card-front, .flip-card-back, .book-cover, 
   transition: all 0.8s ease;
 }
 
-
 /* ===== MOON IN HOME ===== */
 .home-moon-wrap {
   display: flex;
@@ -1909,9 +1896,1398 @@ body, .glass-panel, .time-card, .flip-card-front, .flip-card-back, .book-cover, 
   50% { opacity: 1; transform: scale(1.3); }
 }
 
+/* ===== SECRET GARDEN ROOM ===== */
+#garden-room {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: linear-gradient(180deg, #1a0a2e 0%, #2d1b4e 30%, #4a2c6a 60%, #6b3d7a 100%);
+}
+#garden-room.visible { display: flex; }
+
+.garden-back-btn {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 4100;
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  color: white;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(6px);
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+.garden-back-btn:hover { background: rgba(255,255,255,0.3); transform: scale(1.1); }
+
+#gardenCanvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4001;
+}
+
+.garden-content {
+  position: relative;
+  z-index: 4050;
+  width: 100%;
+  max-width: 420px;
+  padding: 80px 20px 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.garden-title {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffd6e8;
+  text-shadow: 0 0 30px rgba(255,150,200,0.6), 0 2px 10px rgba(0,0,0,0.3);
+  text-align: center;
+  animation: gardenTitleGlow 3s ease-in-out infinite;
+}
+@keyframes gardenTitleGlow {
+  0%, 100% { text-shadow: 0 0 30px rgba(255,150,200,0.6), 0 2px 10px rgba(0,0,0,0.3); }
+  50% { text-shadow: 0 0 50px rgba(255,150,200,0.9), 0 2px 10px rgba(0,0,0,0.3); }
+}
+
+.garden-subtitle {
+  font-size: 14px;
+  color: rgba(255,200,220,0.7);
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Candles Section */
+.garden-candles-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.garden-candles-title {
+  font-size: 16px;
+  color: #ffd6e8;
+  font-weight: bold;
+  text-align: center;
+}
+
+.garden-candles-hint {
+  font-size: 11px;
+  color: rgba(255,200,220,0.5);
+  text-align: center;
+}
+
+.garden-candles-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+.garden-candle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.garden-candle:hover { transform: translateY(-5px) scale(1.05); }
+
+.garden-candle-body {
+  width: 28px; height: 70px;
+  background: linear-gradient(180deg, #fff5e6, #ffe4c4, #deb887);
+  border-radius: 5px 5px 3px 3px;
+  position: relative;
+  box-shadow: 0 0 15px rgba(255,180,100,0.2);
+  transition: box-shadow 0.5s ease;
+}
+.garden-candle-body.lit {
+  box-shadow: 0 0 30px rgba(255,180,100,0.6), 0 0 60px rgba(255,140,50,0.3);
+}
+.garden-candle-body::after {
+  content: '';
+  position: absolute;
+  top: -10px; left: 50%;
+  transform: translateX(-50%);
+  width: 3px; height: 10px;
+  background: #444;
+  border-radius: 1px;
+}
+
+.garden-candle-flame {
+  width: 16px; height: 26px;
+  background: radial-gradient(ellipse at 50% 80%, #fff 0%, #ffe4b5 30%, #ff8c00 70%, transparent 100%);
+  border-radius: 50% 50% 30% 30%;
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: blur(0.5px);
+}
+.garden-candle-body.lit .garden-candle-flame {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  animation: candleFlicker 1.2s ease-in-out infinite;
+}
+@keyframes candleFlicker {
+  0%, 100% { transform: translateX(-50%) scaleY(1) scaleX(1); }
+  25% { transform: translateX(-50%) scaleY(1.1) scaleX(0.9); }
+  50% { transform: translateX(-50%) scaleY(0.95) scaleX(1.05); }
+  75% { transform: translateX(-50%) scaleY(1.08) scaleX(0.95); }
+}
+
+.garden-candle-glow {
+  width: 80px; height: 80px;
+  background: radial-gradient(circle, rgba(255,180,80,0.3) 0%, transparent 70%);
+  position: absolute;
+  top: -50px; left: 50%;
+  transform: translateX(-50%) scale(0);
+  opacity: 0;
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+.garden-candle-body.lit .garden-candle-glow {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  animation: candleGlowPulse 1.2s ease-in-out infinite;
+}
+@keyframes candleGlowPulse {
+  0%, 100% { opacity: 0.5; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.3); }
+}
+
+.garden-candle-label {
+  font-size: 10px;
+  color: rgba(255,200,220,0.7);
+  text-align: center;
+  transition: color 0.3s ease;
+}
+.garden-candle:hover .garden-candle-label {
+  color: #ffd6e8;
+}
+
+/* Love Message Wall */
+.garden-message-wall {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,200,220,0.15);
+  border-radius: 20px;
+  padding: 25px 20px;
+  backdrop-filter: blur(10px);
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.garden-message-wall::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(255,150,200,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.garden-message-text {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 20px;
+  color: #ffd6e8;
+  text-align: center;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.8s ease;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  min-height: 60px;
+  font-weight: 500;
+}
+.garden-message-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.garden-message-hint {
+  font-size: 11px;
+  color: rgba(255,200,220,0.4);
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Vinyl Player */
+.garden-vinyl-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.garden-vinyl-title {
+  font-size: 16px;
+  color: #ffd6e8;
+  font-weight: bold;
+  text-align: center;
+}
+
+.garden-vinyl-player {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  cursor: pointer;
+}
+
+.garden-vinyl-disc {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #1a1a2e 0deg, #2d2d44 10deg, #1a1a2e 20deg,
+    #2d2d44 30deg, #1a1a2e 40deg, #2d2d44 50deg,
+    #1a1a2e 60deg, #2d2d44 70deg, #1a1a2e 80deg,
+    #2d2d44 90deg, #1a1a2e 100deg, #2d2d44 110deg,
+    #1a1a2e 120deg, #2d2d44 130deg, #1a1a2e 140deg,
+    #2d2d44 150deg, #1a1a2e 160deg, #2d2d44 170deg,
+    #1a1a2e 180deg, #2d2d44 190deg, #1a1a2e 200deg,
+    #2d2d44 210deg, #1a1a2e 220deg, #2d2d44 230deg,
+    #1a1a2e 240deg, #2d2d44 250deg, #1a1a2e 260deg,
+    #2d2d44 270deg, #1a1a2e 280deg, #2d2d44 290deg,
+    #1a1a2e 300deg, #2d2d44 310deg, #1a1a2e 320deg,
+    #2d2d44 330deg, #1a1a2e 340deg, #2d2d44 350deg
+  );
+  position: absolute;
+  top: 10px; left: 10px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+.garden-vinyl-disc.spinning {
+  animation: vinylSpin 3s linear infinite;
+}
+@keyframes vinylSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.garden-vinyl-label {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(255,77,109,0.4);
+}
+.garden-vinyl-label::after {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #1a1a2e;
+}
+
+.garden-vinyl-arm {
+  width: 4px;
+  height: 90px;
+  background: linear-gradient(180deg, #c0c0c0, #808080);
+  position: absolute;
+  top: 5px; right: 25px;
+  transform-origin: top center;
+  transform: rotate(-30deg);
+  border-radius: 2px;
+  transition: transform 0.5s ease;
+}
+.garden-vinyl-arm.playing {
+  transform: rotate(5deg);
+}
+.garden-vinyl-arm::after {
+  content: '';
+  width: 12px; height: 12px;
+  background: #c0c0c0;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -6px; left: 50%;
+  transform: translateX(-50%);
+}
+
+.garden-vinyl-base {
+  width: 200px;
+  height: 20px;
+  background: linear-gradient(180deg, #3d3d5c, #2d2d44);
+  border-radius: 0 0 10px 10px;
+  position: absolute;
+  bottom: 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.garden-vinyl-status {
+  font-size: 12px;
+  color: rgba(255,200,220,0.6);
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* Mirror */
+.garden-mirror-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.garden-mirror-title {
+  font-size: 16px;
+  color: #ffd6e8;
+  font-weight: bold;
+  text-align: center;
+}
+
+.garden-mirror {
+  width: 150px;
+  height: 200px;
+  border-radius: 75px 75px 10px 10px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  border: 3px solid rgba(255,215,0,0.3);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  box-shadow: 0 0 30px rgba(255,215,0,0.1), inset 0 0 30px rgba(255,255,255,0.05);
+}
+.garden-mirror:hover {
+  border-color: rgba(255,215,0,0.6);
+  box-shadow: 0 0 50px rgba(255,215,0,0.3), inset 0 0 30px rgba(255,255,255,0.1);
+}
+.garden-mirror::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
+  animation: mirrorShine 4s ease-in-out infinite;
+}
+@keyframes mirrorShine {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+.garden-mirror-reflection {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  opacity: 0.3;
+  transition: all 0.5s ease;
+}
+.garden-mirror:hover .garden-mirror-reflection {
+  opacity: 0.7;
+  transform: scale(1.1);
+}
+
+.garden-mirror-caption {
+  font-size: 11px;
+  color: rgba(255,200,220,0.5);
+  text-align: center;
+}
+
+/* Mirror Couple Reveal */
+.garden-mirror-couple {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+.garden-mirror.revealed .garden-mirror-couple {
+  opacity: 1;
+  transform: scale(1);
+}
+.garden-mirror.revealed .garden-mirror-reflection {
+  opacity: 0;
+  transform: scale(0);
+}
+.couple-emoji {
+  font-size: 56px;
+  margin-bottom: 8px;
+  animation: coupleFloat 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(255,150,200,0.6));
+}
+@keyframes coupleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.couple-names {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 28px;
+  color: #ffd6e8;
+  text-shadow: 0 0 20px rgba(255,150,200,0.8), 0 2px 8px rgba(0,0,0,0.3);
+  animation: namesGlow 2s ease-in-out infinite;
+}
+@keyframes namesGlow {
+  0%, 100% { text-shadow: 0 0 20px rgba(255,150,200,0.8), 0 2px 8px rgba(0,0,0,0.3); }
+  50% { text-shadow: 0 0 40px rgba(255,150,200,1), 0 2px 8px rgba(0,0,0,0.3); }
+}
+
+/* ===== STARRY CEILING ===== */
+.garden-stars-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.garden-stars-title {
+  font-size: 18px;
+  color: #ffd6e8;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 0 15px rgba(255,150,200,0.5);
+}
+.garden-stars-hint {
+  font-size: 11px;
+  color: rgba(255,200,220,0.5);
+  text-align: center;
+}
+.garden-stars-canvas-wrap {
+  width: 100%;
+  height: 200px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,200,220,0.1);
+  position: relative;
+}
+#gardenStarsCanvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== OLD LOVE LETTER ===== */
+.garden-letter-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.garden-letter-title {
+  font-size: 18px;
+  color: #ffd6e8;
+  font-weight: bold;
+  text-align: center;
+}
+.garden-old-letter {
+  width: 220px;
+  height: 160px;
+  position: relative;
+  cursor: pointer;
+  perspective: 800px;
+}
+.garden-old-letter-front,
+.garden-old-letter-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  backface-visibility: hidden;
+  transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.garden-old-letter-front {
+  background: linear-gradient(135deg, #fff5e6, #ffe4c4, #deb887);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3), inset 0 0 30px rgba(139,69,19,0.1);
+  border: 1px solid rgba(139,69,19,0.2);
+  z-index: 2;
+}
+.garden-old-letter.open .garden-old-letter-front {
+  transform: rotateY(-180deg);
+}
+.old-letter-seal {
+  font-size: 32px;
+  margin-bottom: 8px;
+  animation: sealPulse 2s ease-in-out infinite;
+}
+@keyframes sealPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(255,100,100,0.5)); }
+  50% { transform: scale(1.1); filter: drop-shadow(0 0 15px rgba(255,100,100,0.8)); }
+}
+.old-letter-to {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 16px;
+  color: #8b4513;
+  margin-bottom: 4px;
+}
+.old-letter-from {
+  font-size: 12px;
+  color: #a0522d;
+  opacity: 0.8;
+}
+.garden-old-letter-back {
+  background: linear-gradient(135deg, #fffaf0, #fff5e6);
+  transform: rotateY(180deg);
+  padding: 15px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  border: 1px solid rgba(139,69,19,0.15);
+  overflow: hidden;
+}
+.garden-old-letter.open .garden-old-letter-back {
+  transform: rotateY(0deg);
+}
+.old-letter-content {
+  text-align: center;
+  width: 100%;
+}
+.old-letter-line {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 14px;
+  color: #5d3a00;
+  line-height: 1.7;
+  margin: 4px 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s ease;
+  font-weight: 500;
+}
+.garden-old-letter.open .old-letter-line {
+  opacity: 1;
+  transform: translateY(0);
+}
+.garden-old-letter.open .old-letter-line:nth-child(1) { transition-delay: 0.3s; }
+.garden-old-letter.open .old-letter-line:nth-child(2) { transition-delay: 0.5s; }
+.garden-old-letter.open .old-letter-line:nth-child(3) { transition-delay: 0.7s; }
+.garden-old-letter.open .old-letter-line:nth-child(4) { transition-delay: 0.9s; }
+.garden-old-letter.open .old-letter-line:nth-child(5) { transition-delay: 1.1s; }
+.garden-old-letter.open .old-letter-line:nth-child(6) { transition-delay: 1.3s; }
+.old-letter-signature {
+  font-size: 16px !important;
+  color: #ff4d6d !important;
+  margin-top: 8px !important;
+}
+.garden-letter-hint {
+  font-size: 11px;
+  color: rgba(255,200,220,0.5);
+  text-align: center;
+}
+
+/* ===== SPARKLE EFFECTS ===== */
+.sparkle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #ffd700, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 5000;
+  animation: sparkleAnim 1s ease-out forwards;
+}
+@keyframes sparkleAnim {
+  0% { transform: scale(0) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.5) rotate(180deg); opacity: 0.8; }
+  100% { transform: scale(0) rotate(360deg); opacity: 0; }
+}
+
+/* ===== ROSE PETALS FALLING ===== */
+.garden-rose-petals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4003;
+  overflow: hidden;
+}
+.rose-petal {
+  position: absolute;
+  top: -20px;
+  font-size: 16px;
+  opacity: 0.7;
+  animation: petalFall linear forwards;
+  pointer-events: none;
+}
+@keyframes petalFall {
+  0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0.7; }
+  25% { transform: translateY(25vh) rotate(90deg) translateX(20px); opacity: 0.6; }
+  50% { transform: translateY(50vh) rotate(180deg) translateX(-10px); opacity: 0.5; }
+  75% { transform: translateY(75vh) rotate(270deg) translateX(15px); opacity: 0.4; }
+  100% { transform: translateY(110vh) rotate(360deg) translateX(0); opacity: 0; }
+}
+
+/* ===== VIGNETTE OVERLAY ===== */
+.garden-vignette {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(10,5,20,0.6) 100%);
+  pointer-events: none;
+  z-index: 4003;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+#garden-room.visible .garden-vignette {
+  opacity: 1;
+}
+
+/* ===== SOUND WAVES ===== */
+.garden-sound-waves {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.garden-sound-waves.active {
+  opacity: 1;
+}
+.sound-wave-bar {
+  width: 4px;
+  background: linear-gradient(180deg, #ff4d6d, #ff8fab);
+  border-radius: 2px;
+  animation: soundWave 1s ease-in-out infinite;
+}
+.sound-wave-bar:nth-child(1) { height: 20px; animation-delay: 0s; }
+.sound-wave-bar:nth-child(2) { height: 35px; animation-delay: 0.1s; }
+.sound-wave-bar:nth-child(3) { height: 50px; animation-delay: 0.2s; }
+.sound-wave-bar:nth-child(4) { height: 30px; animation-delay: 0.3s; }
+.sound-wave-bar:nth-child(5) { height: 45px; animation-delay: 0.4s; }
+.sound-wave-bar:nth-child(6) { height: 25px; animation-delay: 0.5s; }
+.sound-wave-bar:nth-child(7) { height: 40px; animation-delay: 0.6s; }
+.sound-wave-bar:nth-child(8) { height: 55px; animation-delay: 0.7s; }
+.sound-wave-bar:nth-child(9) { height: 30px; animation-delay: 0.8s; }
+.sound-wave-bar:nth-child(10) { height: 20px; animation-delay: 0.9s; }
+@keyframes soundWave {
+  0%, 100% { transform: scaleY(1); opacity: 0.6; }
+  50% { transform: scaleY(1.5); opacity: 1; }
+}
+
+/* ===== BUTTERFLIES ===== */
+.garden-butterflies {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4004;
+  overflow: hidden;
+}
+.garden-butterfly {
+  position: absolute;
+  font-size: 20px;
+  opacity: 0;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.garden-butterfly.visible {
+  opacity: 0.8;
+}
+.garden-butterfly:hover {
+  transform: scale(1.3) !important;
+  opacity: 1 !important;
+}
+
+/* Hourglass */
+.garden-hourglass-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.garden-hourglass-title {
+  font-size: 16px;
+  color: #ffd6e8;
+  font-weight: bold;
+  text-align: center;
+}
+
+.garden-hourglass {
+  width: 60px;
+  height: 100px;
+  position: relative;
+  cursor: pointer;
+}
+
+.garden-hourglass-top,
+.garden-hourglass-bottom {
+  width: 60px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,215,0,0.4);
+  position: absolute;
+  overflow: hidden;
+}
+.garden-hourglass-top {
+  top: 0;
+  border-radius: 5px 5px 30px 30px;
+  border-bottom: none;
+}
+.garden-hourglass-bottom {
+  bottom: 0;
+  border-radius: 30px 30px 5px 5px;
+  border-top: none;
+}
+
+.garden-hourglass-sand-top {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(180deg, #daa520, #b8860b);
+  height: 70%;
+  transition: height 3s linear;
+}
+.garden-hourglass-sand-bottom {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(180deg, #daa520, #b8860b);
+  height: 0%;
+  transition: height 3s linear;
+}
+
+.garden-hourglass.flipped .garden-hourglass-sand-top {
+  height: 0%;
+}
+.garden-hourglass.flipped .garden-hourglass-sand-bottom {
+  height: 70%;
+}
+
+.garden-hourglass-connector {
+  width: 4px;
+  height: 20px;
+  background: rgba(255,215,0,0.4);
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.garden-hourglass-stream {
+  width: 2px;
+  height: 0;
+  background: linear-gradient(180deg, #daa520, #b8860b);
+  position: absolute;
+  top: 42px; left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.garden-hourglass.flipped .garden-hourglass-stream {
+  height: 16px;
+  opacity: 1;
+}
+
+.garden-hourglass-memory {
+  font-size: 12px;
+  color: rgba(255,200,220,0.7);
+  text-align: center;
+  min-height: 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.garden-hourglass-memory.visible {
+  opacity: 1;
+}
+
+/* Secret Door */
+.garden-door-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.garden-door-title {
+  font-size: 16px;
+  color: #ffd6e8;
+  font-weight: bold;
+  text-align: center;
+}
+
+.garden-door {
+  width: 120px;
+  height: 180px;
+  background: linear-gradient(135deg, #4a2c6a, #6b3d7a);
+  border: 3px solid rgba(255,215,0,0.3);
+  border-radius: 60px 60px 5px 5px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  box-shadow: 0 0 20px rgba(255,215,0,0.1);
+  overflow: hidden;
+}
+.garden-door:hover {
+  border-color: rgba(255,215,0,0.7);
+  box-shadow: 0 0 40px rgba(255,215,0,0.3), 0 0 80px rgba(255,215,0,0.1);
+}
+.garden-door.open {
+  transform: perspective(500px) rotateY(-45deg);
+  border-color: rgba(255,215,0,0.9);
+}
+
+.garden-door-knob {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffd700, #daa520);
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 10px rgba(255,215,0,0.5);
+}
+
+.garden-door-glow {
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(ellipse at center, rgba(255,215,0,0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.garden-door:hover .garden-door-glow {
+  opacity: 1;
+}
+
+.garden-door-label {
+  font-size: 11px;
+  color: rgba(255,200,220,0.5);
+  text-align: center;
+}
+
+/* Garden Footer */
+.garden-footer {
+  text-align: center;
+  color: rgba(255,200,220,0.4);
+  font-size: 13px;
+  padding-bottom: 30px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+.garden-footer .big-heart {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 8px;
+  animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+/* Garden Transition */
+#garden-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 3999;
+  background: radial-gradient(circle at center, #ffd6e8, #6b3d7a, #1a0a2e);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+#garden-transition.active { opacity: 1; pointer-events: all; }
+
+/* Garden particles canvas */
+#gardenParticles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4002;
+}
+
+
+/* ===== ADVENTURE MAP ===== */
+.garden-map-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.garden-map-title {
+  font-size: 22px;
+  color: #ffd6e8;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(255,150,200,0.5);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+.garden-map-subtitle {
+  font-size: 12px;
+  color: rgba(255,200,220,0.6);
+  text-align: center;
+}
+
+/* ===== LOVE QUIZ ===== */
+.garden-quiz-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.garden-quiz-title {
+  font-size: 22px;
+  color: #ffd6e8;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  text-shadow: 0 0 20px rgba(255,150,200,0.5);
+}
+.garden-quiz-subtitle {
+  font-size: 12px;
+  color: rgba(255,200,220,0.6);
+  text-align: center;
+}
+.quiz-container {
+  width: 100%;
+  max-width: 360px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,200,220,0.15);
+  border-radius: 20px;
+  padding: 25px 20px;
+  backdrop-filter: blur(10px);
+}
+.quiz-question {
+  font-size: 16px;
+  color: #ffd6e8;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.quiz-option {
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255,200,220,0.2);
+  border-radius: 14px;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: rgba(255,220,230,0.9);
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+}
+.quiz-option:hover {
+  background: rgba(255,200,220,0.15);
+  border-color: rgba(255,200,220,0.4);
+  transform: translateX(5px);
+}
+.quiz-option.correct {
+  background: linear-gradient(135deg, rgba(74,222,128,0.2), rgba(34,197,94,0.3));
+  border-color: #4ade80;
+  color: #4ade80;
+  animation: correctAnswer 0.5s ease;
+}
+.quiz-option.wrong {
+  background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(220,38,38,0.3));
+  border-color: #ef4444;
+  color: #ef4444;
+  animation: wrongAnswer 0.4s ease;
+}
+@keyframes correctAnswer {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+@keyframes wrongAnswer {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+.quiz-progress {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+.quiz-progress-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+}
+.quiz-progress-dot.active {
+  background: #ffd6e8;
+  box-shadow: 0 0 10px rgba(255,150,200,0.5);
+}
+.quiz-progress-dot.completed {
+  background: #4ade80;
+}
+.quiz-letter-reveal {
+  margin-top: 20px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s ease;
+}
+.quiz-letter-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.quiz-letter-box {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin: 0 5px;
+  box-shadow: 0 4px 15px rgba(255,77,109,0.4);
+  animation: letterPop 0.5s ease;
+}
+@keyframes letterPop {
+  0% { transform: scale(0) rotate(-10deg); }
+  60% { transform: scale(1.2) rotate(5deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+.quiz-collected-letters {
+  margin-top: 15px;
+  text-align: center;
+}
+.quiz-collected-label {
+  font-size: 12px;
+  color: rgba(255,200,220,0.6);
+  margin-bottom: 10px;
+}
+.quiz-letter-slots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.quiz-letter-slot {
+  width: 40px;
+  height: 40px;
+  border: 2px dashed rgba(255,200,220,0.3);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffd6e8;
+  transition: all 0.3s ease;
+}
+.quiz-letter-slot.filled {
+  border-color: #4ade80;
+  background: rgba(74,222,128,0.1);
+  color: #4ade80;
+}
+
+/* Mini fireworks for correct answer */
+.mini-firework {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 5000;
+  animation: miniFireworkAnim 0.8s ease-out forwards;
+}
+@keyframes miniFireworkAnim {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+}
+
+/* ===== TREASURE BOX ===== */
+.garden-treasure-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.garden-treasure-title {
+  font-size: 22px;
+  color: #ffd6e8;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+.treasure-box-container {
+  width: 100%;
+  max-width: 360px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,200,220,0.15);
+  border-radius: 20px;
+  padding: 25px 20px;
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+.treasure-box {
+  width: 120px;
+  height: 100px;
+  margin: 0 auto 20px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.treasure-box:hover {
+  transform: scale(1.05);
+}
+.treasure-box-body {
+  width: 120px;
+  height: 80px;
+  background: linear-gradient(135deg, #b8860b, #daa520, #ffd700);
+  border-radius: 8px 8px 20px 20px;
+  position: absolute;
+  bottom: 0;
+  box-shadow: 0 4px 20px rgba(255,215,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+.treasure-box-lid {
+  width: 130px;
+  height: 35px;
+  background: linear-gradient(135deg, #daa520, #ffd700, #ffec8b);
+  border-radius: 10px 10px 4px 4px;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  transform-origin: bottom;
+  transition: transform 0.6s ease;
+  box-shadow: 0 -2px 10px rgba(255,215,0,0.2);
+}
+.treasure-box.open .treasure-box-lid {
+  transform: rotateX(-110deg);
+}
+.treasure-box-lock {
+  width: 20px;
+  height: 24px;
+  background: linear-gradient(135deg, #8b6914, #b8860b);
+  border-radius: 4px 4px 12px 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+.treasure-box-lock::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #ffd700;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.treasure-password-input {
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,200,220,0.3);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #ffd6e8;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 8px;
+  width: 200px;
+  margin: 0 auto 15px;
+  outline: none;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+.treasure-password-input:focus {
+  border-color: #ffd6e8;
+  box-shadow: 0 0 15px rgba(255,150,200,0.3);
+}
+.treasure-password-input::placeholder {
+  color: rgba(255,200,220,0.4);
+  letter-spacing: 4px;
+  font-size: 14px;
+}
+.treasure-unlock-btn {
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255,77,109,0.4);
+}
+.treasure-unlock-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255,77,109,0.6);
+}
+.treasure-hint {
+  font-size: 12px;
+  color: rgba(255,200,220,0.5);
+  margin-top: 10px;
+}
+
+/* ===== FINAL REVEAL SCREEN ===== */
+#final-reveal {
+  position: fixed;
+  inset: 0;
+  z-index: 6000;
+  background: linear-gradient(180deg, #1a0a2e 0%, #2d1b4e 30%, #4a2c6a 60%, #1a0a2e 100%);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+#final-reveal.visible {
+  display: flex;
+}
+.final-reveal-back-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 6100;
+  background: rgba(255,255,255,0.2);
+  border: 1.5px solid rgba(255,255,255,0.4);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.final-reveal-back-btn:hover {
+  background: rgba(255,255,255,0.35);
+  transform: scale(1.1);
+}
+.final-names {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 18vw;
+  font-weight: bold;
+  color: rgba(255, 214, 232, 0.04);
+  text-shadow: 0 0 80px rgba(255,150,200,0.08);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
+  animation: finalNamesGlow 4s ease-in-out infinite;
+  letter-spacing: 0.05em;
+}
+@keyframes finalNamesGlow {
+  0%, 100% { 
+    text-shadow: 0 0 60px rgba(255,150,200,0.06);
+    opacity: 0.04;
+  }
+  50% { 
+    text-shadow: 0 0 100px rgba(255,150,200,0.1);
+    opacity: 0.07;
+  }
+}
+.final-photos-container {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 4px;
+  padding: 60px 4px 4px 4px;
+  z-index: 10;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+.final-photos-container:empty::before {
+  content: 'Loading memories... ❤️';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255,200,220,0.6);
+  font-size: 18px;
+  grid-column: 1 / -1;
+}
+.final-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+.final-photo.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.final-photo:hover {
+  transform: scale(1.02);
+  z-index: 5;
+}
+.final-photo.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotate(0deg);
+}
+
+
+
+.final-hearts-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+.final-heart-particle {
+  position: absolute;
+  font-size: 20px;
+  animation: finalHeartFloat 4s ease-in-out infinite;
+  opacity: 0.6;
+}
+@keyframes finalHeartFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+  50% { transform: translateY(-20px) rotate(10deg); opacity: 1; }
+}
 </style>
 </head>
-
 <body>
 
 <div class="theme-dropdown-wrap">
@@ -1971,7 +3347,7 @@ body, .glass-panel, .time-card, .flip-card-front, .flip-card-back, .book-cover, 
   <div style="display:flex; align-items:center; gap:12px; max-width:400px; margin:0 auto;">
     <button onclick="togglePlayPause()" id="play-pause-btn" style="background:linear-gradient(135deg,#ff4d6d,#ff758f); border:none; color:white; width:44px; height:44px; border-radius:50%; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 15px rgba(255,75,110,0.4); flex-shrink:0;">▶️</button>
     <div style="flex:1; min-width:0;">
-      <div style="font-size:13px; color:#e0f4ff; font-weight:bold; margin-bottom:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Bahaa Sultan - Sawa Sawa</div>
+      <div style="font-size:13px; color:#e0f4ff; font-weight:bold; margin-bottom:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">TUL8TE, Saint Levant - نانو (كلمات)</div>
       <div style="display:flex; align-items:center; gap:8px;">
         <span id="current-time" style="font-size:11px; color:rgba(200,235,255,0.7); width:32px; text-align:right;">0:00</span>
         <div style="flex:1; height:4px; background:rgba(255,255,255,0.15); border-radius:2px; position:relative; cursor:pointer;" id="progress-bar-container" onclick="seekMusic(event)">
@@ -2008,7 +3384,7 @@ body, .glass-panel, .time-card, .flip-card-front, .flip-card-back, .book-cover, 
       <button class="snow-music-btn" onclick="toggleSnowMusic()" id="snow-music-btn">
         <span class="snow-music-icon" id="snow-music-icon">🎵</span>
         <span class="snow-music-label" id="snow-music-label">Play Our Song</span>
-        <span class="snow-music-sublabel" id="snow-music-sublabel">Bahaa Sultan - Sawa Sawa</span>
+        <span class="snow-music-sublabel" id="snow-music-sublabel">TUL8TE, Saint Levant - نانو (كلمات)</span>
       </button>
     </div>
 
@@ -2091,6 +3467,368 @@ body, .glass-panel, .time-card, .flip-card-front, .flip-card-back, .book-cover, 
   <div class="lb-caption" id="lb-cap"></div>
 </div>
 
+<!-- ===== SECRET GARDEN ROOM ===== -->
+<div id="garden-transition"></div>
+
+<div id="garden-room">
+  <div class="garden-vignette"></div>
+  <div class="garden-rose-petals"></div>
+  <div class="garden-butterflies"></div>
+  <button class="garden-back-btn" onclick="closeGardenRoom()" title="Back">&#8592;</button>
+  <canvas id="gardenCanvas"></canvas>
+  <canvas id="gardenParticles"></canvas>
+
+  <div class="garden-content">
+
+    <!-- Title -->
+    <div class="garden-title">The Secret Garden 🌹</div>
+    <div class="garden-subtitle">A place where love blooms forever</div>
+
+    <!-- Candles with Love Messages -->
+    <div class="garden-candles-section">
+      <div class="garden-candles-title">🕯️ Light the candles to reveal our love</div>
+      <div class="garden-candles-hint">Tap each candle to light it up</div>
+      <div class="garden-candles-row">
+        <div class="garden-candle" onclick="toggleCandle(0)">
+          <div class="garden-candle-body" id="candle-0">
+            <div class="garden-candle-flame"></div>
+            <div class="garden-candle-glow"></div>
+          </div>
+          <div class="garden-candle-label">1</div>
+        </div>
+        <div class="garden-candle" onclick="toggleCandle(1)">
+          <div class="garden-candle-body" id="candle-1">
+            <div class="garden-candle-flame"></div>
+            <div class="garden-candle-glow"></div>
+          </div>
+          <div class="garden-candle-label">2</div>
+        </div>
+        <div class="garden-candle" onclick="toggleCandle(2)">
+          <div class="garden-candle-body" id="candle-2">
+            <div class="garden-candle-flame"></div>
+            <div class="garden-candle-glow"></div>
+          </div>
+          <div class="garden-candle-label">3</div>
+        </div>
+        <div class="garden-candle" onclick="toggleCandle(3)">
+          <div class="garden-candle-body" id="candle-3">
+            <div class="garden-candle-flame"></div>
+            <div class="garden-candle-glow"></div>
+          </div>
+          <div class="garden-candle-label">4</div>
+        </div>
+        <div class="garden-candle" onclick="toggleCandle(4)">
+          <div class="garden-candle-body" id="candle-4">
+            <div class="garden-candle-flame"></div>
+            <div class="garden-candle-glow"></div>
+          </div>
+          <div class="garden-candle-label">5</div>
+        </div>
+        <div class="garden-candle" onclick="toggleCandle(5)">
+          <div class="garden-candle-body" id="candle-5">
+            <div class="garden-candle-flame"></div>
+            <div class="garden-candle-glow"></div>
+          </div>
+          <div class="garden-candle-label">6</div>
+        </div>
+        <div class="garden-candle" onclick="toggleCandle(6)">
+          <div class="garden-candle-body" id="candle-6">
+            <div class="garden-candle-flame"></div>
+            <div class="garden-candle-glow"></div>
+          </div>
+          <div class="garden-candle-label">7</div>
+        </div>
+        <div class="garden-candle" onclick="toggleCandle(7)">
+          <div class="garden-candle-body" id="candle-7">
+            <div class="garden-candle-flame"></div>
+            <div class="garden-candle-glow"></div>
+          </div>
+          <div class="garden-candle-label">8</div>
+        </div>
+        <div class="garden-candle" onclick="toggleCandle(8)">
+          <div class="garden-candle-body" id="candle-8">
+            <div class="garden-candle-flame"></div>
+            <div class="garden-candle-glow"></div>
+          </div>
+          <div class="garden-candle-label">9</div>
+        </div>
+        <div class="garden-candle" onclick="toggleCandle(9)">
+          <div class="garden-candle-body" id="candle-9">
+            <div class="garden-candle-flame"></div>
+            <div class="garden-candle-glow"></div>
+          </div>
+          <div class="garden-candle-label">10</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Love Message Wall -->
+    <div class="garden-message-wall">
+      <div class="garden-message-text" id="garden-message-text"></div>
+      <div class="garden-message-hint" id="garden-message-hint">Light all candles to see the full message ✨</div>
+    </div>
+
+    <!-- Vinyl Player -->
+    <div class="garden-vinyl-section">
+      <div class="garden-vinyl-title">🎵 Our Song on Vinyl</div>
+      <div class="garden-vinyl-player" onclick="toggleVinyl()">
+        <div class="garden-vinyl-disc" id="garden-vinyl-disc">
+          <div class="garden-vinyl-label"></div>
+        </div>
+        <div class="garden-vinyl-arm" id="garden-vinyl-arm"></div>
+        <div class="garden-vinyl-base"></div>
+      </div>
+      <div class="garden-vinyl-status" id="garden-vinyl-status">Tap the vinyl to play Sawa Sawa 🎵</div>
+      <div class="garden-sound-waves" id="garden-sound-waves">
+        <div class="sound-wave-bar"></div>
+        <div class="sound-wave-bar"></div>
+        <div class="sound-wave-bar"></div>
+        <div class="sound-wave-bar"></div>
+        <div class="sound-wave-bar"></div>
+        <div class="sound-wave-bar"></div>
+        <div class="sound-wave-bar"></div>
+        <div class="sound-wave-bar"></div>
+        <div class="sound-wave-bar"></div>
+        <div class="sound-wave-bar"></div>
+      </div>
+    </div>
+
+    <!-- Magic Mirror -->
+    <div class="garden-mirror-section">
+      <div class="garden-mirror-title">🪞 The Magic Mirror</div>
+      <div class="garden-mirror" onclick="revealMirror()">
+        <div class="garden-mirror-reflection" id="garden-mirror-reflection">💕</div>
+        <div class="garden-mirror-couple" id="garden-mirror-couple">
+          <div class="couple-emoji">👰🤵</div>
+          <div class="couple-names">Moaz & Alaa</div>
+        </div>
+      </div>
+      <div class="garden-mirror-caption" id="garden-mirror-caption">Tap to see our reflection</div>
+    </div>
+
+    <!-- Starry Ceiling -->
+    <div class="garden-stars-section">
+      <div class="garden-stars-title">✨ Our Starry Sky</div>
+      <div class="garden-stars-hint">Move your finger to make the stars dance</div>
+      <div class="garden-stars-canvas-wrap">
+        <canvas id="gardenStarsCanvas"></canvas>
+      </div>
+    </div>
+
+    <!-- Old Love Letter -->
+    <div class="garden-letter-section">
+      <div class="garden-letter-title">💌 A Letter From the Heart</div>
+      <div class="garden-old-letter" onclick="openOldLetter()">
+        <div class="garden-old-letter-front">
+          <div class="old-letter-seal">💌</div>
+          <div class="old-letter-to">To: My Love Alaa</div>
+          <div class="old-letter-from">From: Moaz</div>
+        </div>
+        <div class="garden-old-letter-back" id="garden-old-letter-back">
+          <div class="old-letter-content">
+            <p class="old-letter-line">My Dearest Alaa,</p>
+            <p class="old-letter-line">Every beat of my heart whispers your name.</p>
+            <p class="old-letter-line">You are the poetry my soul has been searching for.</p>
+            <p class="old-letter-line">In this garden of dreams, you are my only flower.</p>
+            <p class="old-letter-line">Forever Yours,</p>
+            <p class="old-letter-line old-letter-signature">Moaz ❤️</p>
+          </div>
+        </div>
+      </div>
+      <div class="garden-letter-hint" id="garden-letter-hint">Tap the letter to open it</div>
+    </div>
+
+    <!-- Adventure Map -->
+    <div class="garden-map-section">
+      <div class="garden-map-title">🗺️ Our Adventure Map</div>
+      <div class="garden-map-subtitle">Every stop is a memory we share together</div>
+
+      <div class="snow-album-grid">
+        <div class="snow-photo-card" onclick="showMapMemory('snow')">
+          <div style="width:100%; aspect-ratio:1; background:linear-gradient(135deg, #4a2c6a, #6b3d7a); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
+            <div style="font-size:36px;">❄️</div>
+            <div style="font-size:13px; color:#ffd6e8; font-weight:bold;">Snow City</div>
+            <div style="font-size:10px; color:#4ade80;">✓ Completed</div>
+          </div>
+          <div class="photo-overlay"><span>Our magical beginning ✨</span></div>
+        </div>
+
+        <div class="snow-photo-card" onclick="showMapMemory('padel')">
+          <div style="width:100%; aspect-ratio:1; background:linear-gradient(135deg, #4a2c6a, #6b3d7a); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
+            <div style="font-size:36px;">🎾</div>
+            <div style="font-size:13px; color:#ffd6e8; font-weight:bold;">Padel</div>
+            <div style="font-size:10px; color:#4ade80;">✓ Completed</div>
+          </div>
+          <div class="photo-overlay"><span>Fun and laughter 🎾</span></div>
+        </div>
+
+        <div class="snow-photo-card" onclick="showMapMemory('walk')">
+          <div style="width:100%; aspect-ratio:1; background:linear-gradient(135deg, #4a2c6a, #6b3d7a); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
+            <div style="font-size:36px;">🚶</div>
+            <div style="font-size:13px; color:#ffd6e8; font-weight:bold;">Our Walk</div>
+            <div style="font-size:10px; color:#4ade80;">✓ Completed</div>
+          </div>
+          <div class="photo-overlay"><span>Walking on clouds 💕</span></div>
+        </div>
+
+        <div class="snow-photo-card" onclick="planVisit('gravity')">
+          <div style="width:100%; aspect-ratio:1; background:linear-gradient(135deg, #2d1b4e, #4a2c6a); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
+            <div style="font-size:36px;">🎮</div>
+            <div style="font-size:13px; color:#ffd6e8; font-weight:bold;">Gravity Code</div>
+            <div style="font-size:10px; color:rgba(255,200,220,0.5);">Upcoming</div>
+          </div>
+          <div class="photo-overlay"><span>Gaming adventure! 🎮</span></div>
+        </div>
+
+        <div class="snow-photo-card" onclick="planVisit('gokart')">
+          <div style="width:100%; aspect-ratio:1; background:linear-gradient(135deg, #2d1b4e, #4a2c6a); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
+            <div style="font-size:36px;">🏎️</div>
+            <div style="font-size:13px; color:#ffd6e8; font-weight:bold;">Go Karting</div>
+            <div style="font-size:10px; color:rgba(255,200,220,0.5);">Upcoming</div>
+          </div>
+          <div class="photo-overlay"><span>Race to your heart 🏎️</span></div>
+        </div>
+
+        <div class="snow-photo-card" onclick="planVisit('cinema')">
+          <div style="width:100%; aspect-ratio:1; background:linear-gradient(135deg, #2d1b4e, #4a2c6a); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
+            <div style="font-size:36px;">🎬</div>
+            <div style="font-size:13px; color:#ffd6e8; font-weight:bold;">Cinema</div>
+            <div style="font-size:10px; color:rgba(255,200,220,0.5);">Upcoming</div>
+          </div>
+          <div class="photo-overlay"><span>Movie night 🍿</span></div>
+        </div>
+
+        <div class="snow-photo-card" onclick="planVisit('baheg')">
+          <div style="width:100%; aspect-ratio:1; background:linear-gradient(135deg, #2d1b4e, #4a2c6a); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
+            <div style="font-size:36px;">🎡</div>
+            <div style="font-size:13px; color:#ffd6e8; font-weight:bold;">Baheg</div>
+            <div style="font-size:10px; color:rgba(255,200,220,0.5);">Upcoming</div>
+          </div>
+          <div class="photo-overlay"><span>Amusement fun 🎡</span></div>
+        </div>
+
+        <div class="snow-photo-card" onclick="planVisit('bahr')">
+          <div style="width:100%; aspect-ratio:1; background:linear-gradient(135deg, #2d1b4e, #4a2c6a); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
+            <div style="font-size:36px;">🌊</div>
+            <div style="font-size:13px; color:#ffd6e8; font-weight:bold;">Bahr</div>
+            <div style="font-size:10px; color:rgba(255,200,220,0.5);">Upcoming</div>
+          </div>
+          <div class="photo-overlay"><span>By the water 🌊</span></div>
+        </div>
+
+        <div class="snow-photo-card" onclick="planVisit('cafe')">
+          <div style="width:100%; aspect-ratio:1; background:linear-gradient(135deg, #2d1b4e, #4a2c6a); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
+            <div style="font-size:36px;">☕</div>
+            <div style="font-size:13px; color:#ffd6e8; font-weight:bold;">El Mam4a</div>
+            <div style="font-size:10px; color:rgba(255,200,220,0.5);">Upcoming</div>
+          </div>
+          <div class="photo-overlay"><span>Coffee dates ☕</span></div>
+        </div>
+
+        <div class="snow-photo-card" onclick="planVisit('aquapark')">
+          <div style="width:100%; aspect-ratio:1; background:linear-gradient(135deg, #2d1b4e, #4a2c6a); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
+            <div style="font-size:36px;">💦</div>
+            <div style="font-size:13px; color:#ffd6e8; font-weight:bold;">Aqua Park</div>
+            <div style="font-size:10px; color:rgba(255,200,220,0.5);">Upcoming</div>
+          </div>
+          <div class="photo-overlay"><span>Splash time! 💦</span></div>
+        </div>
+
+        <div class="snow-photo-card" onclick="planVisit('picnic')">
+          <div style="width:100%; aspect-ratio:1; background:linear-gradient(135deg, #2d1b4e, #4a2c6a); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
+            <div style="font-size:36px;">🧺</div>
+            <div style="font-size:13px; color:#ffd6e8; font-weight:bold;">Picnic</div>
+            <div style="font-size:10px; color:rgba(255,200,220,0.5);">Upcoming</div>
+          </div>
+          <div class="photo-overlay"><span>Perfect day 🧺</span></div>
+        </div>
+
+        <div class="snow-photo-card" onclick="planVisit('italy')">
+          <div style="width:100%; aspect-ratio:1; background:linear-gradient(135deg, #ffd700, #ffaa00, #ff6b35); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;">
+            <div style="font-size:36px;">🇮🇹</div>
+            <div style="font-size:13px; color:#1a0a2e; font-weight:bold;">Italy Trip</div>
+            <div style="font-size:10px; color:#c44569; font-weight:bold;">✈️ Dream</div>
+          </div>
+          <div class="photo-overlay"><span>Our dream destination! ✈️</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Love Quiz -->
+    <div class="garden-quiz-section">
+      <div class="garden-quiz-title">💕 The Love Quiz</div>
+      <div class="garden-quiz-subtitle">Answer 7 questions to unlock the secret word</div>
+
+      <div class="quiz-container" id="quiz-container">
+        <div class="quiz-question" id="quiz-question">Question 1 of 7</div>
+        <div class="quiz-options" id="quiz-options"></div>
+        <div class="quiz-progress" id="quiz-progress"></div>
+
+        <div class="quiz-collected-letters" id="quiz-collected-letters" style="display:none;">
+          <div class="quiz-collected-label">Letters collected:</div>
+          <div class="quiz-letter-slots" id="quiz-letter-slots">
+            <div class="quiz-letter-slot">?</div>
+            <div class="quiz-letter-slot">?</div>
+            <div class="quiz-letter-slot">?</div>
+            <div class="quiz-letter-slot">?</div>
+            <div class="quiz-letter-slot">?</div>
+            <div class="quiz-letter-slot">?</div>
+            <div class="quiz-letter-slot">?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Treasure Box -->
+    <div class="garden-treasure-section" id="treasure-section" style="display:none;">
+      <div class="garden-treasure-title">🎁 The Secret Box</div>
+      <div class="treasure-box-container">
+        <div class="treasure-box" id="treasure-box" onclick="tryOpenTreasure()">
+          <div class="treasure-box-lid"></div>
+          <div class="treasure-box-body">🎁</div>
+          <div class="treasure-box-lock"></div>
+        </div>
+        <input type="text" class="treasure-password-input" id="treasure-password" placeholder="Enter the secret word" maxlength="7">
+        <button class="treasure-unlock-btn" onclick="unlockTreasure()">🔓 Unlock</button>
+        <div class="treasure-hint" id="treasure-hint">Collect all 7 letters from the quiz!</div>
+      </div>
+    </div>
+
+    <!-- Hourglass of Memories -->
+    <div class="garden-hourglass-section">
+      <div class="garden-hourglass-title">⏳ Hourglass of Memories</div>
+      <div class="garden-hourglass" id="garden-hourglass" onclick="flipHourglass()">
+        <div class="garden-hourglass-top">
+          <div class="garden-hourglass-sand-top" id="sand-top"></div>
+        </div>
+        <div class="garden-hourglass-connector"></div>
+        <div class="garden-hourglass-stream" id="sand-stream"></div>
+        <div class="garden-hourglass-bottom">
+          <div class="garden-hourglass-sand-bottom" id="sand-bottom"></div>
+        </div>
+      </div>
+      <div class="garden-hourglass-memory" id="garden-hourglass-memory"></div>
+    </div>
+
+    <!-- Secret Door to Snow World -->
+    <div class="garden-door-section">
+      <div class="garden-door-title">🚪 The Secret Door</div>
+      <div class="garden-door" id="garden-door" onclick="openSecretDoor()">
+        <div class="garden-door-glow"></div>
+        <div class="garden-door-knob"></div>
+      </div>
+      <div class="garden-door-label" id="garden-door-label">Tap to enter Snow World ❄️</div>
+    </div>
+
+    <!-- Footer -->
+    <div class="garden-footer">
+      <span class="big-heart">🌹</span>
+      <span>In this garden, our love grows stronger every day</span>
+    </div>
+
+  </div>
+</div>
+
 <!-- HOME -->
 <section id="home">
   <div class="glass-panel">
@@ -2145,6 +3883,15 @@ body, .glass-panel, .time-card, .flip-card-front, .flip-card-back, .book-cover, 
         <span class="btn-icon">📖</span>
         <span class="btn-label">Our Book</span>
       </a>
+
+      <!-- SECRET GARDEN PORTAL -->
+      <div class="sunflower-btn-wrap">
+        <button class="sunflower-portal-btn" onclick="openGardenRoom()" id="garden-portal-btn" style="background: linear-gradient(135deg, #e8d5f2, #d4a5e0, #b57edc);">
+          <span class="sunflower-icon" style="animation:none; font-size:32px;">🌹</span>
+          <span class="sunflower-label" id="garden-btn-label">Secret Garden 🌹</span>
+          <span class="sunflower-sublabel" id="garden-btn-sub">Enter our secret place</span>
+        </button>
+      </div>
 
       <!-- SUNFLOWER PORTAL -->
       <div class="sunflower-btn-wrap">
@@ -2361,7 +4108,6 @@ body, .glass-panel, .time-card, .flip-card-front, .flip-card-back, .book-cover, 
     <a href="#home" class="btn" style="margin-top:20px;" id="text-back-top">⬆ Back to Top</a>
   </div>
 </section>
-
 <script>
 
 /* ===== THEME DROPDOWN ===== */
@@ -2474,7 +4220,9 @@ const translations = {
     swFooter: "Every snowflake reminded me of you",
     snowMusicPlay: "Play Our Song",
     snowMusicPause: "Pause Our Song",
-    snowMusicSub: "Bahaa Sultan - Sawa Sawa"
+    snowMusicSub: "TUL8TE, Saint Levant - نانو (كلمات)",
+    gardenBtnLabel: "Secret Garden 🌹",
+    gardenBtnSub: "Enter our secret place"
   },
   it: {
     loginTitle: "Inserisci la password ❤️", loginBtn: "Entra", wrongPass: "Password errata 💔",
@@ -2507,7 +4255,9 @@ const translations = {
     swFooter: "Ogni fiocco di neve mi ricordava di te",
     snowMusicPlay: "Riproduci la nostra canzone",
     snowMusicPause: "Metti in pausa",
-    snowMusicSub: "Bahaa Sultan - Sawa Sawa"
+    snowMusicSub: "TUL8TE, Saint Levant - نانو (كلمات)",
+    gardenBtnLabel: "Giardino Segreto 🌹",
+    gardenBtnSub: "Entra nel nostro posto segreto"
   }
 };
 
@@ -2515,6 +4265,40 @@ const wheelOptions = {
   en: ["Go to the cinema 🎬", "Eat ice cream together 🍦", "Walk by the Nile 🌊", "Have a long video call 📞❤️", "Order food we love 🍔", "Listen to a full album together 🎵"],
   it: ["Andare al cinema 🎬", "Mangiare un gelato insieme 🍦", "Camminare lungo il Nilo 🌊", "Fare una lunga videochiamata 📞❤️", "Ordinare cibo che amiamo 🍔", "Ascoltare un intero album insieme 🎵"]
 };
+
+/* ===== CANDLE MESSAGES ===== */
+const candleMessages = [
+  "You are the light that guides me home. ✨",
+  "Every moment with you is a treasure I keep forever. 💎",
+  "Your smile is the only sunrise I need. 🌅",
+  "I fall in love with you more every single day. 💕",
+  "You are my forever and always. 💍",
+  "In your eyes, I found my home. 🏠",
+  "You make my heart beat in a rhythm only you can hear. 🎵",
+  "With you, every day feels like a beautiful dream. 🌙",
+  "You are the missing piece that makes me whole. 🧩",
+  "I choose you, today, tomorrow, and forever. 💘"
+];
+
+const hourglassMemories = [
+  "The first time I saw you, my heart whispered 'she is the one.' 💘",
+  "Every laugh we share is a melody I never want to end. 🎵",
+  "When you said 'I love you,' the universe stood still for us. 🌌",
+  "Holding your hand feels like holding the entire world. 🌎",
+  "You are the reason I believe in forever. 💫",
+  "In a sea of people, my eyes will always search for you. 👀",
+  "Your love is the warmth that melts every cold day. ☀️",
+  "I never knew what true happiness was until I found you. 😊",
+  "You are my today, my tomorrow, and all of my forever. ⏳",
+  "Loving you is the most beautiful adventure of my life. 🚀"
+];
+
+let litCandles = [false, false, false, false, false, false, false, false, false, false];
+let isVinylPlaying = false;
+let sawaSawaAudio = null;
+let finalRevealPhotos = [];
+let hourglassFlipped = false;
+let mirrorRevealed = false;
 
 function toEmbedUrl(url) {
   if (!url) return "";
@@ -2576,7 +4360,6 @@ function applyTranslations() {
   for (let i = 1; i <= 5; i++) {
     document.getElementById("lbl-vid" + i + "-t").innerText = lang.vidTitle + " " + i + " ❤️";
   }
-  // Theme names update
   document.getElementById('theme-dropdown-label').innerText = themeNames[currentLang][currentTheme];
   document.querySelectorAll('.theme-option').forEach(opt => {
     const t = opt.dataset.theme;
@@ -2584,7 +4367,6 @@ function applyTranslations() {
     if (span) span.innerText = themeNames[currentLang][t];
   });
 
-  // Snow world translations
   document.getElementById("sw-btn-label").innerText = lang.swBtnLabel;
   document.getElementById("sw-btn-sub").innerText = lang.swBtnSub;
   document.getElementById("sw-title").innerText = lang.swTitle;
@@ -2593,7 +4375,10 @@ function applyTranslations() {
   document.getElementById("sw-album-title").innerText = lang.swAlbumTitle;
   document.getElementById("sw-album-subtitle").innerText = lang.swAlbumSub;
   document.getElementById("sw-footer").innerText = lang.swFooter;
-  // Snow music button translations
+
+  document.getElementById("garden-btn-label").innerText = lang.gardenBtnLabel;
+  document.getElementById("garden-btn-sub").innerText = lang.gardenBtnSub;
+
   const snowMusicBtn = document.getElementById("snow-music-btn");
   if (snowMusicBtn && !isSnowMusicPlaying) {
     document.getElementById("snow-music-label").innerText = lang.snowMusicPlay;
@@ -2649,22 +4434,35 @@ async function loadVideos() {
       if (d["book_page3"])   document.getElementById("bp3-video").src = toEmbedUrl(d["book_page3"]);
       if (d["book_page4"])   document.getElementById("bp4-video").src = toEmbedUrl(d["book_page4"]);
       if (d["book_page5"])   document.getElementById("bp5-video").src = toEmbedUrl(d["book_page5"]);
-      // Snow song - load from GitHub via jsDelivr CDN (supports CORS)
       const music = document.getElementById("snow-music");
-      // Use jsDelivr CDN for GitHub files (CORS enabled)
-      music.dataset.src = "https://cdn.jsdelivr.net/gh/moazabdalrahman042-sketch/love@main/Bahaa%20Sultan%20-%20Sawa%20Sawa%20(Music%20Video)%20_%202026%20_%20%D8%A8%D9%87%D8%A7%D8%A1%20%D8%B3%D9%84%D8%B7%D8%A7%D9%86%20-%20%D8%A3%D8%BA%D9%86%D9%8A%D8%A9%20%D9%85%D8%B3%D9%84%D8%B3%D9%84%20%D8%B3%D9%88%D8%A7%20%D8%B3%D9%88%D8%A7%20(%D9%81%D9%8A%D8%AF%D9%8A%D9%88%20%D9%83%D9%84%D9%8A%D8%A8).mp3";
+      music.dataset.src = "https://raw.githubusercontent.com/moazabdalrahman042-sketch/love/main/TUL8TE%2C%20Saint%20Levant%20-%20%D9%86%D8%A7%D9%86%D9%88%20(%D9%83%D9%84%D9%85%D8%A7%D8%AA).mp3";
+
+      // Store all photo URLs for Final Reveal
+      finalRevealPhotos = [];
+
+      // Load alaa photos (1-10)
       for (let i = 1; i <= 10; i++) {
         const key = "alaa" + i + ".jpg";
         const url = d[key];
         if (url) {
+          const imgUrl = toDriveImageUrl(url);
+          finalRevealPhotos.push(imgUrl);
           const imgEl = document.querySelector(".snow-photo-card:nth-child(" + i + ") img");
-          if (imgEl) imgEl.src = toDriveImageUrl(url);
-          // also update lightbox onclick
+          if (imgEl) imgEl.src = imgUrl;
           const card = document.querySelector(".snow-photo-card:nth-child(" + i + ")");
           if (card) {
-            const finalUrl = toDriveImageUrl(url);
-            card.onclick = () => openLightbox(finalUrl, "❄️ Snow City Memory " + i);
+            card.onclick = () => openLightbox(imgUrl, "❄️ Snow City Memory " + i);
           }
+        }
+      }
+
+      // Load moaz photos (1-8)
+      for (let i = 1; i <= 8; i++) {
+        const key = "moaz" + i + ".jpg";
+        const url = d[key];
+        if (url) {
+          const imgUrl = toDriveImageUrl(url);
+          finalRevealPhotos.push(imgUrl);
         }
       }
     }
@@ -2675,10 +4473,6 @@ async function loadVideos() {
 
 /* ===== SNOW WORLD MUSIC TOGGLE ===== */
 let isSnowMusicPlaying = false;
-let snowMusicPlayer = null;
-let snowMusicProgress = null;
-let snowMusicDuration = null;
-let snowMusicAnimation = null;
 
 function toggleSnowMusic() {
   const btn = document.getElementById("snow-music-btn");
@@ -2688,7 +4482,6 @@ function toggleSnowMusic() {
   const music = document.getElementById("snow-music");
 
   if (isSnowMusicPlaying) {
-    // Pause music
     music.pause();
     container.style.display = "none";
     btn.classList.remove("playing");
@@ -2697,19 +4490,14 @@ function toggleSnowMusic() {
     isSnowMusicPlaying = false;
     document.getElementById("play-pause-btn").innerText = "▶️";
   } else {
-    // Start music - show custom player
     container.style.display = "block";
-
-    // Load the song from Google Drive (loaded via API in loadVideos)
     if (!music.src && music.dataset.src) {
       music.src = music.dataset.src;
     }
-
     music.play().catch(e => {
       console.error("Music play error:", e);
       alert("Could not play music. Please check your internet connection.");
     });
-
     btn.classList.add("playing");
     icon.innerText = "🎶";
     label.innerText = currentLang === "en" ? "Pause Our Song" : "Metti in pausa";
@@ -2819,7 +4607,6 @@ function openSnowWorld() {
     trans.classList.remove("active");
     startSnowCanvas();
     setTimeout(() => startTypewriter(), 800);
-    // Music is now controlled by the toggle button, not auto-play
   }, 600);
 }
 
@@ -2832,7 +4619,6 @@ function closeSnowWorld() {
     snowWorldOpen = false;
     stopSnowCanvas();
     clearTypewriter();
-    // Stop music and hide player
     const music = document.getElementById("snow-music");
     const container = document.getElementById("snow-music-container");
     if (music) {
@@ -2840,7 +4626,6 @@ function closeSnowWorld() {
       music.currentTime = 0;
     }
     if (container) container.style.display = "none";
-    // Reset button state
     isSnowMusicPlaying = false;
     const btn = document.getElementById("snow-music-btn");
     if (btn) {
@@ -2932,6 +4717,513 @@ function openLightbox(src, caption) {
 }
 function closeLightbox() {
   document.getElementById("snow-lightbox").classList.remove("open");
+}
+
+/* ===== SECRET GARDEN ROOM ===== */
+let gardenAnimId = null;
+let gardenParticlesId = null;
+let gardenRoomOpen = false;
+
+function openGardenRoom() {
+  const trans = document.getElementById("garden-transition");
+  trans.classList.add("active");
+  setTimeout(() => {
+    document.getElementById("garden-room").classList.add("visible");
+    document.body.style.overflow = "hidden";
+    gardenRoomOpen = true;
+    trans.classList.remove("active");
+    startGardenCanvas();
+    startGardenParticles();
+    setTimeout(() => {
+      initStarryCeiling();
+      startRosePetals();
+      startButterflies();
+      initQuiz();
+    }, 500);
+  }, 800);
+}
+
+function closeGardenRoom() {
+  const trans = document.getElementById("garden-transition");
+  trans.classList.add("active");
+  setTimeout(() => {
+    document.getElementById("garden-room").classList.remove("visible");
+    document.body.style.overflow = "";
+    gardenRoomOpen = false;
+    stopGardenCanvas();
+    stopGardenParticles();
+    stopStarryCeiling();
+    stopRosePetals();
+    stopButterflies();
+    // Stop Sawa Sawa if playing
+    if (sawaSawaAudio && !sawaSawaAudio.paused) {
+      sawaSawaAudio.pause();
+      sawaSawaAudio.currentTime = 0;
+      isVinylPlaying = false;
+      document.getElementById("garden-vinyl-disc").classList.remove("spinning");
+      document.getElementById("garden-vinyl-arm").classList.remove("playing");
+      document.getElementById("garden-vinyl-status").innerText = "Tap the vinyl to play Sawa Sawa 🎵";
+    }
+    trans.classList.remove("active");
+  }, 800);
+}
+
+/* Garden background canvas - rain on window effect */
+function startGardenCanvas() {
+  const canvas = document.getElementById("gardenCanvas");
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const drops = Array.from({length: 80}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    length: Math.random() * 20 + 10,
+    speed: Math.random() * 3 + 1,
+    opacity: Math.random() * 0.3 + 0.1
+  }));
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drops.forEach(d => {
+      ctx.beginPath();
+      ctx.moveTo(d.x, d.y);
+      ctx.lineTo(d.x + 0.5, d.y + d.length);
+      ctx.strokeStyle = `rgba(200,220,255,${d.opacity})`;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      d.y += d.speed;
+      if (d.y > canvas.height) { d.y = -d.length; d.x = Math.random() * canvas.width; }
+    });
+    gardenAnimId = requestAnimationFrame(draw);
+  }
+  draw();
+
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+}
+
+function stopGardenCanvas() {
+  if (gardenAnimId) { cancelAnimationFrame(gardenAnimId); gardenAnimId = null; }
+  const canvas = document.getElementById("gardenCanvas");
+  if (canvas) {
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+}
+
+/* Garden particles - floating petals */
+function startGardenParticles() {
+  const canvas = document.getElementById("gardenParticles");
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const petals = Array.from({length: 30}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 6 + 3,
+    speedY: Math.random() * 0.8 + 0.2,
+    speedX: Math.random() * 0.6 - 0.3,
+    rotation: Math.random() * Math.PI * 2,
+    rotationSpeed: Math.random() * 0.02 - 0.01,
+    opacity: Math.random() * 0.5 + 0.2,
+    color: ['#ffb7c5', '#ffc8dd', '#ffafcc', '#bde0fe', '#cdb4db'][Math.floor(Math.random() * 5)]
+  }));
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    petals.forEach(p => {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rotation);
+      ctx.globalAlpha = p.opacity;
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, p.size, p.size * 0.6, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+      p.y += p.speedY;
+      p.x += p.speedX + Math.sin(p.y * 0.01) * 0.3;
+      p.rotation += p.rotationSpeed;
+      if (p.y > canvas.height + 20) { p.y = -20; p.x = Math.random() * canvas.width; }
+      if (p.x > canvas.width + 20) p.x = -20;
+      if (p.x < -20) p.x = canvas.width + 20;
+    });
+    gardenParticlesId = requestAnimationFrame(draw);
+  }
+  draw();
+
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+}
+
+function stopGardenParticles() {
+  if (gardenParticlesId) { cancelAnimationFrame(gardenParticlesId); gardenParticlesId = null; }
+  const canvas = document.getElementById("gardenParticles");
+  if (canvas) {
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+}
+
+/* Candle toggle with love messages */
+function toggleCandle(index) {
+  const candle = document.getElementById("candle-" + index);
+  const isLit = candle.classList.contains("lit");
+
+  if (isLit) {
+    candle.classList.remove("lit");
+    litCandles[index] = false;
+  } else {
+    candle.classList.add("lit");
+    litCandles[index] = true;
+    // Show message
+    showCandleMessage(index);
+  }
+  updateGardenMessage();
+}
+
+function showCandleMessage(index) {
+  const msgEl = document.getElementById("garden-message-text");
+  msgEl.innerText = candleMessages[index];
+  msgEl.classList.add("visible");
+
+  setTimeout(() => {
+    if (!litCandles.some(c => c)) {
+      msgEl.classList.remove("visible");
+    }
+  }, 4000);
+}
+
+function updateGardenMessage() {
+  const litCount = litCandles.filter(c => c).length;
+  const hintEl = document.getElementById("garden-message-hint");
+  const msgEl = document.getElementById("garden-message-text");
+
+  if (litCount === 0) {
+    hintEl.innerText = "Light all 10 candles to see the full message ✨";
+    msgEl.classList.remove("visible");
+  } else if (litCount < 10) {
+    hintEl.innerText = litCount + " of 10 candles lit — keep going! 🔥";
+  } else {
+    hintEl.innerText = "All 10 candles lit! Our love shines brighter than the stars! ❤️✨";
+    msgEl.innerText = "You are my everything, my forever, my always. I love you more than words can ever express. With every candle lit, my love for you burns even brighter. You are the light of my life, my eternal flame. 💕🔥";
+    msgEl.classList.add("visible");
+    createSparkles(document.querySelector('.garden-message-wall'));
+  }
+}
+
+/* Vinyl Player */
+function toggleVinyl() {
+  const disc = document.getElementById("garden-vinyl-disc");
+  const arm = document.getElementById("garden-vinyl-arm");
+  const status = document.getElementById("garden-vinyl-status");
+
+  // Create Sawa Sawa audio element if not exists
+  if (!sawaSawaAudio) {
+    sawaSawaAudio = new Audio();
+    sawaSawaAudio.src = "https://raw.githubusercontent.com/moazabdalrahman042-sketch/love/main/Bahaa%20Sultan%20-%20Sawa%20Sawa%20(Music%20Video)%20_%202026%20_%20%D8%A8%D9%87%D8%A7%D8%A1%20%D8%B3%D9%84%D8%B7%D8%A7%D9%86%20-%20%D8%A3%D8%BA%D9%86%D9%8A%D8%A9%20%D9%85%D8%B3%D9%84%D8%B3%D9%84%20%D8%B3%D9%88%D8%A7%20%D8%B3%D9%88%D8%A7%20(%D9%81%D9%8A%D8%AF%D9%8A%D9%88%20%D9%83%D9%84%D9%8A%D8%A8).mp3";
+  }
+
+  if (isVinylPlaying) {
+    disc.classList.remove("spinning");
+    arm.classList.remove("playing");
+    status.innerText = "Tap the vinyl to play Sawa Sawa 🎵";
+    isVinylPlaying = false;
+    if (sawaSawaAudio && !sawaSawaAudio.paused) {
+      sawaSawaAudio.pause();
+      sawaSawaAudio.currentTime = 0;
+    }
+    updateSoundWaves();
+  } else {
+    disc.classList.add("spinning");
+    arm.classList.add("playing");
+    status.innerText = "Now playing: Sawa Sawa 🎵";
+    isVinylPlaying = true;
+    // Pause any other music first
+    const snowMusic = document.getElementById("snow-music");
+    if (snowMusic && !snowMusic.paused) {
+      snowMusic.pause();
+      isSnowMusicPlaying = false;
+    }
+    sawaSawaAudio.play().catch(e => console.log("Sawa Sawa play failed:", e));
+    updateSoundWaves();
+  }
+}
+
+/* Magic Mirror */
+function revealMirror() {
+  const mirror = document.querySelector('.garden-mirror');
+  const caption = document.getElementById("garden-mirror-caption");
+
+  if (!mirrorRevealed) {
+    mirror.classList.add('revealed');
+    caption.innerText = "The most beautiful reflection in the world ✨";
+    mirrorRevealed = true;
+    createSparkles(mirror);
+  } else {
+    mirror.classList.remove('revealed');
+    caption.innerText = "Tap to see our reflection";
+    mirrorRevealed = false;
+  }
+}
+
+/* Sparkle Effect */
+function createSparkles(element) {
+  const rect = element.getBoundingClientRect();
+  for (let i = 0; i < 20; i++) {
+    setTimeout(() => {
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      sparkle.style.left = (rect.left + Math.random() * rect.width) + 'px';
+      sparkle.style.top = (rect.top + Math.random() * rect.height) + 'px';
+      document.body.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 1000);
+    }, i * 50);
+  }
+}
+
+/* Old Letter */
+let oldLetterOpen = false;
+function openOldLetter() {
+  const letter = document.querySelector('.garden-old-letter');
+  const hint = document.getElementById('garden-letter-hint');
+
+  if (!oldLetterOpen) {
+    letter.classList.add('open');
+    hint.innerText = "A love letter from the heart 💌";
+    oldLetterOpen = true;
+    createSparkles(letter);
+  } else {
+    letter.classList.remove('open');
+    hint.innerText = "Tap the letter to open it";
+    oldLetterOpen = false;
+  }
+}
+
+/* Starry Ceiling */
+let starsCanvas, starsCtx, stars = [];
+let mouseX = 0, mouseY = 0;
+
+function initStarryCeiling() {
+  starsCanvas = document.getElementById('gardenStarsCanvas');
+  if (!starsCanvas) return;
+  starsCtx = starsCanvas.getBoundingClientRect();
+  const rect = starsCanvas.getBoundingClientRect();
+  starsCanvas.width = rect.width;
+  starsCanvas.height = rect.height;
+
+  stars = [];
+  for (let i = 0; i < 60; i++) {
+    stars.push({
+      x: Math.random() * starsCanvas.width,
+      y: Math.random() * starsCanvas.height,
+      r: Math.random() * 2 + 0.5,
+      baseOpacity: Math.random() * 0.5 + 0.3,
+      twinkleSpeed: Math.random() * 0.02 + 0.01,
+      twinkleOffset: Math.random() * Math.PI * 2
+    });
+  }
+
+  starsCanvas.addEventListener('mousemove', (e) => {
+    const rect = starsCanvas.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+  });
+
+  starsCanvas.addEventListener('touchmove', (e) => {
+    const rect = starsCanvas.getBoundingClientRect();
+    mouseX = e.touches[0].clientX - rect.left;
+    mouseY = e.touches[0].clientY - rect.top;
+  });
+
+  animateStars();
+}
+
+let starsAnimId = null;
+function animateStars() {
+  if (!starsCanvas) return;
+  const ctx = starsCanvas.getContext('2d');
+  ctx.clearRect(0, 0, starsCanvas.width, starsCanvas.height);
+
+  const time = Date.now() * 0.001;
+
+  stars.forEach(s => {
+    const dx = mouseX - s.x;
+    const dy = mouseY - s.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    const maxDist = 80;
+
+    let brightness = s.baseOpacity;
+    if (dist < maxDist) {
+      brightness += (1 - dist / maxDist) * 0.5;
+    }
+    brightness += Math.sin(time * s.twinkleSpeed * 50 + s.twinkleOffset) * 0.2;
+    brightness = Math.max(0.1, Math.min(1, brightness));
+
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255, 220, 200, ${brightness})`;
+    ctx.fill();
+
+    // Glow for bright stars
+    if (brightness > 0.6) {
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r * 3, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 200, 150, ${brightness * 0.15})`;
+      ctx.fill();
+    }
+  });
+
+  starsAnimId = requestAnimationFrame(animateStars);
+}
+
+function stopStarryCeiling() {
+  if (starsAnimId) {
+    cancelAnimationFrame(starsAnimId);
+    starsAnimId = null;
+  }
+}
+
+/* Rose Petals */
+let petalInterval = null;
+function startRosePetals() {
+  if (petalInterval) return;
+  petalInterval = setInterval(() => {
+    const petal = document.createElement('div');
+    petal.className = 'rose-petal';
+    petal.innerText = ['🌹', '🌸', '🌺', '💮', '🏵️'][Math.floor(Math.random() * 5)];
+    petal.style.left = Math.random() * 100 + 'vw';
+    petal.style.animationDuration = (Math.random() * 4 + 4) + 's';
+    petal.style.fontSize = (Math.random() * 10 + 12) + 'px';
+    document.querySelector('.garden-rose-petals').appendChild(petal);
+    setTimeout(() => petal.remove(), 9000);
+  }, 800);
+}
+
+function stopRosePetals() {
+  if (petalInterval) {
+    clearInterval(petalInterval);
+    petalInterval = null;
+  }
+  const petals = document.querySelectorAll('.rose-petal');
+  petals.forEach(p => p.remove());
+}
+
+/* Butterflies */
+let butterflies = [];
+let butterflyInterval = null;
+
+function startButterflies() {
+  if (butterflyInterval) return;
+  const container = document.querySelector('.garden-butterflies');
+  if (!container) return;
+
+  for (let i = 0; i < 5; i++) {
+    createButterfly(container);
+  }
+
+  butterflyInterval = setInterval(() => {
+    butterflies.forEach(b => {
+      b.x += b.vx;
+      b.y += b.vy;
+      b.vx += (Math.random() - 0.5) * 0.5;
+      b.vy += (Math.random() - 0.5) * 0.5;
+      b.vx = Math.max(-2, Math.min(2, b.vx));
+      b.vy = Math.max(-2, Math.min(2, b.vy));
+
+      if (b.x < -50) b.x = window.innerWidth + 50;
+      if (b.x > window.innerWidth + 50) b.x = -50;
+      if (b.y < -50) b.y = window.innerHeight + 50;
+      if (b.y > window.innerHeight + 50) b.y = -50;
+
+      b.el.style.left = b.x + 'px';
+      b.el.style.top = b.y + 'px';
+      b.el.style.transform = `scaleX(${b.vx > 0 ? 1 : -1})`;
+    });
+  }, 50);
+}
+
+function createButterfly(container) {
+  const el = document.createElement('div');
+  el.className = 'garden-butterfly visible';
+  el.innerText = ['🦋', '🦋', '🦋', '✨', '💫'][Math.floor(Math.random() * 5)];
+  el.style.fontSize = (Math.random() * 10 + 18) + 'px';
+  const x = Math.random() * window.innerWidth;
+  const y = Math.random() * window.innerHeight;
+  el.style.left = x + 'px';
+  el.style.top = y + 'px';
+  container.appendChild(el);
+
+  butterflies.push({
+    el: el,
+    x: x,
+    y: y,
+    vx: (Math.random() - 0.5) * 2,
+    vy: (Math.random() - 0.5) * 2
+  });
+}
+
+function stopButterflies() {
+  if (butterflyInterval) {
+    clearInterval(butterflyInterval);
+    butterflyInterval = null;
+  }
+  butterflies.forEach(b => b.el.remove());
+  butterflies = [];
+}
+
+/* Sound Waves */
+function updateSoundWaves() {
+  const music = document.getElementById('snow-music');
+  const waves = document.getElementById('garden-sound-waves');
+  if (!music || !waves) return;
+
+  if (!music.paused && isVinylPlaying) {
+    waves.classList.add('active');
+  } else {
+    waves.classList.remove('active');
+  }
+}
+
+/* Hourglass */
+function flipHourglass() {
+  const hourglass = document.getElementById("garden-hourglass");
+  const memory = document.getElementById("garden-hourglass-memory");
+
+  if (!hourglassFlipped) {
+    hourglass.classList.add("flipped");
+    const randomMemory = hourglassMemories[Math.floor(Math.random() * hourglassMemories.length)];
+    memory.innerText = randomMemory;
+    memory.classList.add("visible");
+    hourglassFlipped = true;
+
+    setTimeout(() => {
+      hourglass.classList.remove("flipped");
+      hourglassFlipped = false;
+    }, 3500);
+  }
+}
+
+/* Secret Door to Snow World */
+function openSecretDoor() {
+  const door = document.getElementById("garden-door");
+  const label = document.getElementById("garden-door-label");
+
+  door.classList.add("open");
+  label.innerText = "Opening the door... ✨";
+
+  setTimeout(() => {
+    closeGardenRoom();
+    setTimeout(() => {
+      openSnowWorld();
+    }, 800);
+  }, 1200);
 }
 
 /* ===== BOOK ENGINE ===== */
@@ -3050,6 +5342,326 @@ function spinWheel() {
   }, 4000);
 }
 
+
+/* ===== ADVENTURE MAP ===== */
+const mapMemories = {
+  snow: "❄️ Snow City - Where our magical journey began! Every snowflake reminded me of your beauty.",
+  padel: "🎾 Padel - The day we played, laughed, and I fell for you even more.",
+  walk: "🚶 Our Walk - Every step with you felt like walking on clouds."
+};
+
+function showMapMemory(key) {
+  const msg = mapMemories[key];
+  if (msg) {
+    alert(msg);
+  }
+}
+
+function planVisit(place) {
+  const plans = {
+    gravity: "🎮 Gravity Code - Ready for an epic gaming adventure together!",
+    gokart: "🏎️ Go Karting - Let's race to see who wins your heart faster!",
+    cinema: "🎬 Cinema - A movie night with you is my favorite kind of night.",
+    baheg: "🎡 Baheg - Amusement park fun with the person who amuses me most!",
+    bahr: "🌊 Bahr - Walking by the water, holding your hand forever.",
+    cafe: "☕ El Mam4a - Coffee dates with you are the sweetest moments.",
+    aquapark: "💦 Aqua Park - Splashing around with my favorite person!",
+    picnic: "🧺 Picnic - A perfect day with perfect company - YOU!",
+    italy: "🇮🇹 Italy - Our dream destination. One day, we'll walk the streets of Rome together!"
+  };
+  alert(plans[place] || "A beautiful adventure awaits us!");
+}
+
+/* ===== LOVE QUIZ ===== */
+const quizData = [
+  {
+    question: "What month did we first meet?",
+    options: ["December", "January", "February"],
+    correct: 1,
+    letter: "F"
+  },
+  {
+    question: "Where was our first date?",
+    options: ["Snow City", "Roxy", "Downtown"],
+    correct: 1,
+    letter: "O"
+  },
+  {
+    question: "What sport did we play together?",
+    options: ["Tennis", "Padel", "Badminton"],
+    correct: 1,
+    letter: "R"
+  },
+  {
+    question: "What do I call you?",
+    options: ["My Light", "My Love", "Lolo"],
+    correct: 2,
+    letter: "E"
+  },
+  {
+    question: "What's our favorite song?",
+    options: ["Sawa Sawa", "Asmar Ya Asmarani", "El Bango Da Msh Bta3y"],
+    correct: 0,
+    letter: "V"
+  },
+  {
+    question: "Where do we want to travel?",
+    options: ["France", "Italy", "Spain"],
+    correct: 1,
+    letter: "E"
+  },
+  {
+    question: "What will we be together... forever?",
+    options: ["In Love", "In Heart", "Married"],
+    correct: 2,
+    letter: "R"
+  }
+];
+
+let currentQuizIndex = 0;
+let collectedLetters = [];
+let quizCompleted = false;
+
+function initQuiz() {
+  currentQuizIndex = 0;
+  collectedLetters = [];
+  quizCompleted = false;
+  renderQuizQuestion();
+  renderQuizProgress();
+  document.getElementById('quiz-collected-letters').style.display = 'none';
+}
+
+function renderQuizQuestion() {
+  const q = quizData[currentQuizIndex];
+  document.getElementById('quiz-question').innerText = `Question ${currentQuizIndex + 1} of 7: ${q.question}`;
+
+  const optionsContainer = document.getElementById('quiz-options');
+  optionsContainer.innerHTML = '';
+
+  q.options.forEach((opt, idx) => {
+    const btn = document.createElement('div');
+    btn.className = 'quiz-option';
+    btn.innerText = opt;
+    btn.onclick = () => selectQuizAnswer(idx);
+    optionsContainer.appendChild(btn);
+  });
+}
+
+function renderQuizProgress() {
+  const container = document.getElementById('quiz-progress');
+  container.innerHTML = '';
+  for (let i = 0; i < 7; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'quiz-progress-dot';
+    if (i < currentQuizIndex) dot.classList.add('completed');
+    else if (i === currentQuizIndex) dot.classList.add('active');
+    container.appendChild(dot);
+  }
+}
+
+function selectQuizAnswer(selectedIndex) {
+  const q = quizData[currentQuizIndex];
+  const options = document.querySelectorAll('.quiz-option');
+
+  if (selectedIndex === q.correct) {
+    // Correct answer!
+    options.forEach((opt, idx) => {
+      opt.style.pointerEvents = 'none';
+      if (idx === q.correct) {
+        opt.classList.add('correct');
+      }
+    });
+
+    collectedLetters.push(q.letter);
+    showMiniFireworks(options[q.correct]);
+    updateLetterSlots();
+
+    setTimeout(() => {
+      currentQuizIndex++;
+      if (currentQuizIndex < quizData.length) {
+        renderQuizQuestion();
+        renderQuizProgress();
+      } else {
+        showQuizComplete();
+      }
+    }, 1500);
+  } else {
+    // Wrong answer - just shake and let them try again
+    options[selectedIndex].classList.add('wrong');
+    setTimeout(() => {
+      options[selectedIndex].classList.remove('wrong');
+    }, 600);
+  }
+}
+
+function showMiniFireworks(element) {
+  const rect = element.getBoundingClientRect();
+  const colors = ['#ff4d6d', '#ffd700', '#4ade80', '#ff8fab', '#7dd3fc'];
+
+  for (let i = 0; i < 15; i++) {
+    setTimeout(() => {
+      const spark = document.createElement('div');
+      spark.className = 'mini-firework';
+      spark.style.left = (rect.left + rect.width / 2) + 'px';
+      spark.style.top = (rect.top + rect.height / 2) + 'px';
+      spark.style.background = colors[Math.floor(Math.random() * colors.length)];
+      spark.style.setProperty('--tx', (Math.random() * 100 - 50) + 'px');
+      spark.style.setProperty('--ty', (Math.random() * 100 - 50) + 'px');
+      document.body.appendChild(spark);
+      setTimeout(() => spark.remove(), 800);
+    }, i * 30);
+  }
+}
+
+function updateLetterSlots() {
+  const slots = document.querySelectorAll('.quiz-letter-slot');
+  document.getElementById('quiz-collected-letters').style.display = 'block';
+
+  collectedLetters.forEach((letter, idx) => {
+    if (slots[idx]) {
+      slots[idx].innerText = letter;
+      slots[idx].classList.add('filled');
+    }
+  });
+}
+
+function showQuizComplete() {
+  document.getElementById('quiz-container').innerHTML = `
+    <div style="text-align:center; padding:20px 0;">
+      <div style="font-size:48px; margin-bottom:15px;">🎉</div>
+      <div style="font-size:22px; color:#ffd6e8; font-weight:bold; margin-bottom:10px;">Quiz Complete!</div>
+      <div style="font-size:16px; color:rgba(255,200,220,0.8); margin-bottom:20px;">The secret word is:</div>
+      <div style="display:flex; justify-content:center; gap:8px; margin-bottom:20px;">
+        ${collectedLetters.map(l => `<div class="quiz-letter-box">${l}</div>`).join('')}
+      </div>
+      <div style="font-size:14px; color:#4ade80; font-weight:bold;">Use this word to unlock the treasure box!</div>
+    </div>
+  `;
+  quizCompleted = true;
+  document.getElementById('treasure-section').style.display = 'flex';
+}
+
+/* ===== TREASURE BOX ===== */
+function tryOpenTreasure() {
+  document.getElementById('treasure-password').focus();
+}
+
+function unlockTreasure() {
+  const input = document.getElementById('treasure-password').value.toUpperCase().trim();
+  const hint = document.getElementById('treasure-hint');
+
+  if (input === 'FOREVER') {
+    hint.innerText = 'Correct! Opening your surprise...';
+    hint.style.color = '#4ade80';
+    document.getElementById('treasure-box').classList.add('open');
+
+    setTimeout(() => {
+      startFinalReveal();
+    }, 1500);
+  } else {
+    hint.innerText = 'Wrong word! Try again 💕';
+    hint.style.color = '#ef4444';
+    document.getElementById('treasure-password').value = '';
+
+    setTimeout(() => {
+      hint.innerText = 'Collect all 7 letters from the quiz!';
+      hint.style.color = 'rgba(255,200,220,0.5)';
+    }, 2000);
+  }
+}
+
+/* ===== FINAL REVEAL ===== */
+function startFinalReveal() {
+  const reveal = document.getElementById('final-reveal');
+  const photosContainer = document.getElementById('final-photos-container');
+  const heartsBg = document.getElementById('final-hearts-bg');
+
+  // Clear previous
+  photosContainer.innerHTML = '';
+  heartsBg.innerHTML = '';
+
+  // Add floating hearts
+  for (let i = 0; i < 20; i++) {
+    const heart = document.createElement('div');
+    heart.className = 'final-heart-particle';
+    heart.innerText = ['❤️', '💕', '💖', '💗', '💝'][Math.floor(Math.random() * 5)];
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.top = Math.random() * 100 + '%';
+    heart.style.animationDelay = Math.random() * 4 + 's';
+    heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+    heartsBg.appendChild(heart);
+  }
+
+  // Use stored photo URLs from Google Drive (loaded by loadVideos)
+  // If not loaded yet, fallback to the snow-photo-card images
+  let photoUrls = [];
+
+  if (finalRevealPhotos.length > 0) {
+    photoUrls = [...finalRevealPhotos];
+  } else {
+    // Fallback: try to get from snow-photo-card images
+    for (let i = 1; i <= 10; i++) {
+      const img = document.querySelector(`.snow-photo-card:nth-child(${i}) img`);
+      if (img && img.src && !img.src.includes('linear-gradient') && !img.src.includes('data:')) {
+        photoUrls.push(img.src);
+      }
+    }
+  }
+
+  // If still no photos, show a love message
+  if (photoUrls.length === 0) {
+    const msgDiv = document.createElement('div');
+    msgDiv.style.cssText = 'text-align:center; color:#ffd6e8; font-size:18px; padding:40px; line-height:1.8;';
+    msgDiv.innerHTML = '❤️ Every moment with you is a treasure.<br>Photos will appear here when loaded from Google Drive. ❤️';
+    photosContainer.appendChild(msgDiv);
+  } else {
+    photoUrls.forEach((url, idx) => {
+      const img = document.createElement('img');
+      img.className = 'final-photo';
+      img.src = url;
+      img.alt = `Memory ${idx + 1}`;
+      img.onerror = function() {
+        this.style.background = 'linear-gradient(135deg, #1a3a5c, #2d6a8a)';
+        this.style.minHeight = '150px';
+      };
+      photosContainer.appendChild(img);
+    });
+  }
+
+  // Show the reveal screen
+  reveal.classList.add('visible');
+
+  // Start music (TUL8TE, Saint Levant - نانو)
+  const music = document.getElementById('snow-music');
+  if (music) {
+    // Always use TUL8TE song for Final Reveal
+    music.src = "https://raw.githubusercontent.com/moazabdalrahman042-sketch/love/main/TUL8TE%2C%20Saint%20Levant%20-%20%D9%86%D8%A7%D9%86%D9%88%20(%D9%83%D9%84%D9%85%D8%A7%D8%AA).mp3";
+    music.currentTime = 0;
+    music.play().catch(e => console.log('Music play failed:', e));
+  }
+
+  // Animate photos appearing in a wave effect
+  const photos = document.querySelectorAll('.final-photo');
+  photos.forEach((p, idx) => {
+    setTimeout(() => {
+      p.classList.add('visible');
+      // Add sparkle effect for each photo
+      createSparkles(p);
+    }, 200 + idx * 150);
+  });
+}
+
+function closeFinalReveal() {
+  const reveal = document.getElementById('final-reveal');
+  reveal.classList.remove('visible');
+
+  const music = document.getElementById('snow-music');
+  if (music) {
+    music.pause();
+    music.currentTime = 0;
+  }
+}
+
 /* ===== INIT ===== */
 if (sessionStorage.getItem("token")) {
   document.getElementById("login").style.display = "none";
@@ -3059,6 +5671,16 @@ if (sessionStorage.getItem("token")) {
 setupMusicPlayer();
 applyTranslations();
 loadTheme();
+initQuiz();
 </script>
+
+<!-- FINAL REVEAL SCREEN -->
+<div id="final-reveal">
+  <button class="final-reveal-back-btn" onclick="closeFinalReveal()" title="Back to Garden">&#8592;</button>
+  <div class="final-names">Moaz & Alaa</div>
+  <div class="final-photos-container" id="final-photos-container"></div>
+  <div class="final-hearts-bg" id="final-hearts-bg"></div>
+</div>
+
 </body>
 </html>
